@@ -1,0 +1,134 @@
+body {
+    display: flex;
+    margin: 0;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main {
+    width: 100%;
+}
+
+.topbar {
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content {
+    padding-bottom: 20px;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 5em;
+    margin-left: 1em;
+    margin-right: 2em;
+    margin-bottom: 3em;
+
+}
+
+.icon {
+    height: 12vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.icon ion-icon {
+    font-size: 2em;
+    margin-top: 1em;
+}
+
+.icon p {
+    margin: 0;
+}
+
+.icon:not(:first-of-type) {
+    height: 16vh;
+}
+
+.logo {
+    height: 50%;
+}
+
+.search-wrapper {
+    display: flex;
+    height: 50%;
+    width: 30%;
+}
+
+.search-wrapper input {
+    width: 100%;
+    padding: 0 1em;
+}
+
+.icons-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.top-icon {
+    font-size: 2em;
+    padding: 0 0.5em;
+}
+
+.mic-icon {
+    display: flex;
+    align-items: center;
+}
+
+.search-btn {
+    padding: 0 0.7em;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+}
+
+.windows {
+    display: flex;
+    padding: 0,5px;
+}
+  
+#testo {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1em;
+}
+
+#title {
+    font-weight: bold;
+    padding-top: 1em;
+    margin: 0;
+}
+
+#description {
+    margin: 0;
+}
+
+
+#epicode-thumb {
+    height: 30vh;
+    padding: 0%;
+}
+
+#epicode-logo {
+    height: 50px;
+    padding: 5px 0;
+}
+
+.line {
+    display: contents;
+    
+}
+
+.baseline {
+    display: contents;
+
+}

@@ -1,0 +1,39 @@
+#sfondo{
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,67,45,1) 100%);}
+.h1,h3,h2{
+    text-align: center;
+    color: rgb(17, 17, 19);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: oblique;
+}
+#immagine{
+    position: relative;
+    left: 35%;
+    font-size: large;
+}
+#colonna{
+    font-size: 30px;
+    font-family: fantasy;
+    margin: 15px;
+    color: rgba(33, 57, 60, 0.765);
+}
+#colonna2{
+    font-size: 30px;
+    font-family: fantasy;
+    margin: 15px;
+    color:rgba(33, 57, 60, 0.765) ;
+}
+#social{
+    font-family: monospace;
+    font-size: xx-large;
+    float: inline-end;
+}
+#tabella{
+    display: flex;
+    justify-content: center;
+}
+#blocco{
+    display: flex;
+    justify-content: space-evenly;
+}
