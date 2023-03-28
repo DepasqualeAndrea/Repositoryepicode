@@ -1,0 +1,56 @@
+.h3,h4{
+    font-family: fantasy;
+    color: rgb(196, 117, 6);
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    
+}
+.h2{
+    color: azure;
+    background-color: rgba(0, 255, 255, 0.737);
+    font-family: fantasy;
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+    margin: 0;
+}
+.child{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+#dati {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.child2{
+    background-color: beige;
+    margin: 10px;
+    padding: 15px;
+   
+}
+#selezione{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.body{
+    background-size:100%;
+    fill-opacity: calc(0,50);
+}
+.child3{
+    size: 50em;
+}
+.h1{
+    font-family: fantasy;
+    font-size: x-large;
+    color: cornsilk;
+    display: flex;
+    justify-content: center;
+    margin: 0%;
+}
