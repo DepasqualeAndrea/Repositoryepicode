@@ -1,0 +1,85 @@
+body{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+img{
+    max-width: 100%;
+}
+.main-section{
+    padding: 20px;
+    margin: 0%;
+}
+#image-container{
+    height: 500px;
+    background-image: url(https://www.italia.it/content/dam/tdh/it/interests/italia/parco-nazionale-monti-sibillini/media/20220324115620-parco-nazionale-monti-sibillini-shutterstock-1761828182.jpg);
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+}
+
+h1{
+    font-family: 'Prata', serif;
+    font-size: 64px;
+    margin-bottom: 0;
+}
+h3{
+    font-family: 'Prata', serif;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+p{
+    font-weight: 600; 
+    font-family: cursive;
+}
+h6{
+    padding: 22px;
+    margin-top: 56px;
+    margin-bottom: 0px;
+    color: white;
+    border-radius: 6px;
+    background-image: linear-gradient(#1f4628 0%, #146b5c 100%);
+}
+.places{
+    padding: 0;
+	font-weight: bold;
+	color: #1f4628;
+}
+.li{
+    padding-top: 6px;
+    padding-bottom:6px;
+    padding-left: 22px;
+    margin-bottom: 1px;
+    color:  #6c6565;
+    text-decoration-line: none;
+    
+}
+.txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    padding: 20px;
+}
+.copy{
+    display: flex;
+    justify-content: last baseline;
+}
+#bot{
+    display: flex;
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+.author{
+    text-decoration: underline;
+    color: #1f4628;
+}
+.footer{
+    background:linear-gradient(#1f4628a4 0%, #146b5c 100%);
+}
+a:hover {
+    color: #ff0000ef;
+}
