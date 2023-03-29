@@ -1,0 +1,65 @@
+@font-face {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    src: url('railway.woff2') format(.woff2) url('railway.woff') format(woff) url('railway.ttf') format('truetype');
+}
+
+body {
+;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: linear-gradient(to right, purple , rgb(245, 118, 139));;
+}
+
+header{
+    text-align: center;
+}
+#container{
+        padding-right:30vw;
+        padding-left: 30vw;
+}
+h2  {
+    text-align: center;
+    color: rgb(19, 79, 29);
+    background-color: whitesmoke;
+    background-size: 30px;
+}
+h1{
+    color: hwb(132 13% 77%);
+    font-size: x-large;
+}
+h3{
+    color: rgb(132 13% 77%);
+    text-align: center;
+    font-weight: bolder;
+    ;
+}
+main {
+    padding-top:  30px;
+    size: 30px;
+    text-align: center
+}
+
+p{
+    color: hwb(132 13% 77%);
+    text-align: left;
+    margin: 0;
+}
+
+#featured p::before{
+    content: '|';
+}
+a:link, a:visited {
+    text-decoration: none;
+    color: green;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+#ingredient{
+    text-align: left;
+}
+
+
