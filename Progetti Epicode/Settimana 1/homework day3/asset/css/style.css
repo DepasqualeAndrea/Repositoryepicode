@@ -4,51 +4,76 @@
 }
 
 body {
-;
+    ;
     margin: 0;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-image: linear-gradient(to right, purple , rgb(245, 118, 139));;
+    background-image: linear-gradient(to right, purple, rgb(245, 118, 139));
+    ;
 }
 
-header{
+header {
     text-align: center;
 }
-#container{
-        padding-right:30vw;
-        padding-left: 30vw;
+
+#titolo {
+    text-align: center;
+    background-color: white;
+    background-size: 50px;
+    color: hwb(132 13% 77%);
+    font-weight: bold;
+    font-size: x-large;
 }
-h2  {
+
+#container {
+    padding-right: 30vw;
+    padding-left: 30vw;
+}
+.intestazione > p{
+    color:hwb(132 13% 77%);
+    text-align: left;
+    font-size: x-large;
+}
+h1 {
+    color: hwb(132 13% 77%);
+    font-size: xx-large;
+}
+
+h2 {
     text-align: center;
     color: rgb(19, 79, 29);
     background-color: whitesmoke;
     background-size: 30px;
 }
-h1{
-    color: hwb(132 13% 77%);
-    font-size: x-large;
-}
-h3{
+
+h3 {
     color: rgb(132 13% 77%);
-    text-align: center;
+    text-align: left;
     font-weight: bolder;
     ;
 }
+#video{
+    width: 300px 300px;
+}
 main {
-    padding-top:  30px;
+    padding-top: 30px;
     size: 30px;
     text-align: center
 }
 
-p{
-    color: hwb(132 13% 77%);
-    text-align: left;
+p {
+    color: black text-align: left;
     margin: 0;
 }
-
-#featured p::before{
+span{
+    text-align: left;
+}
+span p::before {
+    text-align: left;
     content: '|';
 }
-a:link, a:visited {
+
+a:link,
+a:visited {
     text-decoration: none;
     color: green;
 }
@@ -58,8 +83,13 @@ a:hover {
     color: red;
 }
 
-#ingredient{
+#ingredients {
+    text-align: left;
+    color: black;
+}
+#section{
     text-align: left;
 }
-
-
+.footer{
+    text-align: left;
+}
