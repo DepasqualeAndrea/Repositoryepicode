@@ -1,0 +1,151 @@
+/* IMPOSTAZIONI GENERALI */
+@font-face {
+    font-family: "FontAwesome";
+    src: url('../font/fontawesome-webfont.eot');
+    src: url('../font/fontawesome-webfont.eot?#iefix') format('eot'),
+        url('../font/fontawesome-webfont.woff') format('woff'),
+        url('../font/fontawesome-webfont.ttf') format('truetype'),
+        url('../font/fontawesome-webfont.svg#FontAwesome') format('svg');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:&display=swap');
+
+
+html,
+body {
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    line-height: 1.2em;
+}
+
+/* HEADER */
+#header {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+    border: 1px solid;
+    border: hidden;
+    background-image: linear-gradient(to right, rgba(0, 160, 198, 1), rgba(3, 109, 134, 1));
+    box-shadow: outset 10px 10px 5px #000000;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 4em;
+}
+h3 {
+    margin: 5px;
+    font-size: 1.6em;
+    text-align: center;
+}
+#menu a.li {
+    text-align: center;
+    margin: 1em;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+#menu a {
+    text-decoration: none;
+    color: white;
+}
+
+#menu a:hover {
+    color: red;
+
+}
+
+.fa.star:hover {
+    color: red;
+}
+
+.particomuni {
+    color: purple;
+}
+
+/* MAIN */
+#container {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    color: black;
+    text-align: left;
+    border: 1px;
+    border: hidden;
+    background-color: white;
+    font-size: bold;
+}
+
+/* ELEMENTI NEL MAIN - ARTICLE */
+.code {
+    border: 1px solid;
+    border-radius: 4px;
+    background-color: #c9c8c8;
+}
+
+strong {
+    color: purple;
+}
+
+/* TABELLE */
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid;
+}
+
+table tr:nth-child(even) {
+    background-color: #a7a1a1;
+
+}
+
+/* FORM */
+
+/* ELEMENTI NELL' ASIDE */
+
+/* FOOTER */
+.footer {
+    box-sizing: border-box;
+    margin-top: 0 auto;
+    padding: 20px;
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+    border: 1px solid;
+    border: hidden;
+    background-image: linear-gradient(to top, rgb(0, 122, 152), rgba(3, 109, 134, 1));
+    box-shadow: outset 10px 10px 5px #000000;
+}
+
+.video {
+    min-width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+}
+
+#news {
+    margin: 0 auto;
+    box-sizing: border-box;
+    border: 1px solid;
+    border: hidden;
+    background-color: #a7a1a1;
+    text-align: left;
+    padding: 10px;
+}
