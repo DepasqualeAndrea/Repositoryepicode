@@ -132,7 +132,7 @@ h4 {
 }
 
 .citazione {
-    background-color: #e22d0e;
+    background-color:#e22d0e;
     text-align: center;
     padding: 20px 0 20px 0;
     color: antiquewhite;
@@ -155,9 +155,7 @@ cite {
     border: 1px solid;
     border-color: #dee1e3;
     border-radius: 3px;
-    margin: 40px 20px 10px 20px;
-
-
+    margin: 40px 20px 40px;
 }
 
 #section img {
@@ -165,7 +163,10 @@ cite {
     margin: 0 auto;
     padding: 0;
 }
-
+.contact{
+    margin: 20px;
+  
+}
 .paragraf {
     padding: 15px;
 }
@@ -173,6 +174,7 @@ cite {
 #footer {
     background-color: #25a2c3;
     color: white;
+    padding-top: 20px;
 }
 
 #footer a {
@@ -187,7 +189,6 @@ i {
 }
 
 .footer1 {
-    margin-top: 20px;
     color: white;
 }
 
@@ -200,10 +201,11 @@ i {
 
 hr {
     width: 50%;
+    
 }
 
 #footer h1 {
-    padding-top: 40px;
+    
     color: white;
 }
 
