@@ -132,7 +132,7 @@ h4 {
 }
 
 .citazione {
-    background-color: red;
+    background-color: #e22d0e;
     text-align: center;
     padding: 20px 0 20px 0;
     color: antiquewhite;
@@ -187,6 +187,7 @@ i {
 }
 
 .footer1 {
+    margin-top: 20px;
     color: white;
 }
 
