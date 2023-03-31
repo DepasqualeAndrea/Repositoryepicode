@@ -14,7 +14,7 @@
 html,
 body {
     margin: 0 auto;
-    padding: 20px;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     font-size: 0.9em;
@@ -24,31 +24,48 @@ body {
 /* HEADER */
 #header {
     box-sizing: border-box;
-    margin: 0 auto;
-    padding: 20px;
-    width: 100%;
+    margin: 0px auto;
+    width: 90%;
     color: white;
     text-align: center;
-    font-size: 1.3em;
+    font-size: 0.5em;
     border: 1px solid;
     border: hidden;
     background-image: linear-gradient(to right, rgba(0, 160, 198, 1), rgba(3, 109, 134, 1));
     box-shadow: outset 10px 10px 5px #000000;
 }
 
+img {
+    width: 50%;
+}
+#header ul{
+    text-align: center;
+    font-size: 2em;
+    padding: 20px;
+    margin: 0;
+}
+ul{
+    text-align: left
+}
+span {
+    box-sizing: border-box;
+
+}
 
 h1 {
     text-align: center;
 }
 
 h2 {
-    font-size: 4em;
+    font-size: 2em;
 }
+
 h3 {
     margin: 5px;
     font-size: 1.6em;
     text-align: center;
 }
+
 #menu a.li {
     text-align: center;
     margin: 1em;
