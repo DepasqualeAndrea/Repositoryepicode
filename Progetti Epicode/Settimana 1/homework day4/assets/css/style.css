@@ -24,7 +24,7 @@ body {
 /* HEADER */
 #header {
     box-sizing: border-box;
-    margin: 0px auto;
+    margin: 10px auto;
     width: 90%;
     color: white;
     text-align: center;
@@ -36,9 +36,11 @@ body {
 }
 
 img {
+    padding: 10px;
     width: 50%;
 }
 #header ul{
+    margin-top: 10px;
     text-align: center;
     font-size: 2em;
     padding: 20px;
