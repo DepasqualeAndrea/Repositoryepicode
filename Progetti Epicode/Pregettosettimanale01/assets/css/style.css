@@ -1,0 +1,211 @@
+/* Your styles here */
+@font-face {
+    font-family: "FontAwesome";
+    src:
+        url('../font/fontawesome-webfont.woff') format('woff'),
+        url('../font/fontawesome-webfont.ttf') format('truetype'),
+        url('../font/fontawesome-webfont.svg#FontAwesome') format('svg');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:&display=swap');
+
+
+html body {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.65em;
+    background-color: #393d41;
+}
+
+
+header {
+    box-sizing: border-box;
+    margin: 0px auto;
+    text-align: center;
+    background-color: black;
+}
+
+img {
+    width: 30%;
+    padding: 30px;
+
+}
+
+h3 {
+    color: #25a2c3;
+}
+
+#head {
+    background-image: url(../img/banner.jpg);
+    background-position: center;
+    background-size: cover;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #25a2c3;
+    line-height: 1.5;
+
+}
+h1{
+    line-height:1;
+}
+#head img {
+    padding: 0;
+    margin: 0 auto;
+}
+
+.title {
+    width: auto;
+    padding: 30px;
+    
+}
+
+p {
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    padding: 0px;
+    
+    font-weight: normal;
+
+}
+
+
+#button {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #f04c2f;
+    margin: 25PX;
+    padding: 10px 30px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 6px;
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: medium;
+}
+
+#container {
+    text-align: center;
+    background-color: white;
+    padding: 0;
+    margin: 0 auto;
+}
+
+h4 {
+    color: #25a2c3;
+    margin: 3px;
+}
+
+.image img {
+    box-sizing: border-box;
+    margin: 0 auto;
+    border: 1px hidden;
+    width: 80%;
+    border-radius: 50%;
+    background-position: center;
+}
+
+.about {
+    padding: 0 40px;
+    margin: 0;
+}
+
+.about1 {
+    padding: 0 40px;
+    margin-bottom: 50px;
+
+}
+
+.about p {
+    margin-bottom: 0;
+}
+
+.citazione {
+    background-color: red;
+    text-align: center;
+    padding: 20px 0 20px 0;
+    color: antiquewhite;
+}
+
+blockquote {
+    color: antiquewhite;
+}
+
+cite {
+    text-align: center;
+}
+
+.citazione p {
+    color: antiquewhite;
+}
+
+#section {
+    box-sizing: border-box;
+    border: 1px solid;
+    border-color: #dee1e3;
+    border-radius: 3px;
+    margin: 40px 20px 10px 20px;
+
+
+}
+
+#section img {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.paragraf {
+    padding: 15px;
+}
+
+#footer {
+    background-color: #25a2c3;
+    color: white;
+}
+
+#footer a {
+
+    text-decoration: underline;
+    font-family: 'Poppins', sans-serif;
+    color: beige;
+}
+
+i {
+    font-size: larger;
+}
+
+.footer1 {
+    color: white;
+}
+
+.copy {
+    color: white;
+    margin: 20px;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+hr {
+    width: 50%;
+}
+
+#footer h1 {
+    padding-top: 40px;
+    color: white;
+}
+
+span {
+    margin: 3px;
+}
