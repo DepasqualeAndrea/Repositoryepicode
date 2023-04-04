@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
+
+html body {
+    margin: 0 auto;
+    padding: 0;
+    font-family: 'Alkatra', cursive;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: rgb(100, 100, 144);
+}
+#container {
+    width: 50%;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    text-align: left;
+}
+.preambolo {
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+}
+li {
+    text-align: left;
+    font-size: large;
+    color: rgb(0, 255, 72);
+}
+p {
+    color: black;
+}
+h1 {
+    color: aquamarine;
+}
+a {
+    color: aqua;
+}
