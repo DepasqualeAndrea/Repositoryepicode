@@ -1,0 +1,143 @@
+html body {
+    margin: 0 auto;
+    padding: 0;
+    background-color: rgba(233, 237, 238, 255);
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    width: 100%;
+}
+
+
+header {
+    background-color: rgba(34, 47, 63, 255);
+    text-align: left;
+    padding: 0;
+    margin-top: 0;
+}
+
+img {
+    width: 10rem;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+.main-nav {
+    background-color: rgba(54, 71, 89, 255);
+    margin-top: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    margin: 5px 10px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.p {
+    background-color: rgba(244, 102, 0, 255);
+    color: white;
+    margin-top: 30px;
+    padding: 8px;
+}
+
+main {
+    margin: 0 auto;
+    width: 96.50%;
+    box-sizing: border-box;
+}
+
+section {
+    background-image: url(../img/bg-image.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 25px 0;
+    margin: 40px auto;
+    font-size: x-large;
+}
+
+h2 {
+    font-size: smaller;
+    color: white;
+}
+
+h1 {
+    margin: 0;
+    color: rgb(255, 255, 255);
+}
+
+#card {
+    background-color: white;
+}
+
+#card p {
+    background-color: white;
+    color: black;
+    text-align: left;
+    font-size: larger;
+    margin: 20px;
+    padding-top: 20px;
+    padding-bottom: 0;
+
+}
+
+#card img {
+    margin: 10px;
+    padding: 0;
+    width: 20%;
+    height: 18vw;
+    display: inline-block;
+    border-radius: 12%;
+    box-shadow: 12px 10px 5px rgba(223, 231, 230, 255);
+}
+
+#card a {
+    color: #28535d;
+    padding-left: 0;
+    margin: 0;
+}
+
+#virtual img {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+span p {
+    color: black;
+    font-size: larger;
+    margin: 0px;
+    margin-bottom: 10px;
+    padding-top: 0px;
+    padding-bottom: 0;
+}
+
+span a {
+    color: #28535d;
+}
+
+#audio img {
+    width: 100%;
+    padding-top: 20px;
+}
+
+footer {
+    background-color: rgba(34, 47, 63, 255);
+    margin-top: 30px;
+}
+
+footer h4 {
+    background-color: rgba(54,71,89,255);
+    padding: 10px;
+}
+
+#footer img {
+    margin: 0;
+    padding: 25px;
+    text-align: center;
+}
