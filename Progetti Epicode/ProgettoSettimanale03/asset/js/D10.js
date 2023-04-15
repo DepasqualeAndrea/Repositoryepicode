@@ -421,7 +421,7 @@ console.table(searchByTitle('Avengers'));
 */
 
 function searchAndDivide(str2) {
-  array = {
+  const array = {
     match: [],
     unmatch: []
   };
