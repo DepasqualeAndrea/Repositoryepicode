@@ -272,6 +272,7 @@ function isThisAnEmail(stringa) {
   }
 };
 isThisAnEmail('andrea@gmail.com');
+
 /*isThisAnEmail('andrea12gmail.com');*/
 
 /* ESERCIZIO 7
