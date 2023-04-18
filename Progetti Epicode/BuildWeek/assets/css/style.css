@@ -86,42 +86,45 @@ form {
 
 
 #content {
+	box-sizing: border-box;
+	width: 100%;
+	display: inline-block;
 	margin: 0 auto;
 	position: relative;
 	top: -11.4em;
-	right: -75.9em;
-	padding: 4px;
-	text-align: right;
+	padding: 18px;
+	text-align: center;
 	font-size:small;
 }
 
 .circle p {
-	margin: 20px;
-	margin-top: 10px;
+	margin-top: 0px ;
 	margin-bottom: 10px;
-	padding: 0px;
-	font-size: small;
-	text-align: center;
+	line-height:1.2;
+	font-size: x-small;
 }
 
 aside{
-	text-align: center;
-	font-size: 3em;
+	display: inline-block;
+	text-align: right;
+	font-size: 5em;
+	padding-top: 4px;
+	
 }
 
 #countDown .circle {
 	position: relative;
 	width: 150px;
 	height: 150px;
-	display: inline;
-	text-align: right;
+	display: inline-block;
+	
 }
 
 #countDown .circle svg {
 	position: relative;
 	width: 160px;
 	height: 160px;
-	transform: rotate(180deg) rotateY('angle');
+	transform: rotate(180deg), rotateY('angle');
 }
 
 #countDown .circle svg circle {
