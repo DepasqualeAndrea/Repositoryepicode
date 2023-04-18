@@ -1,7 +1,7 @@
 const timeS = document.querySelector('aside');
 let timeSeconds = 30;
 var barra = document.querySelector('circle');
-timeS.innerHTML = `${timeSeconds}`;
+timeS.innerHTML =` ${timeSeconds}`;
 
 let countDown = setInterval(() => {
     secondi = document.querySelector('#ss').style.strokeDashoffset = - 420  - (440 * timeSeconds) / 30;

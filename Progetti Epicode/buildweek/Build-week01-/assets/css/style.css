@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Outfit&display=swap%27');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+	font-family: 'Inter', sans-serif;
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+	background-position: center;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    color: white;
+    line-height: 1.5rem;
+	font-size: 16px;
+	text-align: center;
+}
+
+h1, h2, h3, h4 {
+    font-size: 60px;
+	font-family: 'Outfit', sans-serif;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+header {
+	text-align: left;
+}
+
+header img {
+    width: 140px;
+    height: auto;
+    max-height: 60px;
+    max-width: 100%;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+
+.viola{
+	color: #d20094;
+    font-size: 30px;
+    margin-bottom: 0.5em;
+}
+
+.principale {
+    width: 100%;
+    margin: 6% auto;
+}
+
+.principale h2 {
+    font-weight: normal;
+}
+
+.feedback {
+    width: 34%;
+    background: transparent;
+    border-color: transparent;
+    border-bottom-color: #d20094;
+    padding-bottom: 0.8em;
+    padding-left: 2em;
+}
+
+::placeholder {
+    color: #656771;
+}
+
+.sezione1 {
+    margin-bottom: 5%;
+}
+
+.bottone {
+    background-color: #00ffff;
+    box-shadow: 0px 0px 13px 2px #00ffff;
+    padding: 1em 3em;
+    margin-top: 5%;
+    border-color: transparent;
+    font-weight: bold;
+    color: #0B113B;
+}
+
+.stars img {
+    width: 2.5%;
+    padding: 0.2em;
+    opacity: 0.1;
+}
+
+.stars img:hover {
+ opacity: 1;   
+} 
+
+.titolo{
+    font-weight: normal;
+	color: #E3E3E8;
+    margin-bottom: 1em;
+}
+
+.titolo h2 {
+	font-weight: normal;
+}
+
+.titolo h1 {
+	margin-bottom: 20px;
+}
+
+span{
+    font-weight: bold;
+}
+
+.principale_alternativo {
+    text-align: left;
+    width: auto;
+    margin: 6% 5%;
+}
+
+#bottone1{
+    margin-left: 50%;
+}
+
+.primoButton {
+	width: auto;
+}
+
+.ultimoButton {
+	background-color: transparent;
+	padding: 0.7em 2.7em;
+    margin-top: 5%;
+	color: white;
+	font-weight: bold;
+	box-shadow: 0px 0px 25px 10px #262266;
+	border: 1px solid white;
+}
+
+
+.inlinea div {
+	display: inline-block;
+}
+
+#content {
+    box-sizing: border-box;
+    width: 105%;
+    display: inline-block;
+    margin: 0 auto ;
+    position: relative;
+    top: -11.4em;
+    padding: 22px;
+    text-align: center;
+    font-size:small;
+}
+
+#countDown {
+    text-align: right;
+    margin-right: 5%;
+}
+
+.circle p {
+    margin-top: 0px ;
+    margin-bottom: 8px;
+    line-height:1.2;
+    font-size: x-small;
+}
+
+aside{
+    display: inline-block;
+    text-align: right;
+    font-size: 4em;
+    padding-top: 8px;
+
+}
+
+#countDown .circle {
+    position: relative;
+    width: 160px;
+    height: 120px;
+    display: inline-block;
+
+}
+
+#countDown .circle svg {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    transform: rotate(270deg) rotateX(180deg);
+}
+
+#countDown .circle svg circle {
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke-width: 12;
+    stroke: #08080839;
+    transform: translate(6px,6px);
+}
+
+#countDown .circle svg circle:nth-child(2) {
+    stroke: var(--clr);
+    stroke-dasharray:440;
+    stroke-dashoffset: 0;
+    stroke-linecap:square;
+    stroke-linejoin:miter;
+}
