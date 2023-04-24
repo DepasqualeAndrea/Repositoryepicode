@@ -328,21 +328,15 @@ footer a {
 }
 
 @media print {
-    header {
+    header  {
         display: none;
+        box-shadow: none;
+        padding: none;
     }
-
-    header p {
-        display: inline;
-    }
-
+   
     table {
         width: 70%;
-        margin: 5em auto;
-    }
-
-    article img {
-        display: none;
+        margin: 2em auto;
     }
 
     footer,
@@ -357,13 +351,27 @@ footer a {
     }
 
     a[href]:after {
-        content: "(" attr(href) ")"
+        content: ", " attr(href) "."
+        
     }
-    p a::after { 
-        display: none;
+    a:last-child {
+        text-decoration: none;
+        color: black;
     }
+   
     body, main{
         box-shadow: none;
     }
-
+     th:last-of-type{
+        display: none;
+    }
+    td:last-child{
+        display: none;
+    }
+    code {
+        background-color: none;
+        border: none;
+    }
+   
+   
 }
