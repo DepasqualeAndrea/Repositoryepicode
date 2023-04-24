@@ -1,58 +1,42 @@
-/*var successi = 9;
+window.addEventListener('load', function () {
+    if (localStorage.getItem('indicedomande') != 10) {
+        location.href = '../../index.html';
+    }
+})
+
+var successi = localStorage.getItem("successi");;
 var totaleDomande = 10;
 var insuccessi = totaleDomande - successi;
-var successiPercentuale = successi/totaleDomande * 100;
-var insuccessiPercentuale = insuccessi/totaleDomande * 100;
-var testo;
+var successiPercentuale = (successi * 100) / totaleDomande;
+var insuccessiPercentuale = (insuccessi * 100) / totaleDomande;
+var testo = document.querySelector('.testoCorrect');
+var btnRateUs = document.querySelector('.ultimoButton');
+var indexC = document.getElementById("successi").innerText = `${successi}/${totaleDomande} questions`;
+var indexW = document.getElementById("insuccessi").innerHTML = `${insuccessi}/${totaleDomande} questions`;
 
 
-document.getElementById("successiPercentuale").innerHTML= successiPercentuale + "%";
-document.getElementById("insuccessiPercentuale").innerHTML= insuccessiPercentuale + "%";
-document.getElementById("successi").innerHTML= `${successi}/${totaleDomande} questions`;
-document.getElementById("insuccessi").innerHTML= `${insuccessi}/${totaleDomande} questions`;
+document.getElementById("successiPercentuale").innerHTML = `Correct<br><span id='percentualeS'>${successiPercentuale.toFixed(1)}%</span>`;
+document.getElementById("insuccessiPercentuale").innerHTML = `Wrong  <br> <span> ${insuccessiPercentuale.toFixed(1)}%</span>`;
 
-if (successiPercentuale >= 60){
-    document.getElementById("centro1").innerHTML= "Congratulations!";
-    document.getElementById("centro2").innerHTML= "You passed your exam.";
-    document.getElementById("centro3").innerHTML= "We'll send you the certificate";
-    document.getElementById("centro4").innerHTML=  "in few minutes.";
-    document.getElementById("centro5").innerHTML= "Check your mail (including";
-    document.getElementById("centro6").innerHTML= "promotions / spam folder)";
-} else {
-    document.getElementById("centro1").innerHTML= "Sorry!";
-    document.getElementById("centro2").innerHTML= "You failed your exam.";
-    document.getElementById("centro3").innerHTML= "We can't send you the certificate ";
-    document.getElementById("centro4").innerHTML= "because you faild your test.";
-    document.getElementById("centro5").innerHTML= " ";
-    document.getElementById("centro6").innerHTML= " ";
-}
-const calcolo = document.getElementById('dio')
-let media = document.querySelector('.cerchi');
-const dashboard = function(){
-    if (successiPercentuale >= 60){
 
+const value = () => {
+    let calcolo = document.querySelector('#circleBar').style.strokeDashoffset = 360 - (320 * successi) / 10;
+    if (successi >= 6) {
+        testo.innerHTML = `<p><span><b>Congratulation!</b></span><br><span style="color:#00ffffdf">You passed the exam.</span></p>
+        <p>We'll send you the certificate<br>in few minutes<br>Check your email (including
+            <br>promotions / spam folder)
+        </p>`;
+    } else {
+        testo.innerHTML = `<p><span>Sorry!</span><br><span style="color:red ;">You failed your exam.</span></p><p></p><p>We can't send you the certificate<br>because you failed your test.<br></p>`;
     }
 }
-//java per la barra delle valutazioni*/
+value();
+value()
+const vaiArate = () => {
+    btnRateUs.addEventListener('click', function () {
+        localStorage.setItem('tofeedback', 1);
+        location.href = ('../../feedback.html');
+    });
+}
 
-let progressBar = document.querySelector(".circular-progess");
-let valueCotainer = document.querySelector(".value-container");
-
-let progressValue = 0;
-let progressEndValue = 65;
-let speed = 50;
-
-
-/*let progress = setInterval( () => {
-     progressBar.style.background =  `conic-gradient (
-        #00ffff ${progressValue * 3.6}deg,
-        #d20094 ${progressValue * 3.6}deg);`  
-    progressValue++;
-    valueCotainer.textContent = `${progressValue} % `;
-    progressBar.style.background = `conic-gradient (
-        #00ffff ${progressValue * 3.6}deg,
-        #d20094 ${progressValue * 3.6}deg)`;
-    if (progressValue == progressEndValue) {
-        clearInterval(progress);
-    }
-}); console.log(progress);*/
+vaiArate();

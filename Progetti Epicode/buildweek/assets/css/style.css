@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Outfit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:&display=swap');
 
 html,
 body {
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
     background-image: url('../img/bg.jpg');
     background-size: cover;
     background-position: center;
@@ -19,8 +19,6 @@ body {
     text-align: center;
 }
 
-
-
 h1,
 h2,
 h3,
@@ -31,6 +29,12 @@ h4 {
 
 h2 {
     font-size: 25px;
+}
+
+button,
+.stars,
+input {
+    cursor: pointer;
 }
 
 header {
@@ -46,6 +50,16 @@ header img {
     margin-top: 2%;
 }
 
+/*pagina index*/
+
+.principale2 {
+    text-align: left;
+    margin-left: 5%;
+}
+
+.titolo span {
+    font-weight: normal;
+}
 
 .viola {
     color: #d20094;
@@ -53,168 +67,70 @@ header img {
     margin-bottom: 0.5em;
 }
 
-.feedback {
-    width: 43%;
-    background: transparent;
-    border-color: transparent;
-    border-bottom-color: #d20094;
-    padding: 10px;
-    padding-bottom: 4px;
-    padding-left: 25px;
-    margin: 0;
-    color: #d20094;
-    line-height: 1.4em;
-    font-size: 1em;
-    text-shadow: 0 0 20px #d20094;
-}
-
-.feedback:focus {
-    outline: none;
-}
-
-::placeholder {
-    color: #656771;
-    font-size: 1em;
-}
-
-.sezione1 {
-    margin-bottom: 5%;
+span {
+    font-weight: bold;
 }
 
 .bottone {
+    text-decoration: none;
     background-color: #00ffff;
-    box-shadow: 0px 0px 13px 2px #00ffff;
     padding: 1em 3em;
     margin-top: 5%;
     border-color: transparent;
     font-weight: bold;
     color: #0B113B;
 }
-
-.stars img {
-    width: 2.5%;
-    padding: 0.2em;
-    opacity: 0.1;
+.bottone a {
+    text-decoration: none;
 }
 
-.stars img.stelleColorate {
-    opacity: 1;
-}
-
-span {
-    font-weight: bold;
-}
-
-.principale_alternativo {
-    text-align: left;
-    width: auto;
-    margin: 6% 5%;
+.bottone:hover {
+    box-shadow: 0px 0px 13px 2px #00ffff;
 }
 
 #bottone1 {
     margin-left: 50%;
 }
 
+#check1 {
+    appearance: none;
+    border: 2px solid white;
+    background-color: #0B113B;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    margin: 0;
+    margin-left: 23px;
+}
+
+label {
+    padding-left: 10px;
+}
+
+#check1::before {
+    visibility: hidden;
+
+}
+
+#check1:checked::after {
+    visibility: visible;
+    font-size: 12px;
+    content: '\2713';
+    position: fixed;
+    text-align: center;
+}
+
 .primoButton {
     width: auto;
 }
 
-#check1:checked {
-    accent-color: #262266;
+/*quiz*/
 
+#domanda {
+    font-size: 30px;
+    margin-bottom: 70px;
+    line-height: 1.2em;
 }
-
-/* css pagnia reult */
-
-
-#container {
-    width: 50%;
-    height: 80%;
-    margin: 0 auto;
-    font-weight: normal;
-    color: #E3E3E8;
-}
-
-#correct {
-    width:10%;
-    height: 50%;
-    float:left;  
-}
-
-#wrong {
-    width: 200px;;
-    height: 50%;
-    float: right;      
-}
-
-#value {
-    padding-top: 50px;
-    width: 50%;
-    height: 40%;
-    float: right;
-    margin: 0 auto;
-    position: absolute;
-}
-
-#container h2 {
-    
-}
-
-#container h1 {
-    
-}
-
-#cover-center {
-    display: content;
-}
-#wrong h2 {
-    padding-top: 120px;
-    font-size: 4em;
-    line-height: 0.9;
-    margin-bottom: 0;
-    text-align: right;
-}
-#correct h2 {
-    padding-top: 120px;
-    font-size: 4em;
-    line-height: 0.9;
-    text-align: right;
-    margin-bottom: 0;
-    
-}
-#correct p {
-    text-align:left;
-    margin: 0;
-}
-#wrong p {
-    text-align: right;
-    margin: 0;
-}
-.ultimoButton {
-    background-color: transparent;
-    padding: 0.7em 2.7em;
-    color: white;
-    font-weight: bold;
-    box-shadow: 0px 0px 25px 10px #262266;
-    border: 1px solid white;
-    font-size: 1.5em; 
-    margin: 0;   
-}
-.footer{
-   display: contents;
-   
-    
-   
-}
-.cerchio{
-    
-    height: 120%;
-    
-}
-
-
-/* css timer */
-
 
 #content {
     box-sizing: border-box;
@@ -231,6 +147,7 @@ span {
 #countDown {
     text-align: right;
     margin-right: 5%;
+    height: 180px;
 }
 
 .circle p {
@@ -276,23 +193,168 @@ aside {
     stroke: var(--clr);
     stroke-dasharray: 440;
     stroke-dashoffset: 0;
-    stroke-linecap: square;
+    stroke-linecap: round;
     stroke-linejoin: miter;
 }
 
-/* css results*/ 
+#progresso {
+    font-size: 25px;
+    font-weight: normal;
+}
 
+
+.testo p {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.forum {
+    display: inline-block;
+    width: 80%;
+    height: 33vh;
+}
+
+.forum button {
+    background-color: rgba(128, 128, 128, 0.1);
+    color: white;
+    width: 350px;
+    height: 70px;
+    border-radius: 50px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    border: 3px outset;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.forum button:hover {
+    -webkit-box-shadow: inset 7px 8px 34px 13px #d20094, 5px 5px 19px -1px #000000;
+    -moz-box-shadow: inset 7px 8px 34px 13px #d20094, 5px 5px 19px -1px #000000;
+    -o-box-shadow: inset 7px 8px 34px 13px #d20094, 5px 5px 19px -1px #000000;
+    box-shadow: inset 7px 8px 34px 13px #d20094, 5px 5px 19px -1px #000000;
+    border-bottom: #d20094;
+}
+
+/* CSS PAGINA RESULT */
+
+#container {
+    width: 70%;
+    height: 80%;
+    font-weight: normal;
+    color: #E3E3E8;
+    margin: 0 auto;
+}
+
+#correct {
+    padding-left: 50px;
+    height: 50%;
+    float: left;
+}
+
+#wrong {
+    height: 50%;
+    float: right;
+    padding-right: 80px;
+}
+
+#value {
+    padding-top: 20px;
+    width: 70%;
+    height: 40%;
+    float: right;
+    margin: 0 auto;
+    position: absolute;
+}
+
+#cover-center {
+    display: content;
+}
+
+#wrong h2 {
+    padding-top: 120px;
+    font-size: 3.5em;
+    line-height: 1em;
+    margin-bottom: 0;
+    text-align: right;
+    font-weight: normal;
+}
+
+#correct h2 {
+    padding-top: 120px;
+    font-size: 3.5em;
+    line-height: 0.9;
+    text-align: right;
+    margin-bottom: 0;
+    font-weight: normal;
+
+}
+
+#percentualeS {
+    margin-right: 20px;
+}
+
+#correct p {
+    text-align: left;
+    margin: 0;
+    margin-left: 10px;
+}
+
+#correct h1 {
+    margin: 0;
+    padding: 0;
+
+}
+
+#wrong p {
+    text-align: right;
+    margin: 0;
+
+}
+
+.testoCorrect {
+    font-size: 1.1em;
+    line-height: 1.2em;
+}
+
+.testoCorrect p {
+    font-size: 0.8em;
+    margin-bottom: 30px;
+}
+
+.ultimoButton {
+    background-color: transparent;
+    padding: 0.7em 2.7em;
+    color: white;
+    font-weight: bold;
+    border: 2px solid white;
+    font-size: 1.5em;
+    margin-top: 100px;
+}
+
+.ultimoButton:hover {
+    box-shadow: 0px 0px 25px 10px #262266;
+}
+
+.footer {
+    display: contents;
+}
+
+.cerchio {
+    height: 120%;
+}
 
 #value .circle svg {
     width: 160px;
     height: 160px;
+
 }
+
 #value .cerchio svg {
     fill: transparent;
-    stroke-width: 18px;
+    stroke-width: 20px;
     stroke: #d20093d5;
-    stroke-linecap: square;
-    transform: translate(4px,4px);
+    stroke-linecap: round;
+    transform: translate(4px, 4px);
     transform: rotate(270deg) rotateX(180deg);
 
 }
@@ -300,19 +362,70 @@ aside {
 #value .cerchio svg circle:nth-child(2) {
     stroke: var(--clr1);
     stroke-dasharray: 360;
-    stroke-dashoffset: 120;
+    stroke-dashoffset: 108;
 
 }
-#value div .testo{
+
+#value div .testoCorrect {
     position: relative;
-    bottom: 350px;
+    bottom: 90%;
     text-align: center;
     color: white;
     font-size: 500;
-    transform: ();
-}
-.testo p {
-    padding: 0;
-    margin-bottom: 0;
 }
 
+#testoCorrect span {
+    font-size: 1.5em;
+    font-weight: lighter;
+
+}
+
+/* CSS PAGINA feedback */
+
+.principale {
+    width: 100%;
+    margin-top: 80px;
+}
+
+.principale h2 {
+    font-weight: normal;
+}
+
+.feedback {
+    width: 43%;
+    background: transparent;
+    border-color: transparent;
+    border-bottom-color: #d20094;
+    padding: 10px;
+    padding-bottom: 4px;
+    padding-left: 25px;
+    margin: 0;
+    color: #d20094;
+    line-height: 1.4em;
+    font-size: 1em;
+    text-shadow: 0 0 20px #d20094;
+    cursor: text;
+}
+
+.feedback:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: #656771;
+    font-size: 1em;
+}
+
+.sezione1 {
+    margin-bottom: 5%;
+}
+
+.stars img {
+    width: 3%;
+    padding: 0.2em;
+    opacity: 0.1;
+}
+
+.stars img.stelleColorate {
+    opacity: 1;
+}
