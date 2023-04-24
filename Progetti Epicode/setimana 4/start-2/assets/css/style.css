@@ -293,6 +293,7 @@ footer a {
     header div {
         margin-right: 30em;
     }
+
     article h1 {
         font-size: 3.5em;
     }
@@ -305,20 +306,64 @@ footer a {
         vertical-align: middle;
         margin: 10px;
     }
+
     section {
         border: 1px solid;
         border: hidden;
         border-radius: 15px;
         margin: 10px
     }
+
     table {
         width: 70%;
         margin: 5em auto;
     }
-   footer{
-    font-size: 1.5em;
-    padding: 5%;
-    text-align: center;
-    vertical-align: middle;
-   }
+
+    footer {
+        font-size: 1.5em;
+        padding: 5%;
+        text-align: center;
+        vertical-align: middle;
+    }
+}
+
+@media print {
+    header {
+        display: none;
+    }
+
+    header p {
+        display: inline;
+    }
+
+    table {
+        width: 70%;
+        margin: 5em auto;
+    }
+
+    article img {
+        display: none;
+    }
+
+    footer,
+    aside,
+    iframe,
+    section {
+        display: none;
+    }
+
+    tbody tr:last-of-type {
+        display: none;
+    }
+
+    a[href]:after {
+        content: "(" attr(href) ")"
+    }
+    p a::after { 
+        display: none;
+    }
+    body, main{
+        box-shadow: none;
+    }
+
 }
