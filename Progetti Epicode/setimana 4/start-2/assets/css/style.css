@@ -328,7 +328,7 @@ footer a {
 }
 
 @media print {
-    header img, nav {
+    header  {
         display: none;
         box-shadow: none;
         padding: none;
