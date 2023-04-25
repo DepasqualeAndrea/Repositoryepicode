@@ -227,7 +227,7 @@ footer a {
 
 /*query*/
 
-@media screen and (max-width: 576px) {
+@media screen and (min-width: 576px) {
     nav li {
         display: inline-block;
     }
@@ -247,7 +247,7 @@ footer a {
 
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
 
     nav li {
         font-size: 1.5em;
@@ -291,7 +291,7 @@ footer a {
     }
 
     header div {
-        margin-right: 30em;
+        margin-right: 30%;
     }
 
     article h1 {
@@ -328,7 +328,7 @@ footer a {
 }
 
 @media print {
-    header {
+    header img, nav {
         display: none;
         box-shadow: none;
         padding: none;
