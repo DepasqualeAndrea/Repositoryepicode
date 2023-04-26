@@ -1,0 +1,55 @@
+body {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+}
+#container {
+    display: flex;
+    width: 100%;
+}
+img {
+    width: 40px;
+    margin:0 15px 0 0;
+}
+.navBar {
+    width: 100vw;
+    color:rgba(131,52,16,255) ;
+    background-color: rgba(254,247,226,255);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.nav {
+    width: 100px;
+    margin: 4px;
+    background-color:rgba(255,223,127,255) ;
+    display: flex;
+    align-items: center;
+    border-radius: 2em;
+    padding: 10px;
+}
+.navB{
+    background-color:rgba(255,223,127,255) ;
+    border-radius: 5em;
+    padding: 20px;
+    align-items: center; 
+      
+}
+a {
+    text-decoration: none;
+    color: rgba(116,35,5,255);
+    font-weight: bolder;
+    margin-left: 10px;
+
+}
+.navB a {
+    text-decoration: none;  
+    display: flex;
+    align-items: center;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
