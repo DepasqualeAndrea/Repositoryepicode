@@ -1,55 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:display=swap");
+
 body {
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-    margin: 0 auto;
-    width: 100%;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
 }
-#container {
-    display: flex;
-    width: 100%;
+header{
+  display: flex;
+  justify-content: center;
+  margin: 5px 10px 5px 10px;
 }
-img {
-    width: 40px;
-    margin:0 15px 0 0;
+.menu a {
+  text-decoration: none;
+  color: rgba(116, 35, 5, 255);
 }
-.navBar {
-    width: 100vw;
-    color:rgba(131,52,16,255) ;
-    background-color: rgba(254,247,226,255);
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
+nav img {
+  width: 30px;
+  padding: 0;
+  margin: 0 25px 0 0;
+}
+.menu {
+  padding: 5px;
+  border-radius: 50px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  background-color: rgba(254, 247, 226, 255);
 }
 .nav {
-    width: 100px;
-    margin: 4px;
-    background-color:rgba(255,223,127,255) ;
-    display: flex;
-    align-items: center;
-    border-radius: 2em;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgba(255, 223, 127, 255);
+  border-radius: 2em;
+  margin: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+.piùGrande {
+  height: fit-content;
+  background-color: rgba(255, 223, 127, 255);
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 2em;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 1.7em;
+}
+
+/*css cards*/
+.main{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  color: #732104;
+  background-color: rgba(254, 247, 226, 255);
+  border: 1px solid black;
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 2em;
+  border: none;
+  margin-bottom: 1em;
+}
+.card img {
+  width: 100%;
+  margin-bottom: 1em;
+}
+.info p {
+  margin: 0;
+}
+.inf{
+  font-weight: bold;
+}
+.smaller{
+  font-weight: 400;
+  font-size: smaller;
+}
+.info{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: .5em;
+  font-size: 0.8em;
+}
+.sale button{
+  background-color:#ffdf7f;
+  border-radius: 2em;
+  text-decoration: none;
+  border: hidden;
+  padding: 0.8em 3.5em;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  color: #732104;
+  font-weight: bold;
+}
+h1{
+  color: #732104;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+}
+/*css cards*/
+
+
+@media screen and (max-width: 768px) {
+  nav div:nth-child(1) {
+    order: 2;
+  }
+  nav div:nth-child(2) {
+    order: 3;
+  }
+  nav div:nth-child(3) {
+    order: 1;
+  }
+  nav div:nth-child(4) {
+    order: 4;
+  }
+  nav div:nth-child(5) {
+    order: 5;
+  }
+  nav div:nth-child(3){
+    width: 80%;
     padding: 10px;
+    margin: 10px;
+  }
+  nav div{
+    width: 30%;
+    margin-bottom: 1rem;
+  }
+  nav.menu {
+    margin-right: px;
+  }
 }
-.navB{
-    background-color:rgba(255,223,127,255) ;
-    border-radius: 5em;
-    padding: 20px;
-    align-items: center; 
-      
-}
-a {
-    text-decoration: none;
-    color: rgba(116,35,5,255);
-    font-weight: bolder;
-    margin-left: 10px;
-
-}
-.navB a {
-    text-decoration: none;  
+@media screen and (min-width:768px){
+  body {
+    margin: 0;
+    padding: 0;
     display: flex;
-    align-items: center;
-    font-size: xx-large;
-    font-weight: bolder;
+  }
+  #container{
+    width: 80%;
+    display: flex;
+    height: fit-content;
+    justify-content: left;
+    
+  }
+  .menu {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    border-radius: 0;
+  }
+  header {
+    display: flex;
+    justify-content: left;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    height: 100vw;
+  }
+  h1 {
+    width: 100%;
+    display: block;
+  }
 }
-
