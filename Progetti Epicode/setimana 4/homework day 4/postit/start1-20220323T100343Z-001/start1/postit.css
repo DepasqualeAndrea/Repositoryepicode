@@ -15,8 +15,9 @@ body {
   margin-top: 30px;
   transition-property: all ;
   transition-timing-function:cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition-duration: 2s, 6s, 2s;
-  transition-delay: 0s, 0s, 9s;
+  transition-duration: 5s, 6s, 5s;
+  transition-delay: 2s, 2s, 6s;
+  
 }
 h2 {
   margin-bottom: 40px;
