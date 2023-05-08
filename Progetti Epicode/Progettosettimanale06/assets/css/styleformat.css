@@ -45,8 +45,8 @@
   padding-bottom: 1.8em;
 }
 #text_hero h3 {
-  font-size: 1em;
-  line-height: 1.2em;
+  font-size: 1.2em;
+  line-height: 1.5em;
   opacity: 50%;
 }
 #text_hero .h1 {
@@ -146,10 +146,21 @@
 }
 
 .stars_fill {
-  color: rgba(246, 191, 11, 0.848);
+  color: rgb(251, 148, 4);
 }
 .stars_fill i {
-  color: rgba(246, 191, 11, 0.848);
+  color: rgb(251, 148, 4);
+}
+.stars_fill p {
+  color: rgb(251, 148, 4);
+}
+
+.card-body h6 {
+  font-weight: 500;
+}
+
+.price_course {
+  font-weight: 700;
 }
 
 html,
