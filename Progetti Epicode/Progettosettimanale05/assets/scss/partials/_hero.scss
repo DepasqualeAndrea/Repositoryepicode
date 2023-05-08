@@ -1,0 +1,27 @@
+#box_hero{
+    background-color: $HeroBg;
+}
+#text_hero{
+    color: $colorWhite;
+    padding-bottom: 1.8em;
+    h3{
+        font-size: 1em;
+        line-height: 1.2em;
+        opacity: 50%;
+    }
+    .h1{
+        font-weight: bold;
+        padding-top: 1em;
+    }
+    
+}
+#btn_browse{
+    background-color: rgba(26,203,152,255);
+    
+}
+#btn_instr{
+    background-color:$colorWhite;
+    &:hover{
+        color: rgba(26,203,152,255);
+    }
+}

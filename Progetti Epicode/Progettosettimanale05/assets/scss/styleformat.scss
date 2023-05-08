@@ -1,0 +1,27 @@
+/*icons*/
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+/*fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:display=swap');
+/*import sezioni di stile*/
+
+@import './partials/variabili';
+@import './partials/navBar';
+@import './partials/hero';
+@import './partials/flush';
+@import './partials/container_cards';
+@import './partials/stars_charset';
+    
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.2em;
+    background-color: white;
+}
+
+
+
+

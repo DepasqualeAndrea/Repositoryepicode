@@ -1,0 +1,163 @@
+/*icons*/
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+/*fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:display=swap");
+/*import sezioni di stile*/
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+#bell {
+  background-color: rgb(245, 244, 248);
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+}
+
+#dotOn {
+  top: 85%;
+  right: 0.9em;
+}
+
+#dotOn1 {
+  top: 89%;
+  right: 1%;
+}
+
+#dotNotify {
+  left: 75%;
+  bottom: 50%;
+  background-color: rgb(117, 80, 254);
+}
+
+#avatarLogo {
+  width: 40px;
+  height: 40px;
+}
+
+#box_hero {
+  background-color: rgb(117, 80, 254);
+}
+
+#text_hero {
+  color: white;
+  padding-bottom: 1.8em;
+}
+#text_hero h3 {
+  font-size: 1em;
+  line-height: 1.2em;
+  opacity: 50%;
+}
+#text_hero .h1 {
+  font-weight: bold;
+  padding-top: 1em;
+}
+
+#btn_browse {
+  background-color: rgb(26, 203, 152);
+}
+
+#btn_instr {
+  background-color: white;
+}
+#btn_instr:hover {
+  color: rgb(26, 203, 152);
+}
+
+.bottoni {
+  background-color: #FFEEDA;
+  color: #C28A52;
+  width: 50px;
+  height: 50px;
+  margin-right: 1em;
+  padding: 0.8em 1.1em;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 1.5em;
+}
+
+.the_arrow_left {
+  width: 40px;
+  height: 40px;
+  color: #dbd8e3;
+  background-color: #fefefe;
+  border-radius: 25px;
+  position: absolute;
+  bottom: 28%;
+  right: 101%;
+  z-index: 1;
+}
+
+.the_arrow_right {
+  width: 40px;
+  height: 40px;
+  color: #dbd8e3;
+  background-color: rgba(255, 251, 251, 0.9294117647);
+  border-radius: 25px;
+  position: absolute;
+  bottom: 28%;
+  left: 101%;
+  z-index: 1;
+}
+
+@media (max-width: 480px) {
+  .card_container {
+    position: relative;
+  }
+  .card_container .card h6 {
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+  }
+  .card_container .card p {
+    font-size: 0.8rem;
+  }
+  .card_container .the_arrow_left {
+    width: 40px;
+    height: 40px;
+    color: #dbd8e3;
+    background-color: #fefefe;
+    border-radius: 25px;
+    position: absolute;
+    bottom: 40%;
+    right: 95%;
+    z-index: 1;
+  }
+  .card_container .the_chevron_arrow_right {
+    width: 40px;
+    height: 40px;
+    color: #dbd8e3;
+    background-color: #fefefe;
+    border-radius: 25px;
+    position: absolute;
+    bottom: 40%;
+    left: 95%;
+    z-index: 1;
+  }
+  .card_column {
+    width: 25%;
+  }
+}
+.bi-bar-chart-fill {
+  color: rgb(117, 80, 254);
+}
+
+.stars_fill {
+  color: rgba(246, 191, 11, 0.848);
+}
+.stars_fill i {
+  color: rgba(246, 191, 11, 0.848);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  line-height: 1.2em;
+  background-color: white;
+}

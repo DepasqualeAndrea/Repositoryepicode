@@ -1,0 +1,29 @@
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+#bell{
+    background-color: $bgBell;
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+#dotOn{
+    top: 85%;
+    right: 0.9em;
+}
+#dotOn1{
+    top: 89%;
+    right: 1%;
+         
+}
+#dotNotify{
+    left: 75%;
+    bottom: 50%;
+    background-color: $HeroBg;
+}
+#avatarLogo{
+    width: 40px;
+    height: 40px;
+}
+
