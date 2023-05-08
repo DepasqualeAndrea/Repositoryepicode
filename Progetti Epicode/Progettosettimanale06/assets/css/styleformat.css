@@ -91,6 +91,17 @@
   right: 101%;
   z-index: 1;
 }
+.the_arrow_left:hover {
+  transition: all;
+  transition-duration: 0.1s;
+  transform: scale(1.2);
+  color: rgb(117, 80, 254);
+  cursor: pointer;
+  -webkit-box-shadow: inset 12px -10px 36px -2px #ffffff, 10px 11px 10px 0px #949494;
+  -moz-box-shadow: inset 0px -14px 36px -2px #ffffff, 10px 11px 10px 0px #000000;
+  -o-box-shadow: inset 0px -14px 36px -2px #ffffff, 10px 11px 10px 0px #000000;
+  box-shadow: inset 0px -14px 36px -2px #ffffff, 10px 11px 45px 0px #313131;
+}
 
 .the_arrow_right {
   width: 40px;
@@ -102,6 +113,17 @@
   bottom: 28%;
   left: 101%;
   z-index: 1;
+}
+.the_arrow_right:hover {
+  transition: all;
+  transition-duration: 0.1s;
+  transform: scale(1.2);
+  color: rgb(117, 80, 254);
+  cursor: pointer;
+  -webkit-box-shadow: inset 12px -10px 36px -2px #ffffff, 10px 11px 10px 0px #949494;
+  -moz-box-shadow: inset 0px -14px 36px -2px #ffffff, 10px 11px 10px 0px #000000;
+  -o-box-shadow: inset 0px -14px 36px -2px #ffffff, 10px 11px 10px 0px #000000;
+  box-shadow: inset 0px -14px 36px -2px #ffffff, 10px 11px 45px 0px #313131;
 }
 
 @media (max-width: 480px) {
@@ -141,6 +163,18 @@
     width: 25%;
   }
 }
+.card:hover {
+  transition: all;
+  transition-duration: 0.5s;
+  transform: scale(1.02);
+  cursor: pointer;
+  z-index: 1;
+  -webkit-box-shadow: inset 12px -10px 36px -2px #ffffff, 10px 11px 10px 0px #949494;
+  -moz-box-shadow: inset 0px -14px 36px -2px #ffffff, 10px 11px 10px 0px #000000;
+  -o-box-shadow: inset 0px -14px 36px -2px #ffffff, 10px 11px 10px 0px #000000;
+  box-shadow: inset 0px -14px 36px -2px #ffffff, 10px 11px 10px 0px #313131;
+}
+
 .bi-bar-chart-fill {
   color: rgb(117, 80, 254);
 }
