@@ -6,9 +6,10 @@ let closeCart = document.querySelector('#close-cart');
 window.onload = () => {
   fetch('https://striveschool-api.herokuapp.com/books')
     .then((res) => {
-        console.log(res)
+        console.log(res);
       if (res.ok) {
         return res.json();
+        
       } else {
         throw new Error("Page not found");
       }
@@ -33,10 +34,10 @@ window.onload = () => {
             }
         })
         .catch((err) => {
-            console.log(err)
+          throw new Error('page not found');
         })
 }
-//rimuovo bookcdalla pagina
+//rimuovi books dalla pagina
 const removeToShip = (rem) => {
     rem.target.closest(".idRemove").remove()
 }
