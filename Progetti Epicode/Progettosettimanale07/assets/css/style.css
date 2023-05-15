@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Foldit:display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Foldit", cursive;
+  background: gray;
+}
+
+.hero {
+  object-fit: cover;
+}
+.card:hover {
+  transition: all;
+  transition-duration: 0.5s;
+  transform: scale(1.02);
+  cursor: pointer;
+  z-index: 1;
+  -webkit-box-shadow: inset 5px 4px 23px -2px #ffffff, 4px 1px 18px 5px #000000;
+  -moz-box-shadow: inset 5px 4px 23px -2px #ffffff, 4px 1px 18px 5px #000000;
+  -o-box-shadow: inset 5px 4px 23px -2px #ffffff, 4px 1px 18px 5px #000000;
+  box-shadow: inset 5px 4px 23px -2px #ffffff, 4px 1px 18px 5px #000000;
+}
+h2 {
+  font-size: 3em;
+  color: rgba(249, 178, 0, 0.851);
+}
+h3 {
+  color: rgba(211, 15, 109, 0.895);
+}
+.scatolaModifiche{
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,70,121,0.8726890414368873) 50%, rgba(0,212,255,1) 100%); 
+ 
+}
+.containerCards{
+  background: rgb(0,212,255);
+  background: linear-gradient(90deg, rgba(0,212,255,1) 6%, rgba(9,21,121,0.8726890414368873) 34%, rgba(2,0,36,1) 59%); 
+}
+.more-info{
+  background: rgb(37,0,209);
+  background: linear-gradient(90deg, rgba(37,0,209,1) 20%, rgba(0,206,209,1) 36%, rgba(65,0,209,1) 66%, rgba(0,165,255,1) 82%); 
+}
+
+#preLoader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  overflow: visible;
+  transition: all .4s ease; 
+}
+.fade-out{
+  opacity: 0;
+  visibility: hidden;
+}

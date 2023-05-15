@@ -34,7 +34,7 @@ window.onload = () => {
             }
         })
         .catch((err) => {
-          throw new Error('page not found');
+          throw new Error('page not found', err);
         })
 }
 //rimuovi books dalla pagina
