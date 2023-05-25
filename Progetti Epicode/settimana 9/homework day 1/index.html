@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10%;
+      background: rgb(2, 0, 36);
+      background: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(9, 108, 121, 0.9455183440563726) 35%,
+        rgba(0, 212, 255, 1) 100%
+      );
+    }
+    .title {
+      font-size: 2em;
+      font-weight: 700;
+    }
+    .game-board {
+      width: 60%;
+      padding: 8em;
+      background-color: aquamarine;
+    }
+    form {
+      display: flex;
+      justify-content: center;
+      justify-content: space-around;
+    }
+
+    .content {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .res {
+      font-size: 2em;
+      color: blueviolet;
+      align-self: center;
+    }
+    #btn {
+      margin-top: 30px;
+      padding: 30px;
+      font-size: 2em;
+      border-radius: 50%;
+      background-color: crimson;
+    }
+    #btn:hover {
+      cursor: pointer;
+      -webkit-box-shadow: inset 7px 3px 22px 5px #ffffff,
+        -1px 5px 32px 11px #000000;
+      -moz-box-shadow: inset 7px 3px 22px 5px #ffffff,
+        -1px 5px 32px 11px #000000;
+      -o-box-shadow: inset 7px 3px 22px 5px #ffffff, -1px 5px 32px 11px #000000;
+      box-shadow: inset 7px 3px 22px 5px #ffffff, -1px 5px 32px 11px #000000;
+      scale: 1.5;
+      transition: all 1s;
+    }
+  </style>
+  <body>
+    <header class="title">
+      <h1>Il giuoco dell'indovino 🤞</h1>
+    </header>
+    <fieldset class="game-board">
+      <form  id="form">
+
+
+
+        <div>
+          <span> Giocatore 1</span>
+          <input type="number"id="ply1" />
+          <label for="number" aria-placeholder="metti un number"></label>
+
+          <h3>Risultato player 1</h3>
+          <p class="answer-player-1"></p>
+        </div>
+
+        <div class="res">
+          <h2>Result</h2>
+          <p class="result-extraction"></p>
+        </div>
+
+        <div >
+          <span> Giocatore 2</span>
+          <input type="number" class="ply2"/>
+          <label for="number"></label>
+
+          <h3>Risultato player 2</h3>
+          <p class="answer-player-2"></p>
+        </div>
+        <button type="submit" id="btn" >Start</button>
+      </form>
+    </fieldset>
+
+
+    <script src="cos.js"></script>
+  </body>
+</html>
