@@ -1,17 +1,21 @@
 var btn = document.querySelector("#btnstop");
 var startChiamata = document.querySelector("#startChiamata");
 var numeroChiamato = document.querySelector("#numeroChiamato");
-var DataRecived = document.querySelector("#DataRecived");
+var dataRecived = document.querySelector("#dataRecived");
+var tempo = document.querySelector('#timer');
 var User = /** @class */ (function () {
-    function User(_charge, _callCount) {
+    function User(_charge, _callCount, _tariffa) {
+        if (_tariffa === void 0) { _tariffa = 0.20; }
+        this.tariffa = 0.20;
         this.charge = _charge;
         this.callCount = _callCount;
+        this.tariffa = _tariffa;
     }
     User.prototype.getricarica = function (reCarger) {
         this.charge += reCarger;
     };
     User.prototype.getCall = function (minutesCalls) {
-        this.charge -= minutesCalls * 0.20;
+        this.charge -= minutesCalls * this.tariffa;
         this.callCount++;
     };
     User.prototype.numero404 = function () {
@@ -30,7 +34,7 @@ var User = /** @class */ (function () {
 console.log("---------------------------------------------");
 console.log('primo utente');
 console.log("---------------------------------------------");
-var centini = new User(15, 0);
+var centini = new User(0, 0);
 centini.getricarica(12);
 console.log(centini.numero404());
 centini.getCallsNumber();
@@ -64,16 +68,17 @@ console.log(petrucci.numero404());
 petrucci.getricarica(10);
 console.log(petrucci.numero404());
 var timer = 0;
+var intervallo;
 startChiamata.addEventListener('click', function () {
-    setInterval(function () {
+    intervallo = setInterval(function () {
+        tempo.innerHTML = timer + ' seconds';
         timer++;
-        return timer;
+        console.log(timer);
     }, 1000);
 });
-btn.addEventListener('submit', function (ev) {
+btn.addEventListener('click', function (ev) {
     ev.preventDefault();
+    clearInterval(intervallo);
     var numChiamato = Number(numeroChiamato.value);
-    DataRecived.innerHTML = "<li>Hai chiamato il numero:".concat(numChiamato, " </li>\n    <li>Credito residuo prima della chiamata:").concat(centini.charge, " </li>\n    <li>Costo chiamata:</li>t\n    <li>Durata della chiamata:").concat(timer, "</li>\n    <li>Credito residuo attuale:").concat(centini.numero404(), "</li>");
-    timer = 0;
-    return timer;
+    dataRecived.innerHTML = "<ul>\n    <li>Hai chiamato il numero:".concat(numChiamato, " </li>\n    <li>Chiamate effettuate:").concat(centini.callCount, "</li>\n    <li>Costo chiamata:").concat(centini.tariffa * timer / 100, "</li>\n    <li>Credito residuo prima della chiamata:").concat(centini.charge, " </li>\n    <li>Credito residuo attuale:").concat(centini.numero404(), "</li>\n</ul>");
 });

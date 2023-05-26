@@ -24,6 +24,7 @@
 
     fieldset {
         background-color: burlywood;
+        height: 100%;
     }
 
     .message {
@@ -60,7 +61,8 @@
     #timer {
         font-size: 2em;
     }
-    .inputNumber{
+
+    .inputNumber {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -72,22 +74,22 @@
 <body>
     <div class="container">
         <fieldset>
-            <h2>Prova il nostro nuovo telefono online!</h2>
+            <h2>Prova la nostra tariffa Vodafone</h2>
             <div class="inputNumber">
                 <div>
-                <input type="number" placeholder="Inserisci il tuo numero" id="numeroChiamato">
-                <label for="number"></label>
+                    <input type="number" placeholder="Inserisci il tuo numero" id="numeroChiamato">
+                    <label for="inputNumber" ></label>
                 </div>
             </div>
             <fieldset class="message">
                 <h3>Tempo chiamata:</h3><span id="timer">0</span>
-                <ul class="DataRecived">
-                    
-                </ul>
+                <div id="dataRecived">
+                </div>
+               
             </fieldset>
             <div class="buttons">
-                <span><button type="click" id="startChiamata">Chiama Ora</button></span>
-                <span><button type="submit" id="btnstop">Chiudi chiamata</button></span>
+                <button type="button" id="startChiamata">Chiama Ora</button>
+                <button type="button" id="btnstop">Chiudi chiamata</button>
             </div>
         </fieldset>
     </div>

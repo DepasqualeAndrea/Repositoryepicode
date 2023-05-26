@@ -3,23 +3,28 @@
 
 
 let btn = document.querySelector("#btnstop") as HTMLButtonElement;
-let startChiamata = document.querySelector("#startChiamata") as HTMLButtonElement;
+let startChiamata = document.querySelector("#startChiamata")as HTMLButtonElement;
 let numeroChiamato = document.querySelector("#numeroChiamato") as HTMLInputElement;
-let DataRecived = document.querySelector("#DataRecived") as HTMLTextAreaElement;
+let dataRecived = document.querySelector("#dataRecived")as HTMLUListElement;
+const tempo = document.querySelector('#timer') as HTMLSpanElement;
 
 
 interface Smartphone {
     charge: number;
     callCount: number;
 }
+interface Vodafone{
+    tariffa: number;
+}
 
-
-class User implements Smartphone{
+class User implements Smartphone, Vodafone{
     charge: number;
     callCount: number;
-    constructor(_charge: number, _callCount: number){
+    tariffa: number = 0.20;
+    constructor(_charge: number, _callCount: number, _tariffa: number = 0.20){
         this.charge = _charge;
         this.callCount = _callCount;
+        this.tariffa = _tariffa;
 
     }
 
@@ -27,7 +32,7 @@ class User implements Smartphone{
         this.charge += reCarger;
     }
     getCall(minutesCalls: number):void {
-        this.charge -= minutesCalls * 0.20;
+        this.charge -= minutesCalls * this.tariffa;
         this.callCount++;
     } 
     numero404(){
@@ -45,7 +50,7 @@ console.log(`---------------------------------------------`)
 console.log('primo utente')
 console.log(`---------------------------------------------`)
 
-const centini = new User(15, 0);
+const centini = new User(0, 0);
 
 centini.getricarica(12);
 console.log(centini.numero404());
@@ -90,22 +95,28 @@ console.log(petrucci.numero404());
 
 
 let timer: number = 0;
+let intervallo: any;
 
 startChiamata.addEventListener('click',() => {
-    setInterval((): number => {
+    intervallo = setInterval((): void => {
+        tempo.innerHTML = timer + ' seconds';
         timer++;
-        return timer;
+        console.log(timer);
     }, 1000);
 });
 
-btn.addEventListener('submit',(ev) => {
+
+
+btn.addEventListener('click', (ev) => {
     ev.preventDefault();
+    clearInterval(intervallo)
     const numChiamato: number = Number(numeroChiamato.value);
-    DataRecived.innerHTML = `<li>Hai chiamato il numero:${numChiamato} </li>
+    dataRecived.innerHTML = `<ul>
+    <li>Hai chiamato il numero:${numChiamato} </li>
+    <li>Chiamate effettuate:${centini.callCount}</li>
+    <li>Costo chiamata:${centini.tariffa * timer /100}</li>
     <li>Credito residuo prima della chiamata:${centini.charge} </li>
-    <li>Costo chiamata:</li>t
-    <li>Durata della chiamata:${timer}</li>
-    <li>Credito residuo attuale:${centini.numero404()}</li>`
-    timer = 0;
-    return timer;
+    <li>Credito residuo attuale:${centini.numero404()}</li>
+</ul>`
+
 });
