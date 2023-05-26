@@ -114,6 +114,7 @@ btn.addEventListener('click', (ev) => {
     dataRecived.innerHTML = `<ul>
     <li>Hai chiamato il numero:${numChiamato} </li>
     <li>Chiamate effettuate:${centini.callCount}</li>
+    <li>Tariffa ordinaria:${centini.tariffa}</li>
     <li>Costo chiamata:${centini.tariffa * timer /100}</li>
     <li>Credito residuo prima della chiamata:${centini.charge} </li>
     <li>Credito residuo attuale:${centini.numero404()}</li>

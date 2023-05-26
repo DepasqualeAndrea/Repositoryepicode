@@ -80,5 +80,5 @@ btn.addEventListener('click', function (ev) {
     ev.preventDefault();
     clearInterval(intervallo);
     var numChiamato = Number(numeroChiamato.value);
-    dataRecived.innerHTML = "<ul>\n    <li>Hai chiamato il numero:".concat(numChiamato, " </li>\n    <li>Chiamate effettuate:").concat(centini.callCount, "</li>\n    <li>Costo chiamata:").concat(centini.tariffa * timer / 100, "</li>\n    <li>Credito residuo prima della chiamata:").concat(centini.charge, " </li>\n    <li>Credito residuo attuale:").concat(centini.numero404(), "</li>\n</ul>");
+    dataRecived.innerHTML = "<ul>\n    <li>Hai chiamato il numero:".concat(numChiamato, " </li>\n    <li>Chiamate effettuate:").concat(centini.callCount, "</li>\n    <li>Tariffa ordinaria:").concat(centini.tariffa, "</li>\n    <li>Costo chiamata:").concat(centini.tariffa * timer / 100, "</li>\n    <li>Credito residuo prima della chiamata:").concat(centini.charge, " </li>\n    <li>Credito residuo attuale:").concat(centini.numero404(), "</li>\n</ul>");
 });
