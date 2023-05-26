@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: black;
+        margin: 0;
+        padding: 0;
+        font-family: fantasy;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        height: 50%;
+        margin-top: 25%;
+    }
+
+    fieldset {
+        background-color: burlywood;
+    }
+
+    .message {
+        height: 70%;
+        background-color: rgba(72, 149, 174, 0.723);
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        justify-content: space-around;
+        margin-top: 35px;
+    }
+
+    button {
+        padding: 0.6em;
+        color: brown;
+        background-color: black;
+        cursor: pointer;
+        font-weight: 800;
+        font-size: 1.2em;
+    }
+
+    .message ul li {
+        font-weight: 200;
+        font-size: 1.5em;
+        line-height: 1.3em
+    }
+
+    h3 {
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    #timer {
+        font-size: 2em;
+    }
+    .inputNumber{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <fieldset>
+            <h2>Prova il nostro nuovo telefono online!</h2>
+            <div class="inputNumber">
+                <div>
+                <input type="number" placeholder="Inserisci il tuo numero" id="numeroChiamato">
+                <label for="number"></label>
+                </div>
+            </div>
+            <fieldset class="message">
+                <h3>Tempo chiamata:</h3><span id="timer">0</span>
+                <ul class="DataRecived">
+                    
+                </ul>
+            </fieldset>
+            <div class="buttons">
+                <span><button type="click" id="startChiamata">Chiama Ora</button></span>
+                <span><button type="submit" id="btnstop">Chiudi chiamata</button></span>
+            </div>
+        </fieldset>
+    </div>
+    <script src="./assets/ts/smart.js"></script>
+</body>
+
+</html>
