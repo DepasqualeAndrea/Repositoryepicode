@@ -1,0 +1,48 @@
+<h1 class="text-center my-3 mb-5">✅ Todo Form ✅</h1>
+<div class="container mt-5 d-flex flex-column align-items-center justify-content-center">
+  <ng-container *ngIf="LoadBar; else pluto" >
+    <p class="mb-3" style="font-size: 2em;"><strong>Searching Tasks Completed..</strong> </p>
+    <div class="d-flex mt-3">
+      <div class="spinner-grow text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-warning" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="spinner-grow text-info" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #pluto>
+    <ng-container *ngIf="To_Do.length === 0; else table">
+      <h4><strong>Spiacenti, ma non ci sono Task..</strong>  </h4>
+      <button class="btn btn-primary mt-4" [routerLink]="['/']" [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="router-link-active">👈Back to home</button>
+    </ng-container>
+    <ng-template #table>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" class="bg-warning">#Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Completed</th>
+            <th scope="col">UnConfirm/Delete</th>
+          </tr>
+        </thead>
+        <tbody  *ngFor="let items of To_Do; let i = index">
+          <tr *ngIf="items.completed">
+            <th scope="row">↘️{{items.id}}</th>
+            <td scope="row">{{items.title}} ✅</td>
+            <td scope="row">{{items.completed}}✅</td>
+            <td scope="row" (click)="items.completed = false" class="btn btn-info w-50">🖊️</td>
+            <td scope="row" (click)="RemoveTodo(i)" class="btn btn-outline-danger w-50">❌</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-primary mt-4" [routerLink]="['/']" [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="router-link-active">👈 Back to home</button>
+    </ng-template>
+  </ng-template>
+
+</div>

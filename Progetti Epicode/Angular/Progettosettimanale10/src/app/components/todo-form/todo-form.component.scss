@@ -1,0 +1,16 @@
+h1{
+  font-family: monospace;
+  color: rgb(0, 0, 0);
+
+}
+#mixing{
+  -webkit-box-shadow: inset 0px 0px 11px -6px #FFFFFF,0px 2px 18px 3px #000000;
+  -moz-box-shadow: inset 0px 0px 11px -6px #FFFFFF,0px 2px 18px 3px #000000;
+  -o-box-shadow: inset 0px 0px 11px -6px #FFFFFF,0px 2px 18px 3px #000000;
+  box-shadow: inset 0px 0px 11px -6px #FFFFFF,0px 2px 18px 3px #000000;
+}
+#mixing:hover{
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+  z-index: 1;
+}
