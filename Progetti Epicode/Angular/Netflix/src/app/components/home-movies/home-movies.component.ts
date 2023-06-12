@@ -20,7 +20,7 @@ export class HomeMoviesComponent implements OnInit {
 
 
     filmLiked: Favourites[] | undefined;
-    newLiked!: Favourites;
+    newLikedYet!: Favourites | null;
 
     loadIntro = false;
     number = Math.floor(Math.random() * 10) + 1;
@@ -49,8 +49,8 @@ export class HomeMoviesComponent implements OnInit {
         });
     }
 
-    getLiked(movieId: number) {
-        const userId = this.authService.getUserId();
+    getLiked(movieId: number, userId: number) {
+        const userID = this.authService.getUserId();
         const likedDone = this.filmLiked!.find(
             (fav) => fav.userId === userId && fav.movieId === movieId
         );
@@ -66,15 +66,17 @@ export class HomeMoviesComponent implements OnInit {
             console.log(likedDone)
         } else {
             // AGGIUNGO AI PREFERITI
-            const newLiked: Favourites = {
+            const filmfavoriti = this.filmLiked!.find((fav) => fav.id === movieId)?.id
+
+            this.newLikedYet = {
                 userId: userId!,
                 movieId: movieId,
-                id: 0 ,
+                id: filmfavoriti
             };
             this.http
-                .likeMovies(newLiked)
+                .likeMovies(this.newLikedYet)
                 .subscribe((favorite: Favourites) => {
-                    this.filmLiked!.push(newLiked);
+                    this.filmLiked!.push(favorite);
                     console.log('Film preferito aggiunto con successo:', favorite);
                     console.log('Film preferiti dagli utenti:', this.filmLiked);
                 });
