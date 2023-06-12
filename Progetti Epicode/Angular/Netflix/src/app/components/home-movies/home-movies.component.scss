@@ -1,0 +1,112 @@
+.info-movies {
+    height: 80vh;
+    align-items: last baseline;
+}
+
+.text {
+    color: rgb(252, 252, 252);
+    z-index: 1;
+    width: 90%;
+    margin: 0 auto;
+    height: 90%;
+
+    h1 {
+        font-size: 8em;
+    }
+
+    p {
+        font-size: 3em;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        line-height: 1.8;
+        line-break: strict;
+    }
+}
+
+.text-video {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu78wkjy6OrCbI_YCvFmhvPcK9PRP402EseQ&usqp=CAU');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1 !important;
+    height: 100vh;
+}
+
+.container-card {
+    background: rgb(20,20,20);
+    background: linear-gradient(0deg, rgba(20,20,20,1) 81%, rgba(232,230,230,0) 100%);
+
+    height: 80vh;
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+}
+
+.logo {
+    width: 2.5rem;
+}
+
+
+#search {
+    color: white;
+    width: 3em;
+}
+
+
+.nav-link {
+    font-family: serif;
+    font-weight: 600;
+    cursor: pointer !important;
+}
+
+.navbar-nav {
+    cursor: pointer;
+}
+
+a {
+    cursor: pointer;
+}
+
+#top {
+    width: 3em;
+    height: 3em;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0px 3px 28px 13px #1d1d1ddc, 5px 1px 21px 3px #000000;
+    -moz-box-shadow: inset 0px 3px 28px 13px #1d1d1ddc, 5px 1px 21px 3px #000000;
+    -o-box-shadow: inset 0px 3px 28px 13px #1d1d1ddc, 5px 1px 21px 3px #000000;
+    box-shadow: inset 0px 3px 28px 13px #1d1d1ddc, 5px 1px 21px 3px #000000;
+}
+
+.description {
+    width: 25%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 1.5em;
+}
+
+.btn-light {
+    width: 160px;
+    font-size: 1.2em;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.btn-outline-secondary {
+    width: 160px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+}
+
+.home_page {
+    height: 70%;
+}
+h2{
+    font-size: 2.5em;
+    width: 95%;
+    margin: 0 auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-weight: 600;
+}
+.favouriteMovie{
+    color: red;
+    background-color: red;
+}
+

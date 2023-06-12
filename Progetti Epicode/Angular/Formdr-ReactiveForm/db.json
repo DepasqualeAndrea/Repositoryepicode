@@ -1,0 +1,15 @@
+{
+  "users":
+    [
+      {
+        "id": 1,
+        "name": "paperion",
+        "alterEgo": "papero",
+        "power": "sputazza",
+        "enemy": "duffyDuck",
+        "planet": "venere",
+        "weekness": "water"
+      }
+    ]
+
+}

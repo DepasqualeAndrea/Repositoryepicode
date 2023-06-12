@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+      <form (ngSubmit)="onSubmit()" #formContainer="ngForm">
+        <div ngModelGroup="userForm" id="userForm" #userGroup="ngModelGroup">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" [ngModel]="users.name" name="name1" class="form-control" required
+              #name="ngModel">
+            <!-- Messaggio di errore -->
+            <p *ngIf="name.invalid && name.touched"><strong>Questo campo è obbligatorio</strong></p>
+          </div>
+
+         <!-- <div class="form-group">
+            <label for="alterEgo">AlterEgo</label>
+            <input type="text" id="alterEgo" [ngModel]="usersForm.alterEgo" name="alterEgo" class="form-control" required
+              #alterEgo="ngModel">
+
+            <p *ngIf="alterEgo.invalid && alterEgo.touched"><strong>Questo campo è obbligatorio</strong></p>
+          </div>
+
+          <div class="form-group">
+            <label for="power">Power</label>
+            <input type="text" id="power" [ngModel]="usersForm.power" name="power" class="form-control" required
+              #power="ngModel">
+
+            <p *ngIf="power.invalid && power.touched"><strong>Questo campo è obbligatorio</strong></p>
+          </div>
+
+
+          <div class="form-group">
+            <label for="enemy">Enemy</label>
+            <input type="text" id="enemy" [ngModel]="usersForm.enemy" name="enemy" class="form-control" required
+              #enemy="ngModel">
+
+            <p *ngIf="enemy.invalid && enemy.touched"><strong>Questo campo è obbligatorio</strong></p>
+          </div>
+
+
+          <div class="form-group">
+            <label for="planet">Planet</label>
+            <input type="text" id="planet" [ngModel]="usersForm.planet" name="planet" class="form-control" required
+              #planet="ngModel">
+
+            <p *ngIf="planet.invalid && planet.touched"><strong>Questo campo è obbligatorio</strong></p>
+          </div>
+
+
+          <div class="form-group">
+            <label for="weekness">Weekness</label>
+            <input type="text" id="weekness" [ngModel]="usersForm.weekness" name="weekness" class="form-control"
+              #weekness="ngModel">
+          </div>-->
+
+          <button type="submit" class="btn btn-primary mt-3" [disabled]="formContainer.invalid">Invia</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

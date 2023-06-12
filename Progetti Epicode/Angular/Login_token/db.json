@@ -1,0 +1,32 @@
+{
+    "users" : [
+{
+    "id": 1,
+    "codice": "A001",
+    "nomeProdotto": "olio",
+    "prezzo": 6
+}
+
+    ],
+    "products": [
+        {
+            "id": 1,
+            "codice": "A001",
+            "nomeProdotto": "olio",
+            "prezzo": 6
+        },
+        {
+            "id": 2,
+            "codice": "A002",
+            "nomeProdotto": "vino",
+            "prezzo": 16
+        },
+        {
+            "id": 3,
+            "codice": "A003",
+            "nomeProdotto": "genziana",
+            "prezzo": 29
+        }
+
+    ]
+}

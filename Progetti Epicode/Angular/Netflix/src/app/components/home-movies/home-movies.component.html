@@ -1,0 +1,115 @@
+<app-nav-bar></app-nav-bar>
+<div class="container-fluid p-0" *ngIf="user">
+    <div class="row">
+        <div class="hero-section" *ngFor="let movie of newMovies; let i = index">
+            <div *ngIf="i < 1 ">
+                <section class="text-video container-fluid m-0 p-0"
+                    style="background-image: url('http://image.tmdb.org/t/p/w500{{movie.poster_path}}');background-size: cover; background-repeat: no-repeat; z-index: 1 !important; aspect-ratio: 16/9;">
+                    <div class="info-movies d-flex justify-content-start align-content-start text-white">
+
+                        <div class="home_page">
+                            <div class="text">
+                                <div class="d-flex align-items-center gap-4">
+                                    <div>
+                                        <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo">
+                                    </div>
+                                    <div>
+                                        <p>serie</p>
+                                    </div>
+                                </div>
+
+                                <h1 class="">Mortal Kombat</h1>
+                                <div class="d-flex gap-3 align-items-center">
+                                    <img id="top"
+                                        src="data:image/png;base64,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"
+                                        alt="">
+                                    <p> Oggi al n°1 tra i Film</p>
+                                </div>
+                                <div class="description">
+                                    <h4>{{movie.overview}}</h4>
+                                </div>
+                                <div>
+                                    <div class="d-flex gap-3 bottoni align-items-center">
+                                        <button class="btn btn-light"> <i
+                                                class="bi bi-play-fill me-2"></i>Riproduci</button>
+                                        <button class="btn btn-outline-secondary bg-secondary text-light gap-3"><i
+                                                class="bi bi-info-circle me-2"></i>Altre info</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="container-card text-light m-0 p-0">
+                        <div id="scatola_magica">
+                            <h2 class="p-0">Da Rivedere</h2>
+                        </div>
+                        <div class=" mt-2 d-flex justify-content-center align-content-center"
+                            style="margin-bottom: 100px;">
+                            <div class="poster_movies" *ngFor="let movie of newMovies; let i=index">
+                                <ng-template [ngIf]="i < 7">
+                                    <div class="card" id="copertina" style="width: 16em; border: hidden; margin: 8px;">
+                                        <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
+                                            class="card-img-top" alt="..." style="height: 300px; aspect-ratio: 16/9;">
+                                        <div class="card-body bg-dark p-0 d-flex justify-content-between">
+                                            <div class="d-flex" >
+                                                <div>
+                                                    <button class="btn text-secondary p-2 ms-2 " type="button"
+                                                        style="font-size: 1.5em;"><i class="bi bi-hand-thumbs-up"></i>
+                                                    </button>
+                                                </div>
+                                                <div>
+                                                    <button class="btn  text-secondary p-2" style="font-size: 1.5em;">
+                                                        <i class="bi bi-info-circle me-2"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;" (click)="getLiked(movie.id)" [class.favouriteMovie]="!favouriteCount(movie.id)"><i
+                                                        class="bi bi-heart"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </div>
+                        <div id="scatola_magica">
+                            <h2 class="p-0 mb-2 mt-2">I piu popolari</h2>
+                        </div>
+                        <div class="d-flex justify-content-center align-content-center  mt-2 mb-5"
+                            style="margin-bottom: 100px;">
+                            <div class="poster_movies" *ngFor="let movie of newFavourites; let i=index">
+                                <ng-template [ngIf]="i < 7">
+                                    <div class="card" id="copertina" style="width: 16em; border: hidden; margin: 8px; ">
+                                        <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
+                                            class="card-img-top" alt="..." style="height: 300px; aspect-ratio: 16/9;">
+                                            <div class="card-body bg-dark p-0 d-flex justify-content-between">
+                                                <div class="d-flex" >
+                                                    <div>
+                                                        <p class="card-text text-secondary p-2 ms-2 border-danger"
+                                                            style="font-size: 1.5em;"><i class="bi bi-hand-thumbs-up" ></i>
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <p class="card-text text-secondary p-2 border-danger" style="font-size: 1.5em;">
+                                                            <i class="bi bi-info-circle me-2"></i>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <p class="card-text text-secondary p-2 me-2" style="font-size: 1.5em;"><i
+                                                            class="bi bi-heart"></i></p>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </ng-template>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
