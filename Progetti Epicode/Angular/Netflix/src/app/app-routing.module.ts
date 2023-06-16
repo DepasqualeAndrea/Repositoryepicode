@@ -16,20 +16,23 @@ const routes: Routes = [
     {
         path: 'movies',
         component: HomeMoviesComponent,
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
 
     },
     {
         path: 'users',
-        component: HomeMoviesComponent
+        component: HomeMoviesComponent,
+        //canActivate: [AuthGuard]
     },
     {
         path: 'favourites',
-        component: FavouritersPageComponent
+        component: FavouritersPageComponent,
+        //canActivate: [AuthGuard]
     },
     {
         path: 'info_services',
-        component: InfoDettagliateComponent
+        component: InfoDettagliateComponent,
+        //canActivate: [AuthGuard]
     }
 ];
 

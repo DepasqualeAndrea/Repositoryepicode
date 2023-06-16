@@ -1,5 +1,5 @@
 .info-movies {
-    height: 80vh;
+    height: 70vh;
     align-items: last baseline;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .text-video {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu78wkjy6OrCbI_YCvFmhvPcK9PRP402EseQ&usqp=CAU');
+
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 1 !important;
@@ -109,4 +109,10 @@ h2{
     color: red;
     background-color: red;
 }
+.video-container{
+    width: 100vw;
+    height: 100vh;
+    overflow-x:hidden;
+    overflow-y: hidden;
 
+}

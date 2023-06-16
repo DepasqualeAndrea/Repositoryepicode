@@ -1,12 +1,15 @@
 <app-nav-bar></app-nav-bar>
-<div class="container-fluid p-0" *ngIf="user">
+<div class="container-fluid p-0"> <!--*ngIf="user"-->
     <div class="row">
         <div class="hero-section" *ngFor="let movie of newMovies; let i = index">
             <div *ngIf="i < 1">
-                <section class="text-video container-fluid m-0 p-0"
-                    style="background-image: url('http://image.tmdb.org/t/p/w500{{movie.poster_path}}');background-size: cover; background-repeat: no-repeat; z-index: 1 !important; aspect-ratio: 16/9;">
-                    <div class="info-movies d-flex justify-content-start align-content-start text-white">
-
+                <section class="text-video container-fluid m-0 p-0" style="position: relative; z-index:-1;">
+                    <div style="position: fixed; z-index:-1; overflow:fit-content;" class="video-container p-0 container-fluid">
+                        <iframe frameborder="0" height="130%" width="120%"
+                            src="https://youtube.com/embed/DLwmEdOsW8s?autoplay=1&mute=1&controls=0&autohide=1&restart=1">
+                        </iframe>
+                    </div>
+                    <div class="info-movies d-flex justify-content-start align-content-start text-white" style="z-index: 1;">
                         <div class="home_page">
                             <div class="text">
                                 <div class="d-flex align-items-center gap-4">
@@ -37,11 +40,10 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
 
                     </div>
-                    <div class="container-card text-light m-0 p-0">
+                    <div class="container-card text-light mt-5 p-0" style="z-index:1;">
                         <div id="scatola_magica">
                             <h2 class="p-0">Da Rivedere</h2>
                         </div>
@@ -49,11 +51,11 @@
                             style="margin-bottom: 100px;">
                             <div class="poster_movies" *ngFor="let movie of newMovies; let i=index">
                                 <ng-template [ngIf]="i < 7">
-                                    <div class="card" id="copertina" style="width: 16em; border: hidden; margin: 8px;">
+                                    <div class="card" id="copertina" style="width: 20em; border: hidden; margin: 8px;">
                                         <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
-                                            class="card-img-top" alt="..." style="height: 300px; aspect-ratio: 16/9;">
+                                            class="card-img-top" alt="..." style=" aspect-ratio: 1/.9;">
                                         <div class="card-body bg-dark p-0 d-flex justify-content-between">
-                                            <div class="d-flex" >
+                                            <div class="d-flex">
                                                 <div>
                                                     <button class="btn text-secondary p-2 ms-2 " type="button"
                                                         style="font-size: 1.5em;"><i class="bi bi-hand-thumbs-up"></i>
@@ -66,8 +68,8 @@
                                                 </div>
                                             </div>
                                             <div>
-                                                <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;" (click)="getLiked(movie.id, user.user.id)" [class.favouriteMovie]="favouriteCount(movie.id)"><i
-                                                        class="bi bi-heart"></i></button>
+                                                <!-- <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;" (click)="getLiked(movie.id, user.user.id)" [class.favouriteMovie]="favouriteCount(movie.id)"><i
+                                                        class="bi bi-heart"></i></button>-->
                                             </div>
                                         </div>
                                     </div>
@@ -84,24 +86,25 @@
                                     <div class="card" id="copertina" style="width: 16em; border: hidden; margin: 8px; ">
                                         <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
                                             class="card-img-top" alt="..." style="height: 300px; aspect-ratio: 16/9;">
-                                            <div class="card-body bg-dark p-0 d-flex justify-content-between">
-                                                <div class="d-flex" >
-                                                    <div>
-                                                        <p class="card-text text-secondary p-2 ms-2 border-danger"
-                                                            style="font-size: 1.5em;"><i class="bi bi-hand-thumbs-up" ></i>
-                                                        </p>
-                                                    </div>
-                                                    <div>
-                                                        <p class="card-text text-secondary p-2 border-danger" style="font-size: 1.5em;">
-                                                            <i class="bi bi-info-circle me-2"></i>
-                                                        </p>
-                                                    </div>
+                                        <div class="card-body bg-dark p-0 d-flex justify-content-between">
+                                            <div class="d-flex">
+                                                <div>
+                                                    <p class="card-text text-secondary p-2 ms-2 border-danger"
+                                                        style="font-size: 1.5em;"><i class="bi bi-hand-thumbs-up"></i>
+                                                    </p>
                                                 </div>
                                                 <div>
-                                                    <p class="card-text text-secondary p-2 me-2" style="font-size: 1.5em;" (click)="getLiked(movie.id, user.user.id)" [class.favouriteMovie]="favouriteCount(movie.id)"><i
-                                                            class="bi bi-heart"></i></p>
+                                                    <p class="card-text text-secondary p-2 border-danger"
+                                                        style="font-size: 1.5em;">
+                                                        <i class="bi bi-info-circle me-2"></i>
+                                                    </p>
                                                 </div>
                                             </div>
+                                            <div>
+                                                <!--<button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;" (click)="getLiked(movie.id, user.user.id)" [class.favouriteMovie]="favouriteCount(movie.id)"><i
+                                                        class="bi bi-heart"></i></button>-->
+                                            </div>
+                                        </div>
                                     </div>
                                 </ng-template>
                             </div>
