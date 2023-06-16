@@ -77,6 +77,12 @@
       "password": "$2a$10$OUHJLjQbj7LxoxhMPw7vFu.7KDMvfooyYtQJQI0SoC93kEcUgo8QO",
       "name": "andreamio",
       "id": 13
+    },
+    {
+      "email": "Andrea@gmail.com",
+      "password": "$2a$10$6.MmPpq8o6rActb0TbRQgeeRZm0k0xC30LhH78W9DJnTIshiCOaOe",
+      "name": "Andrea De Pasquale",
+      "id": 14
     }
   ],
   "favorites": [
@@ -94,31 +100,6 @@
       "userId": 2,
       "movieId": 460465,
       "id": 6
-    },
-    {
-      "userId": 8,
-      "movieId": 615457,
-      "id": 17
-    },
-    {
-      "userId": 8,
-      "movieId": 567189,
-      "id": 20
-    },
-    {
-      "userId": 8,
-      "movieId": 804435,
-      "id": 21
-    },
-    {
-      "userId": 8,
-      "movieId": 399566,
-      "id": 22
-    },
-    {
-      "userId": 8,
-      "movieId": 578701,
-      "id": 23
     }
   ],
   "genres": [

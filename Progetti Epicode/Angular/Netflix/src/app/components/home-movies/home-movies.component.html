@@ -2,7 +2,7 @@
 <div class="container-fluid p-0" *ngIf="user">
     <div class="row">
         <div class="hero-section" *ngFor="let movie of newMovies; let i = index">
-            <div *ngIf="i < 1 ">
+            <div *ngIf="i < 1">
                 <section class="text-video container-fluid m-0 p-0"
                     style="background-image: url('http://image.tmdb.org/t/p/w500{{movie.poster_path}}');background-size: cover; background-repeat: no-repeat; z-index: 1 !important; aspect-ratio: 16/9;">
                     <div class="info-movies d-flex justify-content-start align-content-start text-white">
@@ -98,7 +98,7 @@
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <p class="card-text text-secondary p-2 me-2" style="font-size: 1.5em;"><i
+                                                    <p class="card-text text-secondary p-2 me-2" style="font-size: 1.5em;" (click)="getLiked(movie.id, user.user.id)" [class.favouriteMovie]="favouriteCount(movie.id)"><i
                                                             class="bi bi-heart"></i></p>
                                                 </div>
                                             </div>

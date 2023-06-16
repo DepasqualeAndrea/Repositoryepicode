@@ -1,0 +1,33 @@
+<div class="container-fluid p-0">
+  <app-nav-bar></app-nav-bar>
+  <div class="container mt-5">
+    <div class="row">
+      <form #form="ngForm" (submit)="changePost(form, userTasks)">
+        <div class="insert_task">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Titolo</label>
+            <input type="text" class="form-control" id="title" name="title" [(ngModel)]="userTasks.title">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Descrizione</label>
+            <textarea class="form-control" id="descrizione" rows="3" placeholder="" name="descrizione"
+              [(ngModel)]="userTasks.descrizione"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Inserisci l'Url dell'immagine</label>
+            <input type="text" class="form-control" id="url" name="url" [(ngModel)]="userTasks.url">
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div>
+            <button class="btn btn-warning me-3" type="submit" [disabled]="form.invalid">Modify</button>
+          </div>
+          <div>
+            <button class="btn btn-danger" type="button" [disabled]="form.invalid"
+              (click)="getToDelete(userTasks.id)">Delete</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

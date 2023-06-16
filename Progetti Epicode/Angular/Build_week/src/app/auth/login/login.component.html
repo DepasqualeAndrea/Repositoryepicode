@@ -1,0 +1,78 @@
+<div class="container-fluid p-0">
+  <h1 class="text-center mb-5 text-bg-dark p-3">👇Come into the Crud Opera📝</h1>
+  <div class="row ">
+    <div class="container mb-5">
+      <ng-container *ngIf="login; else registrazione">
+        <div class="login" #login>
+          <form class="d-flex justify-content-center gap-3" #form="ngForm" (ngSubmit)="logIn(form)">
+            <div class="label">
+              <div class="row mb-2">
+                <div class="col-md-12">
+                  <input type="email" calss="form-control" id="inputEmail3" name="email" placeholder="Email address"
+                    required ngModel>
+                </div>
+              </div>
+              <div class="row ">
+                <div class="col-md-12">
+                  <input type="password" calss="form-control text-light" id="inputPassword3" name="password"
+                    placeholder="password" required ngModel>
+                </div>
+              </div>
+            </div>
+            <div class="gap-3 d-flex align-items-center">
+              <div>
+                <button type="submit" class="btn btn-success " [disabled]="form.invalid">Sign
+                  in</button>
+              </div>
+              <div>
+                <a type="button" class="btn btn-outline" (click)="register()">Oppure
+                  registrati ora!</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </ng-container>
+
+      <!--------   div sezione della pagina per la registrazione utente   ------->
+      <ng-template #registrazione>
+        <div class="form-registraizone">
+          <form class="d-flex justify-content-center gap-3" #form="ngForm" (submit)="signUp(form)">
+            <div class="label">
+              <div class="row mb-2">
+                <div class="col-md-12">
+                  <input type="text" calss="form-control" id="inputName" name="name" placeholder="Nome e Cognome"
+                    required ngModel>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-md-12">
+                  <input type="email" calss="form-control" id="inputEmail3" name="email" placeholder="Email address"
+                    required ngModel>
+                </div>
+              </div>
+              <div class="row ">
+                <div class="col-md-12">
+                  <input type="password" calss="form-control text-light" id="inputPassword3" name="password"
+                    placeholder="password" required ngModel>
+                </div>
+              </div>
+            </div>
+            <div class="gap-3 d-flex align-items-center">
+              <div>
+                <button type="submit" class="btn btn-danger" [disabled]="form.invalid">Registrati</button>
+              </div>
+              <div>
+                <button type="button" class="btn btn-danger" (click)="getSignIn()">Sign
+                  in</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="container-fluid text-center mt-5">
+    <img src="../../../assets/media/pngfind.com-luffy-png-3200217.png" alt="">
+  </div>
+
+</div>

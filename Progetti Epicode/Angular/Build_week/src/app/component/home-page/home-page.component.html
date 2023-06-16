@@ -1,0 +1,60 @@
+<div class="container-fluid p-0" *ngIf="loadHome">
+  <app-nav-bar></app-nav-bar>
+  <div class="mt-5 justify-content-center row ">
+    <form #form="ngForm" (submit)="getPost(form)" class="w-50">
+      <div class="insert_task">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Title </label>
+          <input type="text" class="form-control" id="title" placeholder="Title of task" name="title" required ngModel>
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Textarea</label>
+          <textarea class="form-control" id="descrizione" rows="3"
+            placeholder="Insert here the description of your task" ngModel name="descrizione" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Url Image </label>
+          <input type="text" class="form-control" id="url" ngModel name="url" required
+            placeholder="Example of url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd-fxV6xI7SNAd6mqvEBSqJ7EN9FF-TJaIAw&usqp=CAU'">
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-primary" type="submit" [disabled]="form.invalid"> Submit </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="container-fluid mt-5 mx-5">
+    <h1 class="text-center mb-5"><strong>Your Tasks...</strong></h1>
+    <div class="d-flex align-items-center justify-content-center p-0">
+      <div class="task-input">
+        <div class="row" *ngFor="let task of tasks">
+          <div class="row bg-black position-relative mb-2" style="width: 70em;">
+            <div class="col-md-6 mb-md-2 p-md-4 p-3">
+              <img src="{{task.url}}" class="w-100" alt="...">
+            </div>
+            <div class="col-md-6 p-4 ps-md-0">
+              <h5 class="mt-0 text-light">{{task.title}}</h5>
+              <p class="text-light">{{task.descrizione}}</p>
+              <div class="d-flex justify-content-around mt-5">
+                <div class="btn btn-outline-warning w-25 p-1" [routerLink]="['/modify-post', (task.id)]">
+                  Modifica
+                </div>
+                <div class="btn btn-outline-primary w-25 p-1">
+                  Info
+                </div>
+                <div class="btn btn-outline-danger w-25 p-1" (click)="getToDelete(task.id)">
+                  Delete
+                </div>
+              </div>
+              <div class="text-center text-danger mt-3">
+                <h4>⬆️</h4>
+                <h5>questo btn non funziona, è solo decorativo 🫠</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
