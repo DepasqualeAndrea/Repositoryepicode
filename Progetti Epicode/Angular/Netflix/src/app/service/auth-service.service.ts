@@ -6,9 +6,7 @@ import { tap, catchError } from 'rxjs/operators';
 import { AuthInterface } from '../auth/login/auth-interface.interface';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
-import { Users } from 'src/app/modules/users.interface';
-import { NgForm } from '@angular/forms';
-import { FavouritesMovies } from '../modules/favourites-movies.interface';
+
 
 @Injectable({
     providedIn: 'root',

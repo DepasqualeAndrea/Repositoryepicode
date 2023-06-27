@@ -83,6 +83,12 @@
       "password": "$2a$10$6.MmPpq8o6rActb0TbRQgeeRZm0k0xC30LhH78W9DJnTIshiCOaOe",
       "name": "Andrea De Pasquale",
       "id": 14
+    },
+    {
+      "email": "Gamestop@libero.it",
+      "password": "$2a$10$kNiXlvCVrfg./QVdfWes.OSj3vlST7FTRXbqW7wnnwBMWOtWOB4eW",
+      "name": "Marco",
+      "id": 15
     }
   ],
   "favorites": [
@@ -100,6 +106,11 @@
       "userId": 2,
       "movieId": 460465,
       "id": 6
+    },
+    {
+      "userId": 15,
+      "movieId": 632357,
+      "id": 7
     }
   ],
   "genres": [

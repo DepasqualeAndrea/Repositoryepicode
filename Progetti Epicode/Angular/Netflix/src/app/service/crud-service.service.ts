@@ -15,7 +15,7 @@ export class CrudServiceService {
     }
 
         baseURL = environment.baseUrl;
-
+        //key = environment.apyKey
         newMovies: Movies [] = [];
         newFavourites: FavouritesMovies[] | undefined;
         filmLiked: Favourites[] | undefined;
@@ -25,7 +25,7 @@ export class CrudServiceService {
   constructor(private http: HttpClient) { }
 
     getMovies(){
-       return this.http.get<Movies[]>(`${this.baseURL}movies-popular`);
+       return this.http.get<Movies[]>(`${this.baseURL}movies-popular`); //end point/upcoming, /popular, /latest, /top_rated , /now_playing (tmdb)
     }
 
     getMoviesPopular(){

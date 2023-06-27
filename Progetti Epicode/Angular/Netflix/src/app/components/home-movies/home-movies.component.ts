@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit, SchemaMetadata } from '@angular/core';
 import { CrudServiceService } from 'src/app/service/crud-service.service';
 import { Subscription, min } from 'rxjs';
 import { Movies } from 'src/app/modules/movies.interface';
@@ -19,10 +19,13 @@ export class HomeMoviesComponent implements OnInit {
     newFavourites: FavouritesMovies[] | undefined;
 
 
+
+
+
     filmLiked: Favourites[] | undefined;
     newLikedYet!: Favourites | null;
-
-    loadIntro = false;
+    nav = true
+    loadIntro = true;
     number = Math.floor(Math.random() * 10) + 1;
 
     user!: AuthInterface | null;
@@ -30,7 +33,8 @@ export class HomeMoviesComponent implements OnInit {
     constructor(private http: CrudServiceService, private authService: AuthService) { }
 
     ngOnInit(): void {
-        this.sub! = this.http.getMovies().subscribe((movies: Movies[]) => {
+        setTimeout(() => {
+                    this.sub! = this.http.getMovies().subscribe((movies: Movies[]) => {
             this.newMovies = movies;
             console.log(this.newMovies);
         });
@@ -47,6 +51,10 @@ export class HomeMoviesComponent implements OnInit {
         this.authService.user$.subscribe((_user) => {
             this.user = _user;
         });
+        this.loadIntro=false
+        this.nav=false
+        },5500)
+
     }
 
     getLiked(movieId: number, userId: number) {
