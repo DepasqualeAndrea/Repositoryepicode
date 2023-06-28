@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/service/auth-service.service';
 import { Router } from '@angular/router';
 import { AuthInterface } from 'src/app/auth/login/auth-interface.interface';
 import { FavouritesMovies } from 'src/app/modules/favourites-movies.interface';
+import { LoginComponent } from 'src/app/auth/login/login.component';
 @Component({
     selector: 'app-home-movies',
     templateUrl: './home-movies.component.html',
@@ -24,7 +25,6 @@ export class HomeMoviesComponent implements OnInit {
 
     filmLiked: Favourites[] | undefined;
     newLikedYet!: Favourites | null;
-    nav = true
     loadIntro = true;
     number = Math.floor(Math.random() * 10) + 1;
 
@@ -33,7 +33,7 @@ export class HomeMoviesComponent implements OnInit {
     constructor(private http: CrudServiceService, private authService: AuthService) { }
 
     ngOnInit(): void {
-        setTimeout(() => {
+
                     this.sub! = this.http.getMovies().subscribe((movies: Movies[]) => {
             this.newMovies = movies;
             console.log(this.newMovies);
@@ -50,10 +50,11 @@ export class HomeMoviesComponent implements OnInit {
 
         this.authService.user$.subscribe((_user) => {
             this.user = _user;
+
         });
-        this.loadIntro=false
-        this.nav=false
-        },5500)
+
+
+
 
     }
 
@@ -101,6 +102,7 @@ export class HomeMoviesComponent implements OnInit {
     ngOnDestroy(): void {
         if (this.sub) {
             this.sub.unsubscribe();;
+            this.loadIntro = true;
         }
     }
 

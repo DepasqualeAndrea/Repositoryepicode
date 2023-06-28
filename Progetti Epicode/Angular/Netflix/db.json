@@ -7,88 +7,10 @@
       "id": 1
     },
     {
-      "email": "dario@dario.com",
-      "password": "$2a$10$ZLY63quWnMVo0lO951uFdOJRfUxeo8U6YJ/Cue06Vgp4Ad8S/CjaC",
-      "name": "Dario",
-      "id": 2
-    },
-    {
-      "email": "mario@rossi.com",
-      "password": "$2a$10$RsIosJKYgHyT8uo.bosI5uYpN0PVmA6xdnhjT4jIFcbKbVS2RsiRC",
-      "name": "Mario Rossi",
-      "id": 3
-    },
-    {
-      "email": "luca@iannice.gov",
-      "password": "$2a$10$5w60AiRs216q6mE4yxS5geckgGmD93VpzJP72A07rLlWL0bEH8mgO",
-      "name": "Luca Iannice",
-      "id": 4
-    },
-    {
-      "email": "andre@gmail.com",
-      "password": "$2a$10$zRlz5cieMEsHR9dU7sCRhOWIsOpcILHi9GoHNh1jSYCWYYQuUIiaC",
-      "name": "Andrea",
-      "id": 5
-    },
-    {
-      "email": "walterino@live.com",
-      "password": "$2a$10$EMQGZRoKj1O6hVGD/W80z.IPMDtPq4neqjdAmaCHVm6/1SW5AaSeK",
-      "name": "Walter Bravino",
-      "id": 6
-    },
-    {
-      "email": "Walter@live.com",
-      "password": "$2a$10$puBvWk9EuOIrBgQK.4sMe.CmUqoTH/H2I.Psu/Sdt/ltliBHGCoCu",
-      "name": "Walter Bravo",
-      "id": 7
-    },
-    {
-      "email": "andrea@gmail.com",
-      "password": "$2a$10$XziEmqTSaJxPIhLoZKx5SenEM25RUNb6ND7cg3NS6eU9ML7T8Rq7K",
-      "name": "AndreaDepa",
-      "id": 8
-    },
-    {
-      "email": "walter@live.com",
-      "password": "$2a$10$yoJ6doFWS4mismjuG00AdOiWg99EZot8UH34TH1Of1WhChRmpQNde",
-      "name": "Walter Bravo",
-      "id": 9
-    },
-    {
-      "email": "ng@live.it",
-      "password": "$2a$10$OXLrRgSRKd2Vt89LDlG1OuVhPF6l5VeKdF4BrheAEwMhl78AJHj8e",
-      "name": "antonio",
-      "id": 10
-    },
-    {
-      "email": "maico@gmail.com",
-      "password": "$2a$10$xwtCQdgGPYCW9OUPIpS29.OahpTGjEWqYYLuUwm9XvzkOlJsRcFSa",
-      "name": "maicol",
-      "id": 11
-    },
-    {
-      "email": "michy@live.com",
-      "password": "$2a$10$LmpQ3zsGCcYx2q7xQoXe4eLbdDcQ9xo6VkPR.0cefQr76ZquraNka",
-      "name": "michele",
-      "id": 12
-    },
-    {
-      "email": "andre@live.com",
-      "password": "$2a$10$OUHJLjQbj7LxoxhMPw7vFu.7KDMvfooyYtQJQI0SoC93kEcUgo8QO",
-      "name": "andreamio",
-      "id": 13
-    },
-    {
-      "email": "Andrea@gmail.com",
-      "password": "$2a$10$6.MmPpq8o6rActb0TbRQgeeRZm0k0xC30LhH78W9DJnTIshiCOaOe",
+      "email": "andre.dep1994@gmail.com",
+      "password": "$2a$10$IcYQnqEoUARvleg31VcY/.3yx/fbtQoscR0GsSITq7/zJcNtrTMne",
       "name": "Andrea De Pasquale",
-      "id": 14
-    },
-    {
-      "email": "Gamestop@libero.it",
-      "password": "$2a$10$kNiXlvCVrfg./QVdfWes.OSj3vlST7FTRXbqW7wnnwBMWOtWOB4eW",
-      "name": "Marco",
-      "id": 15
+      "id": 16
     }
   ],
   "favorites": [

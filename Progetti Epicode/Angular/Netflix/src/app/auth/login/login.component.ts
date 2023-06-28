@@ -14,7 +14,8 @@ import { AuthInterface } from 'src/app/auth/login/auth-interface.interface';
 export class LoginComponent implements OnInit {
 
     user!: AuthInterface | null;
-
+    login_page = true;
+    netflixIntro = false;
     constructor(private authService: AuthService, private router: Router) { }
 
     login = true;
@@ -64,8 +65,12 @@ export class LoginComponent implements OnInit {
           })
         ).subscribe(response => {
           if (response) {
-            this.router.navigate(['movies']);
             alert('Login Effettuato');
+            this.login_page = false;
+            setTimeout(() => {
+                this.router.navigate(['movies']);
+                this.netflixIntro = true;
+            }, 5000);
           }
         });
       }

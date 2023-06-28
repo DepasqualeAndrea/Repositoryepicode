@@ -1,120 +1,299 @@
-<div class="container-fluid p-0">
-    <div class="top-bar-homepage">
-        <div class="netflix">
-            <div class="d-flex justify-content-around ">
-                <div class="mt-3">
-                    <img src="../../../assets/media/kisspng-netflix-streaming-media-television-show-logo-netflix-logo-5b35b03bb4e9d0.753613021530245179741.png"
-                        alt="" style="width: 200px;" [routerLink]="['/movies']">
+<ng-container *ngIf="login_page; else netflixIntro" >
+    <div class="container-fluid p-0">
+        <div class="top-bar-homepage">
+            <div class="netflix">
+                <div class="d-flex justify-content-around ">
+                    <div class="mt-3">
+                        <img src="../../../assets/media/kisspng-netflix-streaming-media-television-show-logo-netflix-logo-5b35b03bb4e9d0.753613021530245179741.png"
+                            alt="" style="width: 200px;" [routerLink]="['/movies']">
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-danger" id="sign-in" (click)="register()">Sign up</button>
+                    </div>
                 </div>
-                <div class="mt-3">
-                    <button class="btn btn-danger" id="sign-in" (click)="register()">Sign up</button>
+                <div class="text-white text-center align-items-bottom mt-5 pt-5">
+                    <h1 class="mt-5 title">
+                        Unlimited movies, Tv Shows, and more
+                    </h1>
+                    <div class="sub-title">
+                        <p>Watch everywhere. Cancel anytime.</p>
+                        <p>
+                            Ready to watch? Enter your email to create or restart your membership.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="text-white text-center align-items-bottom mt-5 pt-5">
-                <h1 class="mt-5 title">
-                    Unlimited movies, Tv Shows, and more
-                </h1>
-                <div class="sub-title">
-                    <p>Watch everywhere. Cancel anytime.</p>
-                    <p>
-                        Ready to watch? Enter your email to create or restart your membership.
-                    </p>
-                </div>
-            </div>
-            <div>
-                <div class="container">
-                    <ng-container *ngIf="login; else registrazione">
-                        <div class="login" #login>
-                            <form class="d-flex justify-content-center gap-3" #form="ngForm" (ngSubmit)="logIn(form)">
-                                <div class="label">
-                                    <div class="row mb-2">
-                                        <div class="col-md-12">
-                                            <input type="email" calss="form-control" id="inputEmail3" name="email"
-                                                placeholder="Email address" required ngModel>
+                <div>
+                    <div class="container">
+                        <ng-container *ngIf="login; else registrazione">
+                            <div class="login" #login>
+                                <form class="d-flex justify-content-center gap-3" #form="ngForm" (ngSubmit)="logIn(form)">
+                                    <div class="label">
+                                        <div class="row mb-2">
+                                            <div class="col-md-12">
+                                                <input type="email" calss="form-control" id="inputEmail3" name="email"
+                                                    placeholder="Email address" required ngModel>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-md-12">
+                                                <input type="password" calss="form-control text-light" id="inputPassword3"
+                                                    name="password" placeholder="password" required ngModel>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="row ">
-                                        <div class="col-md-12">
-                                            <input type="password" calss="form-control text-light" id="inputPassword3"
-                                                name="password" placeholder="password" required ngModel>
+                                    <div class="gap-3 d-flex align-items-center">
+                                        <div>
+                                            <button type="submit" class="btn btn-danger " [disabled]="form.invalid">Sign
+                                                in</button>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-danger" (click)="register()">Oppure
+                                                registrati ora!</button>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="gap-3 d-flex align-items-center">
-                                    <div>
-                                        <button type="submit" class="btn btn-danger " [disabled]="form.invalid">Sign
-                                            in</button>
+                                </form>
+                            </div>
+                        </ng-container>
+
+
+
+
+
+                        <!------   div sezione della pagina per la registrazione utente   ----->
+                        <ng-template #registrazione>
+                            <div class="form-registraizone">
+                                <form class="d-flex justify-content-center gap-3" #form="ngForm" (submit)="signUp(form)">
+                                    <div class="label">
+                                        <div class="row mb-2">
+                                            <div class="col-md-12">
+                                                <input type="text" calss="form-control" id="inputName" name="name"
+                                                    placeholder="Nome e Cognome" required ngModel>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-md-12">
+                                                <input type="email" calss="form-control" id="inputEmail3" name="email"
+                                                    placeholder="Email address" required ngModel>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="col-md-12">
+                                                <input type="password" calss="form-control text-light" id="inputPassword3"
+                                                    name="password" placeholder="password" required ngModel>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <button type="button" class="btn btn-danger" (click)="register()">Oppure
-                                            registrati ora!</button>
+                                    <div class="gap-3 d-flex align-items-center">
+                                        <div>
+                                            <button type="submit" class="btn btn-danger"
+                                                [disabled]="form.invalid">Registrati</button>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-danger" (click)="getSignIn()">Sign
+                                                in</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+            <section class="row bg-black text-end pt-3">
+                <div class="desktop-img">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <div class="text-start mx-5">
+                            <h3 class="section-title">Goditi Netflix sulla tua TV</h3>
+                            <div class="sub-sub">
+                                <p>Whatch on Smart TVs, Playstation, Xbox, Chromecast,<br>
+                                    Apple TV, Blu-ray players, and more,
+                                </p>
+                            </div>
                         </div>
-                    </ng-container>
-
-
-
-
-
-                    <!--------   div sezione della pagina per la registrazione utente   ------->
-                    <ng-template #registrazione>
-                        <div class="form-registraizone">
-                            <form class="d-flex justify-content-center gap-3" #form="ngForm" (submit)="signUp(form)">
-                                <div class="label">
-                                    <div class="row mb-2">
-                                        <div class="col-md-12">
-                                            <input type="text" calss="form-control" id="inputName" name="name"
-                                                placeholder="Nome e Cognome" required ngModel>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-2">
-                                        <div class="col-md-12">
-                                            <input type="email" calss="form-control" id="inputEmail3" name="email"
-                                                placeholder="Email address" required ngModel>
-                                        </div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-md-12">
-                                            <input type="password" calss="form-control text-light" id="inputPassword3"
-                                                name="password" placeholder="password" required ngModel>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gap-3 d-flex align-items-center">
-                                    <div>
-                                        <button type="submit" class="btn btn-danger"
-                                            [disabled]="form.invalid">Registrati</button>
-                                    </div>
-                                    <div>
-                                        <button type="button" class="btn btn-danger" (click)="getSignIn()">Sign
-                                            in</button>
-                                    </div>
-                                </div>
-                            </form>
+                        <div>
+                            <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt=""
+                                id="schermo-fake-png">
                         </div>
-                    </ng-template>
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
-        <section class="row bg-black text-end pt-3">
-            <div class="desktop-img">
-                <div class="d-flex align-items-center justify-content-center">
-                    <div class="text-start mx-5">
-                        <h3 class="section-title">Goditi Netflix sulla tua TV</h3>
-                        <div class="sub-sub">
-                            <p>Whatch on Smart TVs, Playstation, Xbox, Chromecast,<br>
-                                Apple TV, Blu-ray players, and more,
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt=""
-                            id="schermo-fake-png">
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
-</div>
+</ng-container>
+<ng-template #netflixIntro>
+    <div id="container">
+        <netflixintro letter="N">
+         <div class="helper-1">
+           <div class="effect-brush">
+             <span class="fur-31"></span>
+             <span class="fur-30"></span>
+             <span class="fur-29"></span>
+             <span class="fur-28"></span>
+             <span class="fur-27"></span>
+             <span class="fur-26"></span>
+             <span class="fur-25"></span>
+             <span class="fur-24"></span>
+             <span class="fur-23"></span>
+             <span class="fur-22"></span>
+             <span class="fur-21"></span>
+             <span class="fur-20"></span>
+             <span class="fur-19"></span>
+             <span class="fur-18"></span>
+             <span class="fur-17"></span>
+             <span class="fur-16"></span>
+             <span class="fur-15"></span>
+             <span class="fur-14"></span>
+             <span class="fur-13"></span>
+             <span class="fur-12"></span>
+             <span class="fur-11"></span>
+             <span class="fur-10"></span>
+             <span class="fur-9"></span>
+             <span class="fur-8"></span>
+             <span class="fur-7"></span>
+             <span class="fur-6"></span>
+             <span class="fur-5"></span>
+             <span class="fur-4"></span>
+             <span class="fur-3"></span>
+             <span class="fur-2"></span>
+             <span class="fur-1"></span>
+           </div>
+           <div class="effect-lumieres">
+             <span class="lamp-1"></span>
+             <span class="lamp-2"></span>
+             <span class="lamp-3"></span>
+             <span class="lamp-4"></span>
+             <span class="lamp-5"></span>
+             <span class="lamp-6"></span>
+             <span class="lamp-7"></span>
+             <span class="lamp-8"></span>
+             <span class="lamp-9"></span>
+             <span class="lamp-10"></span>
+             <span class="lamp-11"></span>
+             <span class="lamp-12"></span>
+             <span class="lamp-13"></span>
+             <span class="lamp-14"></span>
+             <span class="lamp-15"></span>
+             <span class="lamp-16"></span>
+             <span class="lamp-17"></span>
+             <span class="lamp-18"></span>
+             <span class="lamp-19"></span>
+             <span class="lamp-20"></span>
+             <span class="lamp-21"></span>
+             <span class="lamp-22"></span>
+             <span class="lamp-23"></span>
+             <span class="lamp-24"></span>
+             <span class="lamp-25"></span>
+             <span class="lamp-26"></span>
+             <span class="lamp-27"></span>
+             <span class="lamp-28"></span>
+           </div>
+         </div>
+         <div class="helper-2">
+           <div class="effect-brush">
+             <span class="fur-31"></span>
+             <span class="fur-30"></span>
+             <span class="fur-29"></span>
+             <span class="fur-28"></span>
+             <span class="fur-27"></span>
+             <span class="fur-26"></span>
+             <span class="fur-25"></span>
+             <span class="fur-24"></span>
+             <span class="fur-23"></span>
+             <span class="fur-22"></span>
+             <span class="fur-21"></span>
+             <span class="fur-20"></span>
+             <span class="fur-19"></span>
+             <span class="fur-18"></span>
+             <span class="fur-17"></span>
+             <span class="fur-16"></span>
+             <span class="fur-15"></span>
+             <span class="fur-14"></span>
+             <span class="fur-13"></span>
+             <span class="fur-12"></span>
+             <span class="fur-11"></span>
+             <span class="fur-10"></span>
+             <span class="fur-9"></span>
+             <span class="fur-8"></span>
+             <span class="fur-7"></span>
+             <span class="fur-6"></span>
+             <span class="fur-5"></span>
+             <span class="fur-4"></span>
+             <span class="fur-3"></span>
+             <span class="fur-2"></span>
+             <span class="fur-1"></span>
+           </div>
+         </div>
+         <div class="helper-3">
+           <div class="effect-brush">
+             <span class="fur-31"></span>
+             <span class="fur-30"></span>
+             <span class="fur-29"></span>
+             <span class="fur-28"></span>
+             <span class="fur-27"></span>
+             <span class="fur-26"></span>
+             <span class="fur-25"></span>
+             <span class="fur-24"></span>
+             <span class="fur-23"></span>
+             <span class="fur-22"></span>
+             <span class="fur-21"></span>
+             <span class="fur-20"></span>
+             <span class="fur-19"></span>
+             <span class="fur-18"></span>
+             <span class="fur-17"></span>
+             <span class="fur-16"></span>
+             <span class="fur-15"></span>
+             <span class="fur-14"></span>
+             <span class="fur-13"></span>
+             <span class="fur-12"></span>
+             <span class="fur-11"></span>
+             <span class="fur-10"></span>
+             <span class="fur-9"></span>
+             <span class="fur-8"></span>
+             <span class="fur-7"></span>
+             <span class="fur-6"></span>
+             <span class="fur-5"></span>
+             <span class="fur-4"></span>
+             <span class="fur-3"></span>
+             <span class="fur-2"></span>
+             <span class="fur-1"></span>
+           </div>
+         </div>
+         <div class="helper-4">
+           <div class="effect-brush">
+             <span class="fur-31"></span>
+             <span class="fur-30"></span>
+             <span class="fur-29"></span>
+             <span class="fur-28"></span>
+             <span class="fur-27"></span>
+             <span class="fur-26"></span>
+             <span class="fur-25"></span>
+             <span class="fur-24"></span>
+             <span class="fur-23"></span>
+             <span class="fur-22"></span>
+             <span class="fur-21"></span>
+             <span class="fur-20"></span>
+             <span class="fur-19"></span>
+             <span class="fur-18"></span>
+             <span class="fur-17"></span>
+             <span class="fur-16"></span>
+             <span class="fur-15"></span>
+             <span class="fur-14"></span>
+             <span class="fur-13"></span>
+             <span class="fur-12"></span>
+             <span class="fur-11"></span>
+             <span class="fur-10"></span>
+             <span class="fur-9"></span>
+             <span class="fur-8"></span>
+             <span class="fur-7"></span>
+             <span class="fur-6"></span>
+             <span class="fur-5"></span>
+             <span class="fur-4"></span>
+             <span class="fur-3"></span>
+             <span class="fur-2"></span>
+             <span class="fur-1"></span>
+           </div>
+         </div>
+       </netflixintro>
+     </div>
+</ng-template>
+
