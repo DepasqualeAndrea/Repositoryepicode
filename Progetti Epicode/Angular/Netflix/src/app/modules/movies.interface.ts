@@ -14,7 +14,7 @@ export interface Movies {
     poster_path: string,
     release_date: number,
     title: string,
-    video: boolean,
+    video: string,
     vote_average:number ,
     vote_count: number
 }

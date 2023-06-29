@@ -1,6 +1,4 @@
-
-
-<!--<ng-container *ngIf="login_page; else netflixIntro" >
+<ng-container *ngIf="login_page; else netflixIntro">
     <div class="container-fluid p-0">
         <div class="top-bar-homepage">
             <div class="netflix">
@@ -25,8 +23,10 @@
                     </div>
                 </div>
                 <div>
-                    <div class="container">
-                        <ng-container *ngIf="login; else registrazione">
+
+                    <!--form di login-->
+                   <div class="container">
+                         <ng-container *ngIf="login; else registrazione">
                             <div class="login" #login>
                                 <form class="d-flex justify-content-center gap-3" #form="ngForm" (ngSubmit)="logIn(form)">
                                     <div class="label">
@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="gap-3 d-flex align-items-center">
                                         <div>
-                                            <button type="submit" class="btn btn-danger " [disabled]="form.invalid">Sign
+                                            <button type="submit" class="btn btn-danger" [disabled]="form.invalid">Sign
                                                 in</button>
                                         </div>
                                         <div>
@@ -61,27 +61,21 @@
 
 
 
-                        ----   div sezione della pagina per la registrazione utente   --
-                        <ng-template #registrazione>
+                        <!------   div sezione della pagina per la registrazione utente   ----->
+                        <ng-template #registrazione >
                             <div class="form-registraizone">
                                 <form class="d-flex justify-content-center gap-3" #form="ngForm" (submit)="signUp(form)">
                                     <div class="label">
                                         <div class="row mb-2">
                                             <div class="col-md-12">
-                                                <input type="text" calss="form-control" id="inputName" name="name"
-                                                    placeholder="Nome e Cognome" required ngModel>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-md-12">
                                                 <input type="email" calss="form-control" id="inputEmail3" name="email"
-                                                    placeholder="Email address" required ngModel>
+                                                    placeholder="inserisci una email valida" required ngModel>
                                             </div>
                                         </div>
                                         <div class="row ">
                                             <div class="col-md-12">
                                                 <input type="password" calss="form-control text-light" id="inputPassword3"
-                                                    name="password" placeholder="password" required ngModel>
+                                                    name="password" placeholder="inserisci qui la tua password" required ngModel>
                                             </div>
                                         </div>
                                     </div>
@@ -91,8 +85,7 @@
                                                 [disabled]="form.invalid">Registrati</button>
                                         </div>
                                         <div>
-                                            <button type="button" class="btn btn-danger" (click)="getSignIn()">Sign
-                                                in</button>
+                                            <button type="button" class="btn btn-danger" (click)="getSignIn()">Torna al login</button>
                                         </div>
                                     </div>
                                 </form>
@@ -122,7 +115,7 @@
         </div>
     </div>
 </ng-container>
-<ng-template #netflixIntro>
+<ng-template #netflixIntro >
     <div id="container">
         <netflixintro letter="N">
          <div class="helper-1">
@@ -298,4 +291,3 @@
        </netflixintro>
      </div>
 </ng-template>
--->

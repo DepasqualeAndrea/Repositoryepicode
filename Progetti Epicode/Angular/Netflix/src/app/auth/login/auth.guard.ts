@@ -16,7 +16,7 @@ import { map, take } from 'rxjs/operators';
 export class AuthGuard implements CanActivate {
     constructor(private authService: AuthService, private router: Router) { }
 
-    canActivate(
+  /* canActivate(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ):
@@ -36,5 +36,21 @@ export class AuthGuard implements CanActivate {
                 return this.router.createUrlTree(['']);
             })
         );
-    }
+    }*/
+
+    canActivate(
+        route: ActivatedRouteSnapshot,
+        state: RouterStateSnapshot){
+            if (this.authService.isAutenticated()){
+                return true;
+            }else{
+                alert('Per visualizzare questa risorsa devi essere loggato!\nAccedi o registrati'
+                );
+                return this.router.createUrlTree([''])
+            }
+        }
+
+
 }
+
+

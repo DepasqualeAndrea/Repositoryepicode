@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+/*import { Injectable } from '@angular/core';
 import {
     HttpRequest,
     HttpHandler,
@@ -39,4 +39,4 @@ export class TokenInterceptor implements HttpInterceptor {
             return next.handle(this.newUtente);
         }));
     }
-}
+}*/

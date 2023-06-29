@@ -1,38 +1,39 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeMoviesComponent } from './components/home-movies/home-movies.component';
-import { LoginComponent } from './auth/login/login.component';
+//import { LoginComponent } from './auth/login/login.component';
 import { AuthGuard } from './auth/login/auth.guard';
 import { FavouritersPageComponent } from './components/favouriters.page/favouriters.page.component';
 import { InfoDettagliateComponent } from './components/info-dettagliate/info-dettagliate.component';
+import { SingUpComponent } from './auth/sing-up/sing-up.component';
 
 
 const routes: Routes = [
     {
         path: '',
-        component: LoginComponent,
+        component: SingUpComponent,
 
     },
     {
         path: 'movies',
         component: HomeMoviesComponent,
-        //canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
 
     },
     {
         path: 'users',
         component: HomeMoviesComponent,
-        //canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
     },
     {
         path: 'favourites',
         component: FavouritersPageComponent,
-        //canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
     },
     {
         path: 'info_services',
         component: InfoDettagliateComponent,
-        //canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
     }
 ];
 

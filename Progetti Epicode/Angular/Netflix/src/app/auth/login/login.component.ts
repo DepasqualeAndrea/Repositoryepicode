@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+/*import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../service/auth-service.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -75,3 +75,5 @@ export class LoginComponent implements OnInit {
         });
       }
 }
+*/
+//decommentare per usare il metodo di login con jtw e local storage & json

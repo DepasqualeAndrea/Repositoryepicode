@@ -69,7 +69,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Netflix:build:production"
+              "browserTarget": "Netflix:build:production",
+              "proxyConfig": "src../proxy.conf.json"
             },
             "development": {
               "browserTarget": "Netflix:build:development"
