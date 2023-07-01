@@ -1,0 +1,93 @@
+
+
+.container-card {
+    height: 80vw;
+    width: 100%;
+    z-index: 1;
+    padding: 10px;
+    margin: 0 !important;
+    overflow-x: hidden;
+
+    background: rgb(20, 20, 20);
+}
+#container_card{
+    background: rgb(20, 20, 20);
+    margin-top: 5%;
+    width: 100%;
+    display: flex;
+}
+#movie_list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    width: 98%;
+    box-sizing: border-box;
+    justify-items: left;
+}
+#scatola_magica{
+    margin-top: 100px;
+}
+
+.nav-link {
+    font-family: serif;
+    font-weight: 600;
+    cursor: pointer !important;
+}
+
+.navbar-nav {
+    cursor: pointer;
+}
+
+a {
+    cursor: pointer;
+}
+
+#top {
+    width: 3em;
+    height: 3em;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0px 3px 28px 13px #1d1d1ddc, 5px 1px 21px 3px #000000;
+    -moz-box-shadow: inset 0px 3px 28px 13px #1d1d1ddc, 5px 1px 21px 3px #000000;
+    -o-box-shadow: inset 0px 3px 28px 13px #1d1d1ddc, 5px 1px 21px 3px #000000;
+    box-shadow: inset 0px 3px 28px 13px #1d1d1ddc, 5px 1px 21px 3px #000000;
+}
+
+.description {
+    width: 25%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 1.5em;
+}
+
+.btn-light {
+    width: 160px;
+    font-size: 1.2em;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.btn-outline-secondary {
+    width: 160px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+}
+
+
+h2{
+    font-size: 2.5em;
+    width: 95%;
+    margin: 0 auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-weight: 600;
+}
+.favouriteMovie{
+    color: red;
+    background-color: red;
+}
+.video-container{
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+
+}
+
+

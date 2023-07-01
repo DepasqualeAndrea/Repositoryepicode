@@ -1,2 +1,42 @@
-<app-nav-bar></app-nav-bar>
-<ng-container ></ng-container>
+
+<div class="container-fluid p-0">
+    <app-nav-bar></app-nav-bar>
+    <div class="row p-0 m-0 justify-content-end" id="container_card">
+        <div id="scatola_magica">
+            <h2 class="p-0 mb-5 text-light">Preferiti</h2>
+        </div>
+
+        <div class=" mt-2 gap-4" style="margin-bottom: px;" id="movie_list">
+            <div class="poster_movies" *ngFor="let movie of most_watch; let i=index">
+                <ng-template [ngIf]="i < 20">
+                    <div class="card" id="copertina" style="width: 17.5em; border: hidden; margin: 10px;">
+                        <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
+                            class="card-img-top" alt="..." style=" aspect-ratio: 1/1.2;">
+                        <!-- <div class="card-body bg-dark p-0 d-flex justify-content-between">
+                           <div class="d-flex">
+                                <div>
+                                    <button class="btn text-secondary p-2 ms-2 " type="button"
+                                        style="font-size: 1.5em;"><i class="bi bi-hand-thumbs-up"></i>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button class="btn  text-secondary p-2" style="font-size: 1.5em;">
+                                        <i class="bi bi-info-circle me-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;"
+                                    (click)="getLiked(movie.id, user.user.id)"
+                                    [class.favouriteMovie]="favouriteCount(movie.id)"><i
+                                        class="bi bi-heart"></i></button>
+                            </div>
+                        </div>-->
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+
+    </div>
+</div>
+

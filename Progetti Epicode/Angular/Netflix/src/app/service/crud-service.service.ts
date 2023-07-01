@@ -27,30 +27,42 @@ export class CrudServiceService {
 
     constructor(private http: HttpClient, private authService: AuthService) { }
 
-    //getMovies(){
-    // return this.http.get<Movies[]>(`${this.baseURL}movies-popular`); //end point/upcoming, /popular, /latest, /top_rated , /now_playing (tmdb)
-    //}
-    getMovies() {
-        return this.http.get(`${this.baseURL}now_playing.json?auth=${this.authService.user!.token}`); //end point/upcoming, /popular, /latest, /top_rated , /now_playing (tmdb) //?auth=${this.authService.user!.token} codice per token verifica login per abilitare la get
-    }
-
-    getMoviesPopular(){
-        return this.http.get(`${this.baseURL}upcoming.json?auth=${this.authService.user!.token}`);
+    /*getMovies(){ //metodo con il local json
+      return this.http.get<Movies[]>(`${this.baseURL}movies-popular`); //end point/upcoming, /popular, /latest, /top_rated , /now_playing (tmdb)
      }
+    getMovies() {//metodo con api firebase
+         return this.http.get(`${this.baseURL}now_playing.json?auth=${this.authService.user!.token}`); //end point/upcoming, /popular, /latest, /top_rated , /now_playing (tmdb) //?auth=${this.authService.user!.token} codice per token verifica login per abilitare la get
+     }*/
 
-    getFavourites(){
-        return this.http.get(`${this.baseURL}piu_visti.json?auth=${this.authService.user!.token}`);
-    }
-    getToprated(){
-        return this.http.get(`${this.baseURL}movies-toprated.json?auth=${this.authService.user!.token}`);
+    getMovies() {
+        return this.http.get(`${this.TMDB}movie/upcoming?api_key=${this.ApyKey}`); //end point/upcoming, /popular, /latest, /top_rated , /now_playing (tmdb) //?auth=${this.authService.user!.token} codice per token verifica login per abilitare la get
     }
 
-    likeMovies(data: Favourites ){
+    getMoviesPopular() {
+        return this.http.get(`${this.TMDB}trending/movie/day?api_key=${this.ApyKey}`);
+    }
+
+    getFavourites() {
+        return this.http.get(`${this.TMDB}trending/all/week?api_key=${this.ApyKey}`);
+    }
+    getToprated() {
+        return this.http.get(`${this.TMDB}movie/top_rated?api_key=${this.ApyKey}`);
+    }
+    //get per i dettagli dei films
+
+    getMovieDetails(data: any){
+        return this.http.get(`${this.TMDB}movie/${data}?api_key=${this.ApyKey}`)
+    }
+    getMovieVideo(data: any){
+        return this.http.get(`${this.TMDB}movie/${data}/videos?api_key=${this.ApyKey}`)
+    }
+
+    likeMovies(data: Favourites) {
         return this.http.post<Favourites>(`http://localhost:4201/favorites`, data);
     }
 
-    deleteLikedMovies(userId: number ){
-       return this.http.delete(`http://localhost:4201/favorites/${userId}` );
+    deleteLikedMovies(userId: number) {
+        return this.http.delete(`http://localhost:4201/favorites/${userId}`);
     }
 
 

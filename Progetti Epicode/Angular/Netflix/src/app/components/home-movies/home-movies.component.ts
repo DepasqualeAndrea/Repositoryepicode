@@ -18,18 +18,21 @@ export class HomeMoviesComponent implements OnInit {
 
 
     sub!: Subscription;
-    newMovies: Movies[] | undefined;
-    newFavourites: FavouritesMovies[] | undefined;
-    filmLiked: Favourites[] | undefined;
-    newLikedYet!: Favourites | null;
+   // newMovies: Movies[] | undefined;
+    //newFavourites: FavouritesMovies[] | undefined;
+    //filmLiked: Favourites[] | undefined;
+    //newLikedYet!: Favourites | null;
     loadIntro = true;
+
+
+
     number = Math.floor(Math.random() * 10) + 1;
     in_trending: any;
     upcoming: any
     most_watch: any;
     top_rated: any;
 
-    user!: AuthInterface | null;
+    user!: AuthInterface;
 
     constructor(private http: CrudServiceService, private authService: AuthService, private route: Router) {
 
@@ -38,30 +41,35 @@ export class HomeMoviesComponent implements OnInit {
 
     ngOnInit(): void {
 
+       // Object.keys(trend).map((key) => {
+       //     trend[key]['id'] = key
+       //     return trend[key];
+       // })
 
         this.sub! = this.http.getMovies().subscribe((trend: any) => {
-            this.in_trending = trend
+            this.in_trending = trend.results
             console.log(this.in_trending);
         });
 
         this.sub! = this.http.getMoviesPopular().subscribe((popular: any) => {
-            this.upcoming = popular;
+            this.upcoming = popular.results
             console.log(this.upcoming);
 
         })
 
         this.sub! = this.http.getFavourites().subscribe((watched: any) => {
-            this.most_watch = watched;
+            this.most_watch = watched.results
             console.log(this.most_watch);
         })
+
         this.sub! = this.http.getToprated().subscribe((top: any) => {
-            this.top_rated = top;
+            this.top_rated = top.results
             console.log(this.top_rated);
         })
 
     }
 
-   getLiked(movieId: number, userId: number) {
+   /*getLiked(movieId: number, userId: number) {
         const userID = this.authService.getUserId();
         const likedDone = this.filmLiked!.find(
             (fav) => fav.userId === userId && fav.movieId === movieId
@@ -99,7 +107,7 @@ export class HomeMoviesComponent implements OnInit {
         const userId = this.authService.getUserId();
         return !!this.filmLiked?.find((favour) => favour.userId === userId && favour.movieId === movieId)
     }
-
+*/
 
 
 

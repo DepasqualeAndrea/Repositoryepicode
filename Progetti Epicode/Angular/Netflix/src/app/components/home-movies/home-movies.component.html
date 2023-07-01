@@ -1,4 +1,4 @@
-<div class="container-fluid p-0">
+<div class="container-fluid p-0 m-0">
     <app-nav-bar></app-nav-bar>
     <div class="row">
         <div class="hero-section" *ngFor="let movie of most_watch; let i = index">
@@ -47,140 +47,215 @@
                         </div>
 
                     </div>
-                    <div class="container-card  container-fluid text-light mt-5 p-0">
+                    <div class="container-card  container-fluid p-0">
                         <div id="scatola_magica">
-                            <h2 class="p-0">Top films </h2>
+                            <h2 class=" text-light">Top Ten in Italia</h2>
                         </div>
-                        <div class=" mt-2 d-flex container justify-content-center" style="margin-bottom: 60px;">
-                            <div class="poster_movies" *ngFor="let movie of in_trending; let i=index">
-                                <ng-template [ngIf]="i < 7">
-                                    <div class="card" id="copertina" style="width: 15em; border: hidden; margin: 10px;">
-                                        <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
-                                            class="card-img-top" alt="..." style=" aspect-ratio: 1/1.2;">
-                                        <div class="card-body bg-dark p-0 d-flex justify-content-between">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <button class="btn text-secondary p-2 ms-2 " type="button"
-                                                        style="font-size: 1.5em;"><i class="bi bi-hand-thumbs-up"></i>
-                                                    </button>
+                        <div class="row" id="content">
+                            <div class="poster_movies">
+                                <ng-container *ngFor="let movie of in_trending; let i = index">
+                                    <ng-template id="poster_movies" [ngIf]="i <= 10">
+                                        <div>
+                                            <div class="me-4 d-flex justify-content-center align-content-center">
+                                                <div class="d-flex align-content-center">
+                                                    <div class="orderList ">
+                                                        <p style="text-shadow: 0px  -10px 0px #595959;">{{i}}</p>
+                                                    </div>
+                                                    <div class="square one justify-content-start d-flex flex-column">
+                                                        <div>
+                                                            <img class="cover p-0 m0"
+                                                                src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}">
+                                                        </div>
+                                                        <div class="text p-1 m-0">
+                                                            <div class="card-bodyp-0 d-flex justify-content-between">
+                                                                <div class="d-flex">
+                                                                    <div>
+                                                                        <button class="btn text-secondary p-2 ms-2 "
+                                                                            type="button" style="font-size: 1.5em;"><i
+                                                                                class="bi bi-hand-thumbs-up"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <button class="btn  text-secondary p-2"
+                                                                            style="font-size: 1.5em;">
+                                                                            <i class="bi bi-info-circle me-2"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <button class="btn text-secondary p-2 me-2"
+                                                                        style="font-size: 1.5em;"><i
+                                                                            class="bi bi-heart"></i></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <button class="btn  text-secondary p-2" style="font-size: 1.5em;">
-                                                        <i class="bi bi-info-circle me-2"></i>
-                                                    </button>
-                                                </div>
+
+
+
+                                                <!--<div class="container">
+                                                        <a href="#" class="item">
+                                                            <img
+                                                                src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
+                                                                alt="top-10"></a>
+
+                                                    </div>-->
                                             </div>
-                                            <div>
-                                                <!--<button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;"
-                                                    (click)="getLiked(movie.id, user.user.id)"
-                                                    [class.favouriteMovie]="favouriteCount(movie.id)"><i
-                                                        class="bi bi-heart"></i></button>-->
-                                            </div>
+
                                         </div>
-                                    </div>
-                                </ng-template>
+                                    </ng-template>
+
+                                </ng-container>
                             </div>
                         </div>
 
                         <div id="scatola_magica">
-                            <h2 class="p-0 mb-2 mt-2">I piu popolari</h2>
+                            <h2 class="p-0 mb-2 mt-2 text-light">I piu popolari</h2>
                         </div>
-                        <div class=" mt-2 d-flex container justify-content-center" style="margin-bottom: 100px;">
-                            <div class="poster_movies" *ngFor="let movie of most_watch; let i=index">
-                                <ng-template [ngIf]="i < 7">
-                                    <div class="card" id="copertina" style="width: 15em; border: hidden; margin: 10px;">
-                                        <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
-                                            class="card-img-top" alt="..." style=" aspect-ratio: 1/1.2;">
-                                        <div class="card-body bg-dark p-0 d-flex justify-content-between">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <button class="btn text-secondary p-2 ms-2 " type="button"
-                                                        style="font-size: 1.5em;"><i class="bi bi-hand-thumbs-up"></i>
-                                                    </button>
+                        <div class="row p-2  mt-2 justify-items-center" id="content">
+                            <div class="poster_movies1 gap-4">
+                                <ng-container *ngFor="let movie of most_watch">
+                                    <div class="me-4 d-flex justify-content-center align-content-center">
+                                        <div class="d-flex align-content-center">
+                                            <div class="square1 one1 justify-content-start d-flex flex-column">
+
+                                                    <img class="cover1 p-0 m0"
+                                                        src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" style="width: 22em;">
+
+                                                <div class="text1 p-1 m-0">
+                                                    <div class="card-bodyp-0 d-flex justify-content-between">
+                                                        <div class="d-flex">
+                                                            <div>
+                                                                <button class="btn text-secondary p-2 ms-2 "
+                                                                    type="button" style="font-size: 1.5em;"><i
+                                                                        class="bi bi-hand-thumbs-up"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button class="btn  text-secondary p-2"
+                                                                    style="font-size: 1.5em;">
+                                                                    <i class="bi bi-info-circle me-2"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <button class="btn text-secondary p-2 me-2"
+                                                                style="font-size: 1.5em;"><i
+                                                                    class="bi bi-heart"></i></button>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <button class="btn  text-secondary p-2" style="font-size: 1.5em;">
-                                                        <i class="bi bi-info-circle me-2"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <!--<button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;"
-                                                    (click)="getLiked(movie.id, user.user.id)"
-                                                    [class.favouriteMovie]="favouriteCount(movie.id)"><i
-                                                        class="bi bi-heart"></i></button>-->
                                             </div>
                                         </div>
+
+
+
+                                        <!--<div class="container">
+                                                <a href="#" class="item">
+                                                    <img
+                                                        src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
+                                                        alt="top-10"></a>
+
+                                            </div>-->
                                     </div>
-                                </ng-template>
+
+                                </ng-container>
                             </div>
                         </div>
 
                         <div id="scatola_magica">
-                            <h2 class="p-0">Da Rivedere</h2>
+                            <h2 class="p-0 text-light">Da Rivedere</h2>
                         </div>
-                        <div class=" mt-2 d-flex container justify-content-center" style="margin-bottom: 60px;">
-                            <div class="poster_movies" *ngFor="let movie of upcoming; let i=index">
-                                <ng-template [ngIf]="i < 7">
-                                    <div class="card" id="copertina" style="width: 15em; border: hidden; margin: 10px;">
-                                        <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
-                                            class="card-img-top" alt="..." style=" aspect-ratio: 1/1.2;">
-                                        <div class="card-body bg-dark p-0 d-flex justify-content-between">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <button class="btn text-secondary p-2 ms-2 " type="button"
-                                                        style="font-size: 1.5em;"><i class="bi bi-hand-thumbs-up"></i>
-                                                    </button>
-                                                </div>
-                                                <div>
-                                                    <button class="btn  text-secondary p-2" style="font-size: 1.5em;">
-                                                        <i class="bi bi-info-circle me-2"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <!--<button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;"
-                                                    (click)="getLiked(movie.id, user.user.id)"
-                                                    [class.favouriteMovie]="favouriteCount(movie.id)"><i
-                                                        class="bi bi-heart"></i></button>-->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ng-template>
-                            </div>
-                        </div>
+                        <div class="row container-fluid p-2  mt-2" id="content">
+                            <div class="poster_movies1 gap-4">
+                                <ng-container *ngFor="let movie of upcoming">
+                                    <div class="me-4 d-flex justify-content-center align-content-center">
+                                        <div class="d-flex align-content-center">
+                                            <div class="square1 one1 justify-content-start d-flex flex-column">
 
-                        <div id="scatola_magica">
-                            <h2 class="p-0">Top Rated</h2>
-                        </div>
-                        <div class=" mt-2 d-flex container justify-content-center" style="margin-bottom: 60px;">
-                            <div class="poster_movies" *ngFor="let movie of top_rated; let i=index">
-                                <ng-template [ngIf]="i < 7">
-                                    <div class="card" id="copertina" style="width: 15em; border: hidden; margin: 10px;">
-                                        <img src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
-                                            class="card-img-top" alt="..." style=" aspect-ratio: 1/1.2;">
-                                        <div class="card-body bg-dark p-0 d-flex justify-content-between">
-                                            <div class="d-flex">
-                                                <div>
-                                                    <button class="btn text-secondary p-2 ms-2 " type="button"
-                                                        style="font-size: 1.5em;"><i class="bi bi-hand-thumbs-up"></i>
-                                                    </button>
-                                                </div>
-                                                <div>
-                                                    <button class="btn  text-secondary p-2" style="font-size: 1.5em;">
-                                                        <i class="bi bi-info-circle me-2"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <!--<button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;"
+                                                    <img class="cover1 p-0 m0"
+                                                        src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" style="width: 22em;">
+
+                                                <div class="text1 p-1 m-0">
+                                                    <div class="card-bodyp-0 d-flex justify-content-between">
+                                                        <div class="d-flex">
+                                                            <div>
+                                                                <button class="btn text-secondary p-2 ms-2 "
+                                                                    type="button" style="font-size: 1.5em;"><i
+                                                                        class="bi bi-hand-thumbs-up"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button class="btn  text-secondary p-2"
+                                                                    style="font-size: 1.5em;">
+                                                                    <i class="bi bi-info-circle me-2"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <!--<button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;"
                                                     (click)="getLiked(movie.id, user.id)"
                                                     [class.favouriteMovie]="favouriteCount(movie.id)"><i
                                                         class="bi bi-heart"></i></button>-->
+                                                            <button class="btn text-secondary p-2 me-2"
+                                                                style="font-size: 1.5em;"><i
+                                                                    class="bi bi-heart"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </ng-template>
+
+                                </ng-container>
+                            </div>
+                        </div>
+
+                        <div id="scatola_magica">
+                            <h2 class="p-0 mb-3 text-light">Top Rated</h2>
+                        </div>
+                        <div class="row container-fluid p-2  mt-2" id="content">
+                            <div class="poster_movies1 gap-4">
+                                <ng-container *ngFor="let movie of top_rated">
+                                    <div class="me-4 d-flex justify-content-center align-content-center">
+                                        <div class="d-flex align-content-center">
+                                            <div class="square1 one1 justify-content-start d-flex flex-column">
+
+                                                    <img class="cover1 p-0 m0"
+                                                        src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" style="width: 22em;">
+
+                                                <div class="text1 p-1 m-0">
+                                                    <div class="card-bodyp-0 d-flex justify-content-between">
+                                                        <div class="d-flex">
+                                                            <div>
+                                                                <button class="btn text-secondary p-2 ms-2 "
+                                                                    type="button" style="font-size: 1.5em;"><i
+                                                                        class="bi bi-hand-thumbs-up"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button class="btn  text-secondary p-2"
+                                                                    style="font-size: 1.5em;">
+                                                                    <i class="bi bi-info-circle me-2"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <!--<button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;"
+                                                    (click)="getLiked(movie.id, user.id)"
+                                                    [class.favouriteMovie]="favouriteCount(movie.id)"><i
+                                                        class="bi bi-heart"></i></button>-->
+                                                            <button class="btn text-secondary p-2 me-2"
+                                                                style="font-size: 1.5em;"><i
+                                                                    class="bi bi-heart"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
                             </div>
                         </div>
                     </div>

@@ -53,19 +53,15 @@ export class SingUpComponent implements OnInit {
             localStorage.setItem('user', JSON.stringify(this.authService.user))
 
             console.log(this.authService.user);
-            if (data){
+            if (!data) {
+                alert('login failed with error: \n Le credenziali non sono corrette!')
+            }else if (data){
                 alert('Login Effettuato');
                 this.login_page = false;
-            setTimeout(() => {
-                this.router.navigate(['movies']);
-                this.netflixIntro = true;
-            }, 5000);
-            } else {
-                catchError(error => {
-                    console.error(error);
-                    alert('Login Fallito');
-                    return of (null);
-                  })
+                setTimeout(() => {
+                    this.router.navigate(['movies']);
+                    this.netflixIntro = true;
+                }, 5000);
             }
         });
         form.reset();

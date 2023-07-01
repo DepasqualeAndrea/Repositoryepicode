@@ -7,7 +7,10 @@
     margin: 0;
 }
 a{
-    color: white;
+    transition: transform .2s;
+}
+a:hover{
+    transform: scale(1.5);
 }
 .navbar{
     background: rgb(200,195,195);
