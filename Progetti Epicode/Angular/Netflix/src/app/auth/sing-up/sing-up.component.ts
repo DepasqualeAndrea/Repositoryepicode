@@ -34,6 +34,7 @@ export class SingUpComponent implements OnInit {
         console.log(email, password);
         this.authService.signup(email, password).subscribe(data => {
             console.log(data);
+            this.login = false;
         });
         form.reset();
 
@@ -46,6 +47,7 @@ export class SingUpComponent implements OnInit {
         const password = form.value.password;
         console.log(email, password);
         this.authService.signIn(email, password).subscribe((data: any) => {
+
             console.log(data);
 
             const expirationDate = new Date(new Date().getTime() + data.expiresIn * 1000);
@@ -54,8 +56,8 @@ export class SingUpComponent implements OnInit {
 
             console.log(this.authService.user);
             if (!data) {
-                alert('login failed with error: \n Le credenziali non sono corrette!')
-            }else if (data){
+                alert('login failed')
+            }else{
                 alert('Login Effettuato');
                 this.login_page = false;
                 setTimeout(() => {
@@ -63,7 +65,27 @@ export class SingUpComponent implements OnInit {
                     this.netflixIntro = true;
                 }, 5000);
             }
+        })
+        console.log(form.value);
+
+       /* this.authService.signIn(email.value, password.value).pipe(
+          catchError(error => {
+            console.error(error);
+            alert('Login Fallito');
+            return of (null);
+          })
+        ).subscribe(response => {
+          if (response) {
+            alert('Login Effettuato');
+            this.login_page = false;
+            setTimeout(() => {
+                this.router.navigate(['movies']);
+                this.netflixIntro = true;
+            }, 5000);
+          }
         });
-        form.reset();
+         form.reset();
+      }*/
+
     }
 }

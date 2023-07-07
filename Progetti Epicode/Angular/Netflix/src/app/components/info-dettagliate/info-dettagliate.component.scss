@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,700|Montserrat|Nunito+Sans:400,700');
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css);
+@import '~bootstrap/dist/css/bootstrap.min.css';
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+$main-color: #ec2416;
+$main-colorAdd: #4CAF50;
+#background{
+    //background-attachment: fixed;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('https://image.tmdb.org/t/p/original/k2dvD8ijfpxMKwZJyodBzAXh8uT.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat ;
+  opacity: .9 ;
+  //z-index: 0;
+}
+.card-container{
+  //background: red;
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  //320 480 768 992 1200
+  /* Custom, iPhone Retina */
+    @media only screen and (min-width : 320px)     {
+      flex-wrap: wrap;
+    }
+    /* Extra Small Devices, Phones */
+    @media only screen and (min-width : 480px)     {
+      flex-wrap: nowrap;
+    }
+
+    align-items: center;
+    width: 69%;
+    height: 75%;
+    //border: 2px solid red;
+    box-shadow: 2px 5px 15px 1px #04060a;
+}
+.poster-container{
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  //box-shadow: 5px 0px 20px 0px #0e0c0c;
+}
+#poster{
+  //border: 2px solid green;
+  -webkit-filter: contrast(120%);
+  //-webkit-filter: brightness(150%);
+  //-webkit-filter: saturate(2);
+
+  transform: scale(1.5);
+  transform-origin: 70% 19%;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://pitchfork-cdn.s3.amazonaws.com/content/ST-Vinyl-Vol-1-Front-Cover_3000.jpg') ;
+  background-size: cover;
+  background-position: 50% 50%;
+  //background-repeat: no-repeat;
+  //box-shadow: 2px 5px 15px 1px #04060a;
+}
+.card-description{
+  .logo-container{
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    position: relative;
+      .logo{
+      width: 5em;
+      height: 8em;
+      background-image: url('../../../assets/media/PngItem_1041504.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      }
+  }
+
+  letter-spacing: .3em;
+  background: transparent;
+  padding: 3em;
+  line-height: 2em;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  p,.rating,.buttons{
+    margin-top: .4em;
+    margin-bottom: .4em;
+  }
+  p{
+    font-size: 1em;
+    letter-spacing: 2px;
+  }
+  .rating{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+  }
+  .span{
+    color: $main-color;
+    font-weight: 700;
+  }
+  label{
+    font-family: FontAwesome;
+    font-size: 1.4em;
+    color: #ffd700;
+    &:before{
+      content: "\f005";
+    }
+  }
+  .buttons{
+    padding-top: .5em;
+    padding-bottom: .5em;
+    //font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    .button{
+      transition:.4s;
+      cursor: pointer;
+      padding-right:1.2em ;
+      padding-left: 1.2em;
+      padding: 1.6em;
+      display:flex;
+      align-content: center;
+      align-items: center;
+      justify-content:space-between;
+      letter-spacing: initial;
+      border: 2px solid white;
+      //background:none;
+      color:white;
+      border-radius: 11px;
+      height: 40px;
+    }
+
+    .play{
+      border:none;
+      background: $main-color;
+      width: 35%;
+      &:after{
+        font-family: FontAwesome;
+        font-size:1.5em;
+
+        font-weight:lighter;
+        content: "\f04b";
+      }
+    }
+    //rogergcc
+    .add{
+      &:hover{
+        border:2px solid $main-color;
+        color:$main-color;
+      }
+      width: 55%;
+      &:before{
+        font-family: FontAwesome;
+        font-size:1.5em;
+        font-weight:lighter;
+        content: "\f067";
+      }
+    }
+
+  }
+}
+
+.modal .show{
+    display: block;
+    height: 100vw;
+}
+#staticBackdrop{
+    width: 100%;
+}
+.text {
+    color: #fff;
+    z-index: 10;
+    margin: 0 auto;
+    position: absolute;
+    top: 410px;
+    left: 40px;
+
+
+    h1 {
+        font-size: 5em;
+    }
+
+    p {
+        font-size: 0.6;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        line-height: 1.2;
+        line-break: strict;
+        letter-spacing: 2px;
+    }
+}
+
+.logo {
+    width: 1.5rem;
+}
+.btn-light {
+    width: 150px;
+
+    font-size: 1.2em;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.btn-outline-secondary {
+    width: 150px;
+    font-size: 1.2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+}
+#modal_img{
+    width: 100%;
+    object-fit: cover;
+    padding: 0;
+    z-index: -1;
+}
+.modal-footer{
+    border: hidden;
+    background: #141414;
+    width: 100%;
+}
+.bottom{
+    position:absolute;
+    bottom: 15%;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(to bottom, transparent, #141414);
+}
+.btn-close{
+    font-size: 1.2em;
+    background: #000000;
+    border-radius: 50%;
+    padding: 10px;
+    position: absolute;
+    z-index: 10;
+    right: 10px;
+    top: 10px;
+
+}
+.modal-content {
+    background-color:  #141414;
+}
+.bi-x-lg{
+    color: #fff;
+    font-size: 1.5em;
+
+}
+.btn-close:hover{
+    color: #fff;
+}
+.matched{
+    font-family: 'Nunito Sans', sans-serif;
+    span{
+        color: #fff;
+        font-size: 1.2em;
+    }
+    .limited{
+            font-family:cursive ;
+        }
+
+}
+.generi{
+    font-weight: 600;
+
+}
+.descrizione-modal{
+    font-weight: 400;
+    color: #fff;
+    font-size: 1.2em;
+}
+.card-img-fluid{
+    border: hidden;
+    object-fit: cover;
+}
+.card{
+    background-color:#383737 ;
+    color: #fff;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+    .bi-plus-circle{
+        font-size: 2em;
+    }
+}
+.film-suggested{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 700;
+    .card-box-container{
+        font-family: 'Nunito Sans', sans-serif;
+        font-weight: 600;
+    }
+}
+
+.card-body {
+   p{
+    white-space: wrap;
+    overflow-x: hidden;
+    display: inline-block;
+    max-inline-size: 300px;
+    height: 100px;
+    text-overflow: ellipsis;
+   }
+    }

@@ -1,44 +1,80 @@
-<nav class="navbar navbar-expand-lg p-0 fixed-top" [ngStyle]="navbg">
-    <div class="container-fluid gap-4 mx-5 my-1" >
-        <div class="p-2 " >
+<nav class="navbar navbar-expand-lg p-0 fixed-top m-0" [ngStyle]="navbg">
+    <div class="container-fluid gap-4 m-0 p-0">
+        <div class="p-2  mx-3">
             <img src="../../../assets/media/kisspng-netflix-streaming-media-television-show-logo-netflix-logo-5b35b03bb4e9d0.753613021530245179741.png"
                 alt="" style="width: 120px;" [routerLink]="['/movies']">
         </div>
-        <div class="collapse navbar-collapse text-white" id="navbarNav" >
+        <div class="collapse navbar-collapse text-white" id="navbarNav">
             <ul class="navbar-nav gap-3">
-              <li class="nav-item">
-                <a class="nav-link text-white" aria-current="page" [routerLink]="['/movies']" routerLinkActive="active">Home</a>
-              </li>
-              <li class="">
-                <a class="nav-link text-white" aria-current="page" [routerLink]="['/movies']" routerLinkActive="active">Serie TV</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" aria-current="page" [routerLink]="['/movies']" routerLinkActive="active">Film</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white " aria-current="page" [routerLink]="['/movies']" routerLinkActive="active">Nuovi e popolari</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" aria-current="page" [routerLink]="['/info-movies']" routerLinkActive="active">la mia lista</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" [routerLink]="['/favourites']" routerLinkActive="active">Preferiti</a>
-              </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" aria-current="page" [routerLink]="['/movies']"
+                        routerLinkActive="active" (click)="searchContent=false">Home</a>
+                </li>
+                <li class="">
+                    <a class="nav-link text-white" aria-current="page" [routerLink]="['/movies']"
+                        routerLinkActive="active">Serie TV</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" aria-current="page" [routerLink]="['/movies']"
+                        routerLinkActive="active">Film</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " aria-current="page" [routerLink]="['/movies']"
+                        routerLinkActive="active">Nuovi e popolari</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" aria-current="page" [routerLink]="['/info-movies']"
+                        routerLinkActive="active">la mia lista</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" [routerLink]="['/favourites']"
+                        routerLinkActive="active">Preferiti</a>
+                </li>
             </ul>
-          </div>
+        </div>
 
-      <form class="d-flex align-items-center gap-4 p-2" role="search">
-        <div class="text-light">
-            <i class="bi bi-search text-light" id="search"></i>
-        </div>
-        <div class="text-light">
-            <i class="bi bi-bell-fill" id="bell"></i>
-        </div>
-        <div>
-            <button class="btn btn-danger p-3" type="submit" (click)="logOut()">log out</button>
-        </div>
-      </form>
+        <form class="d-flex align-items-center gap-4 p-2 mx-3" role="search" [formGroup]="searchForm"
+            (ngSubmit)="submitForm()">
+            <div class="text-light">
+                <div class="search d-flex align-items-center" style="border: 1px solid #fff;">
+                    <div>
+                        <button class="bi bi-search"
+                            style="background: transparent; border: hidden; color: white; padding: 10px;" (click)=" searchContent=true"></button>
+                    </div>
+                    <div>
+                        <input class="input p-0" type="text" placeholder="Titles, people, genres" style="width: 100px; "
+                            formControlName="movieName" [routerLink]="['/nav-bar']" (click)="searchContent=true">
+                    </div>
+                </div>
+            </div>
+            <div class="text-light">
+                <i class="bi bi-bell-fill" id="bell"></i>
+            </div>
+            <div>
+                <button class="btn btn-danger p-3" type="submit" (click)="logOut()">log out</button>
+            </div>
+        </form>
     </div>
-  </nav>
+</nav>
 
+<div style="margin-top: 200px;" class="searchContent" *ngIf="searchContent">
+    <div class=" text-light mb-4">
+        <h1 style="font-size: 4em; margin: 0 auto; width: 80%;">Results:</h1>
+    </div>
+    <div class="card-box-container d-flex flex-wrap gap-3 justify-content-start" style="width: 80%; margin: 0 auto;">
+        <div *ngFor="let movie of searched">
+            <div class="card" style="width: 22rem; border:hidden;" [routerLink]="['/info_services', movie.id]">
+                <img src="https://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}" class="card-img-fluid" alt="...">
+                <div class="card-body">
+                    <div class="text-end">
+                        <i class="bi bi-plus-circle"></i>
+                    </div>
+                    <h5 class="card-title">{{movie.title}}</h5>
+                    <p class="card-text" id="trance">{{movie.overview}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 

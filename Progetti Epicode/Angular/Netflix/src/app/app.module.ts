@@ -11,8 +11,8 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { FavouritersPageComponent } from './components/favouriters.page/favouriters.page.component';
 import { InfoDettagliateComponent } from './components/info-dettagliate/info-dettagliate.component';
 import { SingUpComponent } from './auth/sing-up/sing-up.component';
-
-
+import {  SlickCarouselModule } from 'ngx-slick-carousel';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -30,6 +30,8 @@ import { SingUpComponent } from './auth/sing-up/sing-up.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    SlickCarouselModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

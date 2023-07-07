@@ -1,1 +1,42 @@
-<p>info-dettagliate works!</p>
+<app-nav-bar ></app-nav-bar>
+<div *ngFor="let d of details">
+    <img src="http://image.tmdb.org/t/p/w500{{d.backdrop_path}}" alt="">
+</div>
+<div id="background">
+    <article class="card-container">
+        <div class="poster-container">
+            <div id="poster" >
+            </div>
+        </div>
+
+        <div class="card-description">
+            <div class="logo-container">
+                <div class="logo">
+                </div>
+            </div>
+            <h2></h2>
+            <p class="rating">
+                <span>
+                    <label></label>
+                    <label></label>
+                    <label></label>
+                    <label></label>
+                    <label></label>
+                </span>
+                <span></span>
+                <span>2016</span>
+                <span>2h 13m</span>
+            </p>
+            <p>
+            </p>
+
+            <p><span class="span">Starring:</span> Winona Ryder, David Harbour, Finn Wolfhard... </p>
+            <p><span class="span">Directed by:</span> The Duffer Brothers</p>
+            <div class="buttons">
+                <div class="button play">PLAY NOW</div>
+
+                <div class="button add">ADD TO WATCHLIST</div>
+            </div>
+        </div>
+    </article>
+</div>

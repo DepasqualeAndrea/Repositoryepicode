@@ -16,4 +16,75 @@ a:hover{
     background: rgb(200,195,195);
     background: linear-gradient(0deg, rgba(200,195,195,0) 6%, rgba(0,0,0,0.9445903361344538) 78%);
 }
+.search {
+    right: 180px;
+    top: 18px;
+    position: absolute;
+    display: inline-block;
+    input {
+      width: 0px;
+      height: 34px;
+      background-color: transparent;
+      box-shadow: none;
+      color: #fff;
+      border: 1px solid transparent;
+      outline: none;
+      padding-left: 35px;
+      font-size: 16px;
+      transition: 0.3s ease all;
+      &.toggle {
+        width: 240px;
+        border-color: #fff;
+      }
+    }
+    i {
+      width: 18px;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+    }
+  }
+  .descrizione-modal{
+    font-weight: 400;
+    color: #fff;
+    font-size: 1.2em;
+}
+.card-img-fluid{
+    border: hidden;
+    object-fit: cover;
+}
+.card{
+    background-color:#383737 ;
+    color: #fff;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+    .bi-plus-circle{
+        font-size: 2em;
+    }
+}
+.film-suggested{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 700;
+    .card-box-container{
+        font-family: 'Nunito Sans', sans-serif;
+        font-weight: 600;
+    }
+}
+
+.card-body {
+   p{
+    white-space: wrap;
+    overflow-x: hidden;
+    display: inline-block;
+    max-inline-size: 300px;
+    height: 100px;
+    text-overflow: ellipsis;
+   }
+    }
+
+.searchContent{
+    display: block;
+}
 

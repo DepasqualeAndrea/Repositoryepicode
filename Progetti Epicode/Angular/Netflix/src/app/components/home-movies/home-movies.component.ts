@@ -1,13 +1,18 @@
 import { Component, NgModule, OnInit, SchemaMetadata } from '@angular/core';
 import { CrudServiceService } from 'src/app/service/crud-service.service';
-import { Subscription, min } from 'rxjs';
+import { Subscription, min, pluck, switchMap } from 'rxjs';
 import { Movies } from 'src/app/modules/movies.interface';
 import { Favourites } from 'src/app/modules/favourites.interface';
 import { AuthService } from 'src/app/service/auth-service.service';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthInterface } from 'src/app/auth/login/auth-interface.interface';
 import { FavouritesMovies } from 'src/app/modules/favourites-movies.interface';
+import { visitAll } from '@angular/compiler';
+import { FormControl, FormGroup } from '@angular/forms';
 //import { LoginComponent } from 'src/app/auth/login/login.component';
+//declare function getScrollVal(): any
+///declare function scrollR(): any
+//declare function scrollL(): any
 @Component({
     selector: 'app-home-movies',
     templateUrl: './home-movies.component.html',
@@ -15,10 +20,52 @@ import { FavouritesMovies } from 'src/app/modules/favourites-movies.interface';
 })
 export class HomeMoviesComponent implements OnInit {
 
+    slideConfig = {
+        "slidesToShow": 5,
+        "slidesToScroll": 5,
+        "autoplay": true,
+        "speed": 1000,
+        "autoplaySpeed": 3000,
+        "pauseOnOver": true,
+        "infinite": true,
+        "arrows": true,
+        "responsive": [{
+            "breakpoint": 992,
+            "settings": {
+                "arrows": true,
+                "infinite": true,
+                "slideToShow": 4,
+                "slideToScroll": 4,
+            }
+        },
+        {
+            "breakpoint": 768,
+            "settings": {
+                "arrows": true,
+                "infinite": true,
+                "slideToShow": 3,
+                "slideToScroll": 3,
+            }
+        },
+        {
+            "breakpoint": 567,
+            "settings": {
+                "arrows": true,
+                "infinite": true,
+                "slideToShow": 2,
+                "slideToScroll": 2,
+            }
+        }]
+    }
+
+
+
+
+
 
 
     sub!: Subscription;
-   // newMovies: Movies[] | undefined;
+    // newMovies: Movies[] | undefined;
     //newFavourites: FavouritesMovies[] | undefined;
     //filmLiked: Favourites[] | undefined;
     //newLikedYet!: Favourites | null;
@@ -31,20 +78,36 @@ export class HomeMoviesComponent implements OnInit {
     upcoming: any
     most_watch: any;
     top_rated: any;
-
+    discovered: any;
+    latest: any;
+    popular: any;
+    showModal = false;
     user!: AuthInterface;
+    homepage = true;
+    searched:any;
+    detail: any;
 
-    constructor(private http: CrudServiceService, private authService: AuthService, private route: Router) {
+    constructor(private http: CrudServiceService, private authService: AuthService, private route: Router, private details: ActivatedRoute) {
 
 
-     }
+    }
+
 
     ngOnInit(): void {
 
-       // Object.keys(trend).map((key) => {
-       //     trend[key]['id'] = key
-       //     return trend[key];
-       // })
+
+        // getScrollVal();
+        // scrollR();
+        // scrollL();
+        // this.myScriptElement = document.createElement("script");
+        // this.myScriptElement.src = "src/assets/js/index.js";
+        // document.body.appendChild(this.myScriptElement);
+
+        //metodo per filtrare con map l'api da firebase
+        // Object.keys(trend).map((key) => {
+        //     trend[key]['id'] = key
+        //     return trend[key];
+        // })
 
         this.sub! = this.http.getMovies().subscribe((trend: any) => {
             this.in_trending = trend.results
@@ -66,48 +129,162 @@ export class HomeMoviesComponent implements OnInit {
             this.top_rated = top.results
             console.log(this.top_rated);
         })
+        this.sub! = this.http.getToprated().subscribe((discover: any) => {
+            this.discovered = discover.results
+            console.log(this.top_rated);
+        })
+        this.sub! = this.http.getToprated().subscribe((latest: any) => {
+            this.latest = latest.results
+            console.log(this.top_rated);
+        })
+        this.sub! = this.http.getToprated().subscribe((popular: any) => {
+            this.popular = popular.results
+            console.log(this.top_rated);
+        })
+
+        /*let getParamsId = this.details.snapshot.paramMap.get('id');
+        console.log(getParamsId)
+        this.getMovie(getParamsId);*/
+
+        let getParamsId = this.details.paramMap.subscribe((params: ParamMap) =>  {
+            this.detail = params.get('id');
+        });
+
 
     }
 
-   /*getLiked(movieId: number, userId: number) {
-        const userID = this.authService.getUserId();
-        const likedDone = this.filmLiked!.find(
-            (fav) => fav.userId === userId && fav.movieId === movieId
-        );
 
-        if (likedDone) {
-            // RIMUOVO DAI PREFERITI
-            this.http.deleteLikedMovies(likedDone.id!).subscribe(() => {
-                const favoriteIndex = this.filmLiked!.indexOf(likedDone);
-                if (favoriteIndex !== -1) {
-                    this.filmLiked!.splice(favoriteIndex, 1);
-                }
-            });
-            console.log(likedDone)
-        } else {
-            // AGGIUNGO AI PREFERITI
-            const filmfavoriti = this.filmLiked!.find((fav) => fav.id === movieId)?.id
-
-            this.newLikedYet = {
-                userId: userId!,
-                movieId: movieId,
-                id: filmfavoriti
-            };
-            this.http
-                .likeMovies(this.newLikedYet)
-                .subscribe((favorite: Favourites) => {
-                    this.filmLiked!.push(favorite);
-                    console.log('Film preferito aggiunto con successo:', favorite);
-                    console.log('Film preferiti dagli utenti:', this.filmLiked);
-                });
-        }
-    }
-
-    favouriteCount(movieId: number): boolean {
-        const userId = this.authService.getUserId();
-        return !!this.filmLiked?.find((favour) => favour.userId === userId && favour.movieId === movieId)
+    /*getMovie(id:any){
+        this.sub! = this.details.params.pipe(pluck("id"),switchMap((id: any)=>this.http.getMovieDetails(id)))
     }
 */
+
+    searchForm = new FormGroup({
+        'movieName' : new FormControl(null)
+    })
+    submitForm(){
+        console.log(this.searchForm.value, 'search');
+        this.sub! = this.http.getSearchMovies(this.searchForm.value).subscribe((result: any) => {
+            console.log(result, 'searchMovies##');
+            this.searched = result.results;
+        })
+        this.searchForm.reset();
+    }
+
+    allTheOthers = {
+        "slidesToShow": 5,
+        "slidesToScroll": 4,
+        "speed": 1000,
+        "autoplay": true,
+        "pauseOnOver": true,
+        "infinite": true,
+        "arrows": true,
+        "responsive": [{
+            "breakpoint": 992,
+            "settings": {
+                "arrows": true,
+                "infinite": true,
+                "slideToShow": 4,
+                "slideToScroll": 4,
+            }
+        },
+        {
+            "breakpoint": 768,
+            "settings": {
+                "arrows": true,
+                "infinite": true,
+                "slideToShow": 3,
+                "slideToScroll": 3,
+            }
+        },
+        {
+            "breakpoint": 567,
+            "settings": {
+                "arrows": true,
+                "infinite": true,
+                "slideToShow": 2,
+                "slideToScroll": 2,
+            }
+        }]
+    }
+
+
+    topTen = {
+        "slidesToShow": 5,
+        "slidesToScroll": 5,
+        "speed": 1000,
+        "autoplay": true,
+        "pauseOnOver": true,
+        "infinite": true,
+        "arrows": true,
+        "responsive": [{
+            "breakpoint": 992,
+            "settings": {
+                "arrows": true,
+                "infinite": true,
+                "slideToShow": 4,
+                "slideToScroll": 4,
+            }
+        },
+        {
+            "breakpoint": 768,
+            "settings": {
+                "arrows": true,
+                "infinite": true,
+                "slideToShow": 3,
+                "slideToScroll": 3,
+            }
+        },
+        {
+            "breakpoint": 567,
+            "settings": {
+                "arrows": true,
+                "infinite": true,
+                "slideToShow": 2,
+                "slideToScroll": 2,
+            }
+        }]
+    }
+    /*getLiked(movieId: number, userId: number) {
+         const userID = this.authService.getUserId();
+         const likedDone = this.filmLiked!.find(
+             (fav) => fav.userId === userId && fav.movieId === movieId
+         );
+
+         if (likedDone) {
+             // RIMUOVO DAI PREFERITI
+             this.http.deleteLikedMovies(likedDone.id!).subscribe(() => {
+                 const favoriteIndex = this.filmLiked!.indexOf(likedDone);
+                 if (favoriteIndex !== -1) {
+                     this.filmLiked!.splice(favoriteIndex, 1);
+                 }
+             });
+             console.log(likedDone)
+         } else {
+             // AGGIUNGO AI PREFERITI
+             const filmfavoriti = this.filmLiked!.find((fav) => fav.id === movieId)?.id
+
+             this.newLikedYet = {
+                 userId: userId!,
+                 movieId: movieId,
+                 id: filmfavoriti
+             };
+             this.http
+                 .likeMovies(this.newLikedYet)
+                 .subscribe((favorite: Favourites) => {
+                     this.filmLiked!.push(favorite);
+                     console.log('Film preferito aggiunto con successo:', favorite);
+                     console.log('Film preferiti dagli utenti:', this.filmLiked);
+                 });
+         }
+     }
+
+     favouriteCount(movieId: number): boolean {
+         const userId = this.authService.getUserId();
+         return !!this.filmLiked?.find((favour) => favour.userId === userId && favour.movieId === movieId)
+     }
+ */
+
 
 
 

@@ -1,267 +1,229 @@
-<div class="container-fluid p-0 m-0">
-    <app-nav-bar></app-nav-bar>
-    <div class="row">
-        <div class="hero-section" *ngFor="let movie of most_watch; let i = index">
-            <div *ngIf="i < 1">
-                <section class="text-video container-fluid m-0 p-0" style="position: relative; z-index:-1;">
-                    <div style="position: fixed; z-index:-1; overflow:fit-content;"
-                        class="video-container p-0 container-fluid">
-                        <iframe frameborder="0" class="iframe"
-                            src="https://www.youtube.com/embed/89JWRYEIG-s?autoplay=1&mute=1&controls=0&autohide=1&restart=1&fullscreen=1">
-                        </iframe>
+<app-nav-bar *ngIf="homepage"></app-nav-bar>
+<!--Modal-->
+<div class="modal fade" name="modal" data-bs-delay='{"show":2000s,"hide":150}' id="staticBackdrop" data-bs-backdrop="true"
+    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
+    [ngClass]="{'show': showModal}">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content ">
+            <i class="bi bi-x-lg btn-close" (onclick)="showModal=false" data-bs-dismiss="modal" aria-label="Close"></i>
+            <div>
+            <div class="modal-body p-0 bg-dark" style="border: hidden;">
+                <img src="https://image.tmdb.org/t/p/original///56v2KjBlU4XaOv9rVYEQypROD7P.jpg" alt="" id="modal_img"
+                    style="border: hidden;" />
+            </div>
+            <div class="text">
+                <div class="d-flex align-items-center gap-4">
+                    <div>
+                        <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo">
                     </div>
-                    <div class="info-movies d-flex justify-content-start align-content-start text-white"
-                        style="z-index: 1;">
-                        <div class="home_page">
-                            <div class="text">
-                                <div class="d-flex align-items-center gap-4">
-                                    <div>
-                                        <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo">
-                                    </div>
-                                    <div>
-                                        <p>serie</p>
-                                    </div>
-                                </div>
-
-                                <h1 class="">One Piece Red</h1>
-                                <div class="d-flex gap-3 align-items-center">
-                                    <img id="top"
-                                        src="data:image/png;base64,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"
-                                        alt="">
-                                    <p> Oggi al n°1 tra i Film</p>
-                                </div>
-                                <div class="description">
-                                    <h4 style="font-size: 1.2em;">Years ago, the fearsome Pirate King, Gol D. Roger was
-                                        executed leaving a huge pile of treasure and the famous "One Piece" behind.Luffy
-                                        will do anything to get the One Piece and become King of the Pirates!</h4>
-                                </div>
-                                <div>
-                                    <div class="d-flex gap-3 bottoni align-items-center">
-                                        <button class="btn btn-light"> <i
-                                                class="bi bi-play-fill me-2"></i>Riproduci</button>
-                                        <button class="btn btn-outline-secondary bg-secondary text-light gap-3"><i
-                                                class="bi bi-info-circle me-2"></i>Altre info</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div>
+                        <p>serie</p>
                     </div>
-                    <div class="container-card  container-fluid p-0">
-                        <div id="scatola_magica">
-                            <h2 class=" text-light">Top Ten in Italia</h2>
+                </div>
+
+                <h1 class="w-100">Stranger Things</h1>
+                <div>
+                    <div class="d-flex gap-3 bottoni align-items-center">
+                        <button class="btn btn-light"> <i class="bi bi-play-fill me-2"></i>Riproduci</button>
+                        <button class="btn btn-outline-secondary bg-secondary text-light gap-3"><i
+                                class="bi bi-info-circle me-2"></i>Altre
+                            info</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="modal-footer p-0 mt-2" style="border: hidden;">
+                <div class="description w-100 p-0">
+                    <div class="d-flex  justify-content-between">
+                        <div class="matched ms-4 mt-2 mb-1">
+                            <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
+                            <span> 2020 </span>&nbsp;
+                            <span class="limited">Limited Series</span>
                         </div>
-                        <div class="row" id="content">
-                            <div class="poster_movies">
-                                <ng-container *ngFor="let movie of in_trending; let i = index">
-                                    <ng-template id="poster_movies" [ngIf]="i <= 10">
-                                        <div>
-                                            <div class="me-4 d-flex justify-content-center align-content-center">
-                                                <div class="d-flex align-content-center">
-                                                    <div class="orderList ">
-                                                        <p style="text-shadow: 0px  -10px 0px #595959;">{{i}}</p>
-                                                    </div>
-                                                    <div class="square one justify-content-start d-flex flex-column">
-                                                        <div>
-                                                            <img class="cover p-0 m0"
-                                                                src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}">
-                                                        </div>
-                                                        <div class="text p-1 m-0">
-                                                            <div class="card-bodyp-0 d-flex justify-content-between">
-                                                                <div class="d-flex">
-                                                                    <div>
-                                                                        <button class="btn text-secondary p-2 ms-2 "
-                                                                            type="button" style="font-size: 1.5em;"><i
-                                                                                class="bi bi-hand-thumbs-up"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div>
-                                                                        <button class="btn  text-secondary p-2"
-                                                                            style="font-size: 1.5em;">
-                                                                            <i class="bi bi-info-circle me-2"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                                <div>
-                                                                    <button class="btn text-secondary p-2 me-2"
-                                                                        style="font-size: 1.5em;"><i
-                                                                            class="bi bi-heart"></i></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-
-                                                <!--<div class="container">
-                                                        <a href="#" class="item">
-                                                            <img
-                                                                src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
-                                                                alt="top-10"></a>
-
-                                                    </div>-->
-                                            </div>
-
-                                        </div>
-                                    </ng-template>
-
-                                </ng-container>
-                            </div>
-                        </div>
-
-                        <div id="scatola_magica">
-                            <h2 class="p-0 mb-2 mt-2 text-light">I piu popolari</h2>
-                        </div>
-                        <div class="row p-2  mt-2 justify-items-center" id="content">
-                            <div class="poster_movies1 gap-4">
-                                <ng-container *ngFor="let movie of most_watch">
-                                    <div class="me-4 d-flex justify-content-center align-content-center">
-                                        <div class="d-flex align-content-center">
-                                            <div class="square1 one1 justify-content-start d-flex flex-column">
-
-                                                    <img class="cover1 p-0 m0"
-                                                        src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" style="width: 22em;">
-
-                                                <div class="text1 p-1 m-0">
-                                                    <div class="card-bodyp-0 d-flex justify-content-between">
-                                                        <div class="d-flex">
-                                                            <div>
-                                                                <button class="btn text-secondary p-2 ms-2 "
-                                                                    type="button" style="font-size: 1.5em;"><i
-                                                                        class="bi bi-hand-thumbs-up"></i>
-                                                                </button>
-                                                            </div>
-                                                            <div>
-                                                                <button class="btn  text-secondary p-2"
-                                                                    style="font-size: 1.5em;">
-                                                                    <i class="bi bi-info-circle me-2"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <div>
-                                                            <button class="btn text-secondary p-2 me-2"
-                                                                style="font-size: 1.5em;"><i
-                                                                    class="bi bi-heart"></i></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-                                        <!--<div class="container">
-                                                <a href="#" class="item">
-                                                    <img
-                                                        src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
-                                                        alt="top-10"></a>
-
-                                            </div>-->
-                                    </div>
-
-                                </ng-container>
-                            </div>
-                        </div>
-
-                        <div id="scatola_magica">
-                            <h2 class="p-0 text-light">Da Rivedere</h2>
-                        </div>
-                        <div class="row container-fluid p-2  mt-2" id="content">
-                            <div class="poster_movies1 gap-4">
-                                <ng-container *ngFor="let movie of upcoming">
-                                    <div class="me-4 d-flex justify-content-center align-content-center">
-                                        <div class="d-flex align-content-center">
-                                            <div class="square1 one1 justify-content-start d-flex flex-column">
-
-                                                    <img class="cover1 p-0 m0"
-                                                        src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" style="width: 22em;">
-
-                                                <div class="text1 p-1 m-0">
-                                                    <div class="card-bodyp-0 d-flex justify-content-between">
-                                                        <div class="d-flex">
-                                                            <div>
-                                                                <button class="btn text-secondary p-2 ms-2 "
-                                                                    type="button" style="font-size: 1.5em;"><i
-                                                                        class="bi bi-hand-thumbs-up"></i>
-                                                                </button>
-                                                            </div>
-                                                            <div>
-                                                                <button class="btn  text-secondary p-2"
-                                                                    style="font-size: 1.5em;">
-                                                                    <i class="bi bi-info-circle me-2"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <div>
-                                                            <!--<button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;"
-                                                    (click)="getLiked(movie.id, user.id)"
-                                                    [class.favouriteMovie]="favouriteCount(movie.id)"><i
-                                                        class="bi bi-heart"></i></button>-->
-                                                            <button class="btn text-secondary p-2 me-2"
-                                                                style="font-size: 1.5em;"><i
-                                                                    class="bi bi-heart"></i></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </ng-container>
-                            </div>
-                        </div>
-
-                        <div id="scatola_magica">
-                            <h2 class="p-0 mb-3 text-light">Top Rated</h2>
-                        </div>
-                        <div class="row container-fluid p-2  mt-2" id="content">
-                            <div class="poster_movies1 gap-4">
-                                <ng-container *ngFor="let movie of top_rated">
-                                    <div class="me-4 d-flex justify-content-center align-content-center">
-                                        <div class="d-flex align-content-center">
-                                            <div class="square1 one1 justify-content-start d-flex flex-column">
-
-                                                    <img class="cover1 p-0 m0"
-                                                        src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" style="width: 22em;">
-
-                                                <div class="text1 p-1 m-0">
-                                                    <div class="card-bodyp-0 d-flex justify-content-between">
-                                                        <div class="d-flex">
-                                                            <div>
-                                                                <button class="btn text-secondary p-2 ms-2 "
-                                                                    type="button" style="font-size: 1.5em;"><i
-                                                                        class="bi bi-hand-thumbs-up"></i>
-                                                                </button>
-                                                            </div>
-                                                            <div>
-                                                                <button class="btn  text-secondary p-2"
-                                                                    style="font-size: 1.5em;">
-                                                                    <i class="bi bi-info-circle me-2"></i>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <div>
-                                                            <!--<button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;"
-                                                    (click)="getLiked(movie.id, user.id)"
-                                                    [class.favouriteMovie]="favouriteCount(movie.id)"><i
-                                                        class="bi bi-heart"></i></button>-->
-                                                            <button class="btn text-secondary p-2 me-2"
-                                                                style="font-size: 1.5em;"><i
-                                                                    class="bi bi-heart"></i></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ng-container>
-                            </div>
+                        <div class="generi w-25 text-end me-3">
+                            <p class="text-secondary">Genres: <span class="text-light">Crime TV Shows, true Crime
+                                    Documentaries, Docuseries</span> </p>
+                            <p class="text-secondary">This Show is: <span class="text-light">Provocatory, Aggressive,
+                                    Funny</span> </p>
                         </div>
                     </div>
 
-                </section>
+                    <p class="w-50 ms-4 descrizione-modal">Nick Fury and Talos discover a faction of shapeshifting Skrulls who have been infiltrating Earth for years.</p>
+
+
+                        <hr style="color:#fff;" class="mx-3">
+                        <div class="film-suggested">
+                            <h3 class="text-white ms-4 mb-3">Articoli Simili</h3>
+                            <div class="card-box-container d-flex flex-wrap gap-3 justify-content-center" >
+                                <div *ngFor="let movie of in_trending">
+                                   <div class="card" style="width: 22rem; border:hidden;">
+                                    <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" class="card-img-fluid" alt="...">
+                                    <div class="card-body">
+                                        <div class="text-end">
+                                            <i class="bi bi-plus-circle"></i>
+                                        </div>
+                                      <h5 class="card-title"></h5>
+                                      <p class="card-text" id="trance"></p>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<!-- Modal -->
+<ng-container  *ngIf="homepage">
+    <ng-temaplate>
+<div class="hero p-0 m-0 container-fluid" >
+    <div class=" m-0 p-0">
+        <div class="content ">
+            <div class="body-video container-fluid p-0  bg-dark" style="border: hidden;">
+                <iframe src="https://www.youtube.com/embed/Ui_mhkOpUuI?autoplay=1&mute=1%control=0&autohide=1"
+                    frameborder="0" class="iframe"></iframe>
+            </div>
+            <div class="text">
+                <div class="d-flex align-items-center gap-4">
+                    <div>
+                        <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo">
+                    </div>
+                    <div>
+                        <p>serie</p>
+                    </div>
+                </div>
+
+                <h1 class="w-100">One Piece Red</h1>
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <div>
+                        <img src="https://www.netflix.com/tudum/top10/images/top10.png" alt="" class="logo">
+                    </div>
+                    <div>
+                        <p>Top 1 Attualmente in Italia</p>
+                    </div>
+                </div>
+                <p class="w-50 descrizione mb-4">Years ago, the fearsome Pirate King, Gol D. Roger was
+                    executed leaving a huge pile of treasure and the famous "One Piece" behind.Luffy
+                    will do anything to get the One Piece and become King of the Pirates!</p>
+                <div>
+                    <div class="d-flex gap-3 bottoni align-items-center">
+                        <button class="btn btn-light"> <i class="bi bi-play-fill me-2"></i>Riproduci</button>
+                        <button class="btn btn-outline-secondary bg-secondary text-light gap-3"><i
+                                class="bi bi-info-circle me-2"></i>Altre
+                            info</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer p-0 mt-2" style="border: hidden; width: 99%">
+                <div class="row justify-content-center">
+                    <h2 class="row_title text-white my-3" style="width: 96%;">Top Rated</h2>
+                    <ngx-slick-carousel class="row_posters p-0" class="carousel" #slickModal="slick-carousel"
+                        [config]="allTheOthers"
+                        style=" height: 200px; width: 96%; ">
+                        <div class="wrap" ngxSlickItem *ngFor="let movie of top_rated">
+                            <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage"
+                                class="row_poster"  [routerLink]="['/info_services', movie.id]"/>
+                            <h5 class="poster_title">{{movie.title}}</h5>
+                            <div class="poster_info text-white">
+                                <h4>{{movie.title}}</h4>
+                                <p>{{movie.overview}}</p>
+                            </div>
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+               <div class="row justify-content-center p-0">
+                    <h2 class="text-white row_title" style="width: 95%; margin-top:100px;">Top 10 in italia</h2>
+                    <div class="card-box-container d-flex flex-wrap gap-3 justify-content-center">
+                        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="allTheOthers"
+                            style="width:97%; height: fit-content; ">
+                            <div ngxSlickItem *ngFor="let movie of in_trending; let i = index" class="slide">
+                                <div *ngIf="i <= 9">
+                                        <div class="d-flex align-items-baseline top-cards"  (click)="[movie.id]">
+                                            <div>
+                                                <p style="font-size: 2em; height: 0px; margin: 0; margin-right: -32px; margin-left: 10px;
+                                                color: #000; text-shadow: -6px -5px 5px rgba(145,145,145,1);
+                                                ">{{i+1}}</p>
+                                            </div>
+                                            <div>
+                                                <img class="cover p-0 m0"
+                                                    src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
+                                                    style="width:150px; height: fit-content;"  [routerLink]="['/info_services', movie.id]">
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </ngx-slick-carousel>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <h2 class="row_title text-white my-3" style="width: 96%;">Up Coming</h2>
+                    <ngx-slick-carousel class="row_posters p-0" class="carousel" #slickModal="slick-carousel"
+                        [config]="topTen"  style="width:96%; height: 200px; ">
+                        <div class="wrap" ngxSlickItem *ngFor="let movie of popular">
+                            <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage"
+                                class="row_poster" [routerLink]="['/info_services', movie.id]"/>
+                            <h5 class="poster_title">{{movie.title}}</h5>
+                            <div class="poster_info text-white">
+                                <h4>{{movie.title}}</h4>
+                                <p>{{movie.overview}}</p>
+                            </div>
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <h2 class="row_title text-white my-3" style="width: 96%;">Scopri le novità</h2>
+                    <ngx-slick-carousel class="row_posters p-0" class="carousel" #slickModal="slick-carousel"
+                        [config]="topTen"  style="width:96%; height: 200px; ">
+                        <div class="wrap" ngxSlickItem *ngFor="let movie of upcoming">
+                            <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage"
+                                class="row_poster" [routerLink]="['/info_services', movie.id]"/>
+                            <h5 class="poster_title">{{movie.title}}</h5>
+                            <div class="poster_info text-white">
+                                <h4>{{movie.title}}</h4>
+                                <p>{{movie.overview}}</p>
+                            </div>
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <h2 class="row_title text-white my-3" style="width: 96%;">I più Popolari</h2>
+                    <ngx-slick-carousel class="row_posters p-0" class="carousel" #slickModal="slick-carousel"
+                        [config]="topTen"  style="width:96%; height: 200px; ">
+                        <div class="wrap" ngxSlickItem *ngFor="let movie of in_trending">
+                            <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage"
+                                class="row_poster" [routerLink]="['/info_services', movie.id]"/>           <!--
+                                    modale si può aprire, verificare come gestire la path e prendere l'id da mandare al modale
+                                    [ngClass]="{'show': showModal}"-->
+                            <h5 class="poster_title">{{movie.title}}</h5>
+                            <div class="poster_info text-white">
+                                <h4>{{movie.title}}</h4>
+                                <p>{{movie.overview}}</p>
+                            </div>
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+                <!--nell'ultima lista di film c'è il modale che carica, non ottimizzato per il params id esempio di come dovrebbe venire-->
+                <div class="row justify-content-center mt-5">
+                    <h2 class="row_title text-white my-3" style="width: 97%;">Serie Tv</h2>
+                    <ngx-slick-carousel class="row_posters p-0" class="carousel" #slickModal="slick-carousel"
+                        [config]="topTen"  style="width:96%; height: 200px; ">
+                        <div class="wrap" ngxSlickItem *ngFor="let movie of most_watch">
+                            <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage"
+                                class="row_poster" [ngClass]="{'show': showModal}" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop"  [routerLink]="['/info_services', movie.id]"/>
+                            <h5 class="poster_title">{{movie.title}}</h5>
+                            <div class="poster_info text-white">
+                                <h3>{{movie.title}}</h3>
+                                <p>{{movie.overview}}</p>
+                            </div>
+                        </div>
+                    </ngx-slick-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</ng-temaplate>
+</ng-container>
+

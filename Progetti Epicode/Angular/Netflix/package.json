@@ -21,7 +21,13 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "@auth0/angular-jwt": "^5.1.2",
+    "bootstrap": "^5.3.0",
+    "jquery": "^3.7.0",
+    "jquey": "^0.0.1-security",
+    "ng2-search-filter": "^0.5.1",
+    "ngx-slick-carousel": "^15.0.0",
     "rxjs": "~7.5.0",
+    "slick-carousel": "^1.8.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

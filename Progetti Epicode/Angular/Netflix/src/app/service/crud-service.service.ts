@@ -48,12 +48,24 @@ export class CrudServiceService {
     getToprated() {
         return this.http.get(`${this.TMDB}movie/top_rated?api_key=${this.ApyKey}`);
     }
+    getDiscoverTv() {
+        return this.http.get(`${this.TMDB}discover/tv?api_key=${this.ApyKey}`);
+    }
+    getLatest() {
+        return this.http.get(`${this.TMDB}movie/latest?api_key=${this.ApyKey}`);
+    }
+    getPopular() {
+        return this.http.get(`${this.TMDB}movie/popular?api_key=${this.ApyKey}`);
+    }
     //get per i dettagli dei films
 
-    getMovieDetails(data: any){
+    getMovieDetails(data: any) {
         return this.http.get(`${this.TMDB}movie/${data}?api_key=${this.ApyKey}`)
     }
-    getMovieVideo(data: any){
+    getSearchMovies(data: any) {
+        return this.http.get(`${this.TMDB}search/tv?api_key=${this.ApyKey}&query=${data.movieName}`)
+    }
+    getMovieVideo(data: any) {
         return this.http.get(`${this.TMDB}movie/${data}/videos?api_key=${this.ApyKey}`)
     }
 

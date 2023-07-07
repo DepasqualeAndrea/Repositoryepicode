@@ -6,6 +6,7 @@ import { AuthGuard } from './auth/login/auth.guard';
 import { FavouritersPageComponent } from './components/favouriters.page/favouriters.page.component';
 import { InfoDettagliateComponent } from './components/info-dettagliate/info-dettagliate.component';
 import { SingUpComponent } from './auth/sing-up/sing-up.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 
 const routes: Routes = [
@@ -31,10 +32,16 @@ const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
-        path: 'info_services',
+        path: 'info_services/:id',
         component: InfoDettagliateComponent,
         canActivate: [AuthGuard]
+    },
+    {
+        path: 'nav-bar',
+        component:NavBarComponent,
+        canActivate: [AuthGuard]
     }
+
 ];
 
 @NgModule({

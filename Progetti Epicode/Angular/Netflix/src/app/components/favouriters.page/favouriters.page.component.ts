@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription, min } from 'rxjs';
 import { AuthService } from 'src/app/service/auth-service.service';
 import { CrudServiceService } from 'src/app/service/crud-service.service';
+import { SlickItemDirective } from 'ngx-slick-carousel/slick.component';
 @Component({
   selector: 'app-favouriters.page',
   templateUrl: './favouriters.page.component.html',
@@ -11,6 +12,9 @@ export class FavouritersPageComponent implements OnInit {
 
     sub!: Subscription;
     most_watch: any;
+
+
+
   constructor(private authService: AuthService, private http: CrudServiceService) { }
 
   ngOnInit(): void {
