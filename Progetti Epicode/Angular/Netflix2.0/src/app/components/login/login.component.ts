@@ -102,9 +102,8 @@ loginWithGoogle() {
     this.password =  '';
   }
 
-isAutenticated(){
-  return this.isLoggedIn;
-}
+
+
 
 
 }

@@ -8,17 +8,18 @@ import { LoginComponent } from '../components/login/login.component';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private auth: AuthService, private router: Router , private login: LoginComponent) { }
+
+  constructor(private auth: AuthService, private router: Router , ) { }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot){
-     if (this.login.isAutenticated()){
+     if (localStorage.getItem('token')){
       return true;
-  }else{
+  }
       alert('Per visualizzare questa risorsa devi essere loggato!\nAccedi o registrati'
       );
-      return this.router.createUrlTree([''])
-  }
+      this.router.navigate(['login'])
+      return false
   }
 
 }

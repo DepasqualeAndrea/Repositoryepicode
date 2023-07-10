@@ -13,6 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'home', component: HomePageComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
