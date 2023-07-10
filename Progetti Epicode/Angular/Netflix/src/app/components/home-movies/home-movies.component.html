@@ -211,7 +211,7 @@
                         <div class="wrap" ngxSlickItem *ngFor="let movie of most_watch">
                             <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage"
                                 class="row_poster" [ngClass]="{'show': showModal}" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop"  [routerLink]="['/info_services', movie.id]"/>
+                                data-bs-target="#staticBackdrop" /> <!--[routerLink]="['/info_services', movie.id]"-->
                             <h5 class="poster_title">{{movie.title}}</h5>
                             <div class="poster_info text-white">
                                 <h3>{{movie.title}}</h3>

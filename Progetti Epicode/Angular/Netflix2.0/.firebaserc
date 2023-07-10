@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "netflix-37897": {
+      "hosting": {
+        "Netflix2.0": [
+          "netflix-37897"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "netflix-37897"
+  }
+}
