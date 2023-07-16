@@ -1,0 +1,199 @@
+.container-fluid{
+  position: relative;
+}
+.text {
+  color: #fff;
+  z-index: 10;
+  width:100%;
+  top: 50%;
+  margin: 0 auto;
+  position: absolute;
+  left: 60px;
+
+
+  h1 {
+      font-size: 9em;
+  }
+
+  p {
+      font-size: 1.5em;
+      font-family:sans-serif;
+      font-weight:400;
+      line-height: 0.85;
+      line-break: strict;
+      letter-spacing: 2px;
+  }
+}
+
+.logo {
+  width: 2.5rem;
+}
+
+.btn-light {
+  width: 200px;
+  font-size: 1.2em;
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.btn-outline-secondary {
+  width: 200px;
+  font-size: 1.2em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 600;
+}
+.favouriteMovies{
+  color: red;
+}
+
+//cards
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #eeeeee;
+  background-color: #0f0f0f;
+}
+
+.row_title {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.row_posters {
+  display: flex;
+  align-items: center;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  min-height: 250px;
+  transition: 500ms;
+  scroll-behavior:smooth;
+}
+
+.row_posters::-webkit-scrollbar {
+  display: none;
+}
+
+.row_poster {
+  object-fit: contain;
+  height: 100%;
+}
+
+.wrap {
+  display: inline-block;
+  position: relative;
+  height:16em;
+  padding: 22px;
+  width: fit-content;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: height 500ms;
+}
+
+.wrap:hover {
+  height: 20em;
+  z-index: 10000;
+}
+
+.poster_title {
+  font-family: "Cinzel", serif;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  padding: 15px;
+  color: #f0f0f0;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  transition: opacity 2000ms 1000ms;
+}
+.wrap:hover .poster_title {
+  opacity: 0;
+  transition: opacity 100ms;
+}
+
+.poster_info {
+  position: absolute;
+  left: 5px;
+  padding-left: 30px;
+  padding-top: 20px;
+  bottom: 50px;
+  font-weight: 300;
+  font-size: 0.75rem;
+  width: 250px;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 100ms;
+}
+.wrap:hover .poster_info {
+  opacity: 1;
+  transition: opacity 2000ms;
+}
+.poster_info p {
+  padding-top: 5px;
+}
+
+#trance{
+  white-space: wrap;
+  overflow-x: hidden;
+  display: inline-block;
+  max-inline-size: 100px;
+  height: 2em;
+  text-overflow: ellipsis;
+}
+
+//top ten
+#top {
+  width: 3em;
+  height: 3em;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0px 3px 28px 13px #1d1d1ddc, 5px 1px 21px 3px #000000;
+  -moz-box-shadow: inset 0px 3px 28px 13px #1d1d1ddc, 5px 1px 21px 3px #000000;
+  -o-box-shadow: inset 0px 3px 28px 13px #1d1d1ddc, 5px 1px 21px 3px #000000;
+  box-shadow: inset 0px 3px 28px 13px #1d1d1ddc, 5px 1px 21px 3px #000000;
+}
+
+.slick-track{
+  height: 500px;
+}
+
+.top-cards {
+  font-size: 10em;
+  font-weight: 800;
+  color: rgb(0, 0, 0);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.square {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 100ms ease-out, border-radius 200ms ease-out;
+}
+
+.square .cover {
+  width: 14em;
+  height: 320px;
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+}
+
+.square .text {
+  display: none;
+  background: #181818;
+  color: #fff;
+  width: 100%;
+  height: fit-content;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 0 0 10px 10px;
+}
+
+.square:hover {
+  border-radius: 10px;
+  transform: scale(1.2);
+  box-shadow: 0 0 2px #000a;
+  max-width: fit-content;
+}
+
+.square:hover .text {
+  display: block;
+}

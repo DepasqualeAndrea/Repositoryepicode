@@ -11,6 +11,10 @@ import { AngularFireModule}  from '@angular/fire/compat';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { HttpClientModule} from '@angular/common/http';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { AppModalComponent } from './components/app-modal/app-modal.component';
 
 
 
@@ -20,6 +24,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     LoginComponent,
     HomePageComponent,
+    NavBarComponent,
+    AppModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +35,8 @@ import { FormsModule } from '@angular/forms';
     provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
+    HttpClientModule,
+    SlickCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent],

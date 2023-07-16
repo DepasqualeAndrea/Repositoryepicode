@@ -123,7 +123,7 @@
                         style=" height: 200px; width: 96%; ">
                         <div class="wrap" ngxSlickItem *ngFor="let movie of top_rated">
                             <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage"
-                                class="row_poster"  [routerLink]="['/info_services', movie.id]"/>
+                                class="row_poster"  [routerLinkActive]="['modal',movie.id]"/>
                             <h5 class="poster_title">{{movie.title}}</h5>
                             <div class="poster_info text-white">
                                 <h4>{{movie.title}}</h4>
@@ -148,7 +148,7 @@
                                             <div>
                                                 <img class="cover p-0 m0"
                                                     src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
-                                                    style="width:150px; height: fit-content;"  [routerLink]="['/info_services', movie.id]">
+                                                    style="width:150px; height: fit-content;"  [routerLinkActive]="[ movie.id]">
                                             </div>
                                         </div>
                                 </div>
@@ -190,7 +190,7 @@
                     <h2 class="row_title text-white my-3" style="width: 96%;">I più Popolari</h2>
                     <ngx-slick-carousel class="row_posters p-0" class="carousel" #slickModal="slick-carousel"
                         [config]="topTen"  style="width:96%; height: 200px; ">
-                        <div class="wrap" ngxSlickItem *ngFor="let movie of in_trending">
+                        <div class="wrap" ngxSlickItem *ngFor="let movie of in_trending" (click)="onSelect(in_trending)">
                             <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage"
                                 class="row_poster" [routerLink]="['/info_services', movie.id]"/>           <!--
                                     modale si può aprire, verificare come gestire la path e prendere l'id da mandare al modale
@@ -211,7 +211,7 @@
                         <div class="wrap" ngxSlickItem *ngFor="let movie of most_watch">
                             <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage"
                                 class="row_poster" [ngClass]="{'show': showModal}" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop" /> <!--[routerLink]="['/info_services', movie.id]"-->
+                                data-bs-target="#staticBackdrop" [routerLink]="['modal', movie.id]"/> <!---->
                             <h5 class="poster_title">{{movie.title}}</h5>
                             <div class="poster_info text-white">
                                 <h3>{{movie.title}}</h3>

@@ -11,6 +11,7 @@ export const environment = {
     authDomain: 'netflix-37897.firebaseapp.com',
     messagingSenderId: '1059694493823',
   },
+  baseURL: 'http://localhost:4201/',
   production: false
 };
 

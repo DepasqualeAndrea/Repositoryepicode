@@ -69,6 +69,8 @@ export class CrudServiceService {
         return this.http.get(`${this.TMDB}movie/${data}/videos?api_key=${this.ApyKey}`)
     }
 
+
+
     likeMovies(data: Favourites) {
         return this.http.post<Favourites>(`http://localhost:4201/favorites`, data);
     }

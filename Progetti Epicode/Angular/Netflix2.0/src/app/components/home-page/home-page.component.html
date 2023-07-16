@@ -1,3 +1,142 @@
-<h1>home page works</h1>
+<!--<app-nav-bar></app-nav-bar>-->
+<app-app-modal *ngIf="modal.showModal"></app-app-modal>
+<button (click)="modal.showModal = true">show modal</button>
+<div class="container-fluid p-0">
+  <div class="content " *ngFor="let movie of upcoming; let i = index">
+    <div *ngIf="i < 1; ">
+          <div class="body-video container-fluid p-0  bg-dark" style="border: hidden;">
+        <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="" style="width: 100%;">
+    </div>
+    <div class="bottom"></div>
+    <div class="text">
+        <div class="d-flex align-items-center gap-4">
+            <div>
+                <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo" style="width: 2.2em">
+            </div>
+            <div>
+                <p>serie</p>
+            </div>
+        </div>
+        <h1 class="w-100">{{movie.title}}</h1>
+        <div class="d-flex align-items-center gap-2 mb-3">
+            <div>
+                <img src="https://www.netflix.com/tudum/top10/images/top10.png" alt="" class="logo" style="width: 2.2em">
+            </div>
+            <div>
+                <p>Top 1 Attualmente in Italia</p>
+            </div>
+        </div>
+        <p class="w-25 descrizione mb-4">{{movie.overview}}</p>
+        <div>
+            <div class="d-flex gap-3 bottoni align-items-center">
+                <button class="btn btn-light"> <i class="bi bi-play-fill me-2"></i>Riproduci</button>
+                <button class="btn btn-outline-secondary bg-secondary text-light gap-3"><i
+                        class="bi bi-info-circle me-2"></i>Altre
+                    info</button>
+            </div>
+        </div>
+    </div>
+    </div>
 
-<button type="button" (click)="logout()">logout</button>
+  </div>
+</div>
+<!--cards e caroselli-->
+
+<div class="row justify-content-center">
+  <h2 class="row_title text-white my-3" style="width: 96%;">Top Rated</h2>
+  <ngx-slick-carousel class="row_posters p-0" class="carousel" #slickModal="slick-carousel"
+      [config]="slideConfig"
+      style=" height: 200px; width: 96%; ">
+      <div class="wrap" ngxSlickItem *ngFor="let movie of upcoming">
+          <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage"
+              class="row_poster"  [routerLink]="['/info_services', movie.id]"/>
+          <h5 class="poster_title">{{movie.title}}</h5>
+          <div class="poster_info text-white">
+              <h4>{{movie.title}}</h4>
+              <p>{{movie.overview}}</p>
+          </div>
+          <div>
+            <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;" ><i
+                    class="bi bi-heart"></i></button>
+        </div>
+      </div>
+  </ngx-slick-carousel>
+</div>
+<div>
+  &nbsp;
+</div>
+<div>
+  &nbsp;
+</div>
+<div>
+  &nbsp;
+</div>
+<div class="row justify-content-center p-0">
+  <div class="card-box-container d-flex flex-wrap gap-3 justify-content-center">
+    <h2 class="text-white row_title" style="width: 95%; margin-top:50px; margin-bottom: 0;">Top 10 in italia</h2>
+      <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+          style="width:97%;">
+          <div ngxSlickItem *ngFor="let movie of nowPlaying; let i = index" class="slide">
+              <div *ngIf="i <= 9">
+                      <div class="d-flex align-items-baseline top-cards">
+                          <div>
+                              <p style=" font-size:1.5em ;height: 0px; margin: 0; margin-right: -32px; margin-left: 10px;
+                              color: #000; text-shadow: -6px -5px 5px rgba(145,145,145,1);
+                              ">{{i+1}}</p>
+                          </div>
+                          <div>
+                              <img class="cover p-0 m0"
+                                  src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
+                                  style="width:150px; height: fit-content;">
+                          </div>
+                      </div>
+              </div>
+          </div>
+      </ngx-slick-carousel>
+  </div>
+</div>
+<div>
+  &nbsp;
+</div>
+<div>
+  &nbsp;
+</div>
+<div class="row justify-content-center">
+  <h2 class="row_title text-white my-3" style="width: 96%;margin-top:100px;">Top Rated</h2>
+  <ngx-slick-carousel class="row_posters p-0" class="carousel" #slickModal="slick-carousel"
+      [config]="slideConfig"
+      style=" height: 200px; width: 96%; ">
+      <div class="wrap" ngxSlickItem *ngFor="let movie of toprated">
+          <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage"
+              class="row_poster"  />[routerLinkActive]="['modal',movie.id]"
+          <h5 class="poster_title">{{movie.title}}</h5>
+          <div class="poster_info text-white">
+              <h4>{{movie.title}}</h4>
+              <p>{{movie.overview}}</p>
+          </div>
+      </div>
+  </ngx-slick-carousel>
+</div>
+<div>
+  &nbsp;
+</div>
+<div>
+  &nbsp;
+</div>
+<div class="row justify-content-center">
+  <h2 class="row_title text-white my-3" style="width: 96%;margin-top:100px;">Top Rated</h2>
+  <ngx-slick-carousel class="row_posters p-0" class="carousel" #slickModal="slick-carousel"
+      [config]="slideConfig"
+      style=" height: 200px; width: 96%; ">
+      <div class="wrap" ngxSlickItem *ngFor="let movie of popular">
+          <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage"
+              class="row_poster"  />[routerLinkActive]="['modal',movie.id]"
+          <h5 class="poster_title">{{movie.title}}</h5>
+          <div class="poster_info text-white">
+              <h4>{{movie.title}}</h4>
+              <p>{{movie.overview}}</p>
+          </div>
+      </div>
+  </ngx-slick-carousel>
+</div>
+<!--(click)="getLiked(movie.id, user.user.id)" [class.favouriteMovie]="favouriteCount(movie.id)"  da inserire nel cuore quando si mette like al film -->

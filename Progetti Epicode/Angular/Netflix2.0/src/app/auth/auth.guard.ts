@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot){
-     if (localStorage.getItem('token')){
+     if (localStorage.getItem('token') ){
       return true;
   }
       alert('Per visualizzare questa risorsa devi essere loggato!\nAccedi o registrati'

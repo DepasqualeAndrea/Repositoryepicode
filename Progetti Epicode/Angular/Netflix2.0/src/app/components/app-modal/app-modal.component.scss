@@ -1,0 +1,210 @@
+#overlay {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 12;
+}
+
+#container {
+  z-index: 13;
+  position: fixed;
+  margin: auto;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  width: 50%;
+  overflow: scroll;
+  height: 100vh;
+  margin-top: 20px;
+  box-shadow: 5px 5px 4px rgb(19, 19, 19, 0.2);
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.text {
+  color: #fff;
+  z-index: 10;
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+
+  h1 {
+    font-size: 0em;
+  }
+
+  p {
+    font-size: 1.5em;
+    font-family: sans-serif;
+    font-weight: 400;
+    line-height: 0.85;
+    line-break: strict;
+    letter-spacing: 2px;
+  }
+}
+
+
+//modal
+
+.modal .show {
+  height: 100vw;
+}
+
+#staticBackdrop {
+  width: 100%;
+}
+
+.text {
+  color: #fff;
+  z-index: 10;
+  margin: 0 auto;
+  position: absolute;
+  top: 350px;
+  left: 40px;
+
+
+  h1 {
+    font-size: 5em;
+  }
+
+  p {
+    font-size: 0.6;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    line-height: 1.2;
+    line-break: strict;
+    letter-spacing: 2px;
+  }
+}
+
+.logo {
+  width: 1.5rem;
+}
+
+.btn-light {
+  width: 150px;
+
+  font-size: 1.2em;
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.btn-outline-secondary {
+  width: 150px;
+  font-size: 1.2em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 600;
+}
+
+#modal_img {
+  width: 100%;
+  object-fit: cover;
+  padding: 0;
+  z-index: -1;
+}
+
+.modal-footer {
+  border: hidden;
+  background: #141414;
+  width: 100%;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 15%;
+  margin-bottom: 5px;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(to bottom, transparent, #141414);
+}
+
+.btn-close {
+  font-size: 1.2em;
+  background: #000000;
+  border-radius: 50%;
+  padding: 10px;
+  position: absolute;
+  z-index: 10;
+  right: 10px;
+  top: 10px;
+
+}
+
+.modal-content {
+  background-color: #141414;
+}
+
+.bi-x-lg {
+  color: #fff;
+  font-size: 1.2em;
+
+}
+
+.btn-close:hover {
+  color: #fff;
+}
+
+.matched {
+  font-family: 'Nunito Sans', sans-serif;
+
+  span {
+    color: #fff;
+    font-size: 1.2em;
+  }
+
+  .limited {
+    font-family: cursive;
+  }
+
+}
+
+.generi {
+  font-weight: 600;
+
+}
+
+.descrizione-modal {
+  font-weight: 400;
+  color: #fff;
+  font-size: 1.2em;
+}
+
+.card-img-fluid {
+  border: hidden;
+  object-fit: cover;
+}
+
+.card {
+  background-color: #383737;
+  color: #fff;
+  margin-bottom: 10px;
+  border-radius: 10px;
+
+  .bi-plus-circle {
+    font-size: 2em;
+  }
+}
+
+.film-suggested {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+
+  .card-box-container {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+  }
+
+}
+
+.card-body {
+  p {
+    white-space: wrap;
+    overflow-x: hidden;
+    display: inline-block;
+    max-inline-size: 300px;
+    height: 100px;
+    text-overflow: ellipsis;
+  }
+}

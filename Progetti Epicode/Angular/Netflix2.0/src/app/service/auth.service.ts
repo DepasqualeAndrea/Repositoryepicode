@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { GoogleAuthProvider } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { Utente } from '../interface/utente.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -24,11 +25,6 @@ signInWithEmailAndPassword(user: { email: string; password: string}){
   return this.FireAuth.signInWithEmailAndPassword(user.email, user.password)
 }
 
-
-  //register method
-
-
-
   //metodo log out
 
   logout() {
@@ -40,22 +36,12 @@ signInWithEmailAndPassword(user: { email: string; password: string}){
     })
   }
 
+  //metodo per ottenere l'Id
+
+
 
 
 }
 
 
-/*  signInWithGoogle(){
-    return this.FireAuth.signInWithPopup(new GoogleAuthProvider());
-  }
 
-  //register con email e pw
-registerWhitEmailAndPassword(user: { email: string; password: string}){
-  return this.FireAuth.createUserWithEmailAndPassword(user.email, user.password);
-}
-
-//login con email e pw
-
-signInWithEmailAndPassword(user: { email: string; password: string}){
-  return this.FireAuth.signInWithEmailAndPassword(user.email, user.password);
-}*/

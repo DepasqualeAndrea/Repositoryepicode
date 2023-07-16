@@ -18,28 +18,28 @@ const routes: Routes = [
     {
         path: 'movies',
         component: HomeMoviesComponent,
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
 
     },
     {
         path: 'users',
         component: HomeMoviesComponent,
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
     },
     {
         path: 'favourites',
         component: FavouritersPageComponent,
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
     },
     {
         path: 'info_services/:id',
         component: InfoDettagliateComponent,
-        canActivate: [AuthGuard]
+       // canActivate: [AuthGuard]
     },
     {
         path: 'nav-bar',
         component:NavBarComponent,
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
     }
 
 ];

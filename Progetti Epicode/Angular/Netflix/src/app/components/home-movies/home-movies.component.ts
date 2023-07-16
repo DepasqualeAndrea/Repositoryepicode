@@ -9,6 +9,7 @@ import { AuthInterface } from 'src/app/auth/login/auth-interface.interface';
 import { FavouritesMovies } from 'src/app/modules/favourites-movies.interface';
 import { visitAll } from '@angular/compiler';
 import { FormControl, FormGroup } from '@angular/forms';
+
 //import { LoginComponent } from 'src/app/auth/login/login.component';
 //declare function getScrollVal(): any
 ///declare function scrollR(): any
@@ -86,7 +87,9 @@ export class HomeMoviesComponent implements OnInit {
     homepage = true;
     searched:any;
     detail: any;
-
+    onSelect(in_trending: any): void {
+        this.in_trending = in_trending;
+      }
     constructor(private http: CrudServiceService, private authService: AuthService, private route: Router, private details: ActivatedRoute) {
 
 
@@ -142,15 +145,19 @@ export class HomeMoviesComponent implements OnInit {
             console.log(this.top_rated);
         })
 
-        /*let getParamsId = this.details.snapshot.paramMap.get('id');
+        let getParamsId = this.details.snapshot.paramMap.get('id');
         console.log(getParamsId)
-        this.getMovie(getParamsId);*/
-
-        let getParamsId = this.details.paramMap.subscribe((params: ParamMap) =>  {
-            this.detail = params.get('id');
-        });
+        this.getMovie(getParamsId);
 
 
+
+
+    }
+
+    getMovie(id:any){
+        this.http.getMovieDetails(id).subscribe((results: any) => {
+            console.log(results)
+        })
     }
 
 
