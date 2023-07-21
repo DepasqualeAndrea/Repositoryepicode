@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FavouriteMovies } from 'src/app/interface/favourite-movies.interface';
 import { Favourites } from 'src/app/interface/favourites.interface';
@@ -12,25 +13,16 @@ import { AuthService } from 'src/app/service/auth.service';
 import { CRUDService } from 'src/app/service/crud.service';
 import { ModalService } from 'src/app/service/modal.service';
 
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-  user!: Utente;
-  sub!: Subscription;
-  upcoming!: Movie[];
-  nowPlaying: NowPlaying[] | undefined;
-  toprated: Toprated[] | undefined;
-  piuVisti: Piuvisti[] | undefined;
-  popular: Popular[] | undefined;
-  newFavourites: FavouriteMovies[] | undefined;
-  filmLiked: Favourites[] | undefined;
-  newLikedYet!: Favourites | null;
   // ngx carousel
 
-  slideConfig = {
+ /* slideConfig = {
     "slidesToShow": 5,
     "slidesToScroll": 5,
     "autoplay": true,
@@ -66,84 +58,194 @@ export class HomePageComponent implements OnInit {
         "slideToScroll": 2,
       }
     }]
+  }*/
+
+
+  user!: Utente;
+  sub!: Subscription;
+  in_trending: any;
+  upcoming: any
+  most_watch: any;
+  top_rated: any;
+  discovered: any;
+  latest: any;
+  popular: any;
+  now_playing: any;
+  preferiti: FavouriteMovies[] = [];
+
+
+
+  modal = {
+    showModal: false
+  };
+
+  navBar = true;
+
+  selectedMovieId!: number | any;
+
+  openModal(movieId: number) {
+ // Memorizza l'ID del film selezionato
+    setTimeout(() => {
+      this.selectedMovieId = movieId;
+      this.modal.showModal = true;// Mostra il modale
+      this.navBar = false;
+    }, 400)
+  }
+  closeModal() {
+    this.modal.showModal = false; // Chiudi il modale impostando showModal su false
+    this.selectedMovieId = null;
+    this.navBar = true;// Resetta l'ID del film selezionato
   }
 
-  constructor(private auth: AuthService, private http: CRUDService, public modal: ModalService) { }
+
+  constructor(private auth: AuthService, private http: CRUDService, public modale: ModalService, private details: ActivatedRoute) { }
 
   ngOnInit(): void {
 
-    this.sub = this.http.getMoviesUpComing().subscribe((upcoming) => {
-      this.upcoming = upcoming;
-      console.log(upcoming);
+    const preferitiLocalStorage = localStorage.getItem('preferiti');
+    if (preferitiLocalStorage) {
+      this.preferiti = JSON.parse(preferitiLocalStorage);
+    }
+    console.log(this.preferiti)
+
+
+    /* this.sub = this.http.getMoviesUpComing().subscribe((upcoming) => {
+       this.upcoming = upcoming;
+       console.log(upcoming);
+     })
+     this.sub = this.http.getMoviesPopular().subscribe((popular) => {
+       this.popular = popular;
+       console.log(popular);
+     })
+     this.sub = this.http.getMoviesNowPlaying().subscribe((nowPlaying) => {
+       this.nowPlaying = nowPlaying;
+       console.log(nowPlaying);
+     })
+     this.sub = this.http.getMoviesToprated().subscribe((toprated) => {
+       this.toprated = toprated;
+       console.log(toprated);
+     })
+     this.sub = this.http.getMoviespiuVisti().subscribe((piuvisti) => {
+       this.piuVisti = piuvisti;
+       console.log(piuvisti);
+     })
+     this.sub = this.http.getMoviespiuVisti().subscribe((piuvisti) => {
+       this.piuVisti = piuvisti;
+       console.log(piuvisti);
+     })
+     this.sub = this.http.getMovieFavourite().subscribe((data) => {
+       this.filmLiked = data;
+       console.log(data);
+     })*/
+
+    this.sub! = this.http.getMovies().subscribe((trend: any) => {
+      this.in_trending = trend.results
+      console.log(this.in_trending);
+    });
+    this.sub! = this.http.getMoviesPlaying().subscribe((playing: any) => {
+      this.now_playing = playing.results
+    });
+
+    this.sub! = this.http.getMoviesPopular().subscribe((popular: any) => {
+      this.upcoming = popular.results
+      console.log(this.upcoming);
     })
-    this.sub = this.http.getMoviesPopular().subscribe((popular) => {
-      this.popular = popular;
-      console.log(popular);
+
+    this.sub! = this.http.getFavourites().subscribe((watched: any) => {
+      this.most_watch = watched.results
+      console.log(this.most_watch);
     })
-    this.sub = this.http.getMoviesNowPlaying().subscribe((nowPlaying) => {
-      this.nowPlaying = nowPlaying;
-      console.log(nowPlaying);
+
+    this.sub! = this.http.getToprated().subscribe((top: any) => {
+      this.top_rated = top.results
+      console.log(this.top_rated);
     })
-    this.sub = this.http.getMoviesToprated().subscribe((toprated) => {
-      this.toprated = toprated;
-      console.log(toprated);
+
+    this.sub! = this.http.getToprated().subscribe((popular: any) => {
+      this.popular = popular.results
+      console.log(this.top_rated);
     })
-    this.sub = this.http.getMoviespiuVisti().subscribe((piuvisti) => {
-      this.piuVisti = piuvisti;
-      console.log(piuvisti);
-    })
-    this.sub = this.http.getMoviespiuVisti().subscribe((piuvisti) => {
-      this.piuVisti = piuvisti;
-      console.log(piuvisti);
-    })
-    this.sub = this.http.getMovieFavourite().subscribe((data) => {
-      this.filmLiked = data;
-      console.log(data);
-    })
+
+    this.getRandomMovie();
+
+
+  }
+  getRandomMovie(): void {
+    const randomIndex = Math.floor(Math.random() * this.upcoming.length);
+    this.upcoming = this.upcoming[randomIndex];
   }
 
-
-
   // metodo per il like dei film
-
- /* getLiked(movieId: number, userId: number) {
-    //const userID = this.http.getUserId();
-    const likedDone = this.filmLiked!.find(
-      (fav) => fav.userId === userId && fav.movieId === movieId
-    );
-
-    if (likedDone) {
-      // RIMUOVO DAI PREFERITI
-      this.http.deleteLikedMovies(likedDone.id!).subscribe(() => {
-        const favoriteIndex = this.filmLiked!.indexOf(likedDone);
-        if (favoriteIndex !== -1) {
-          this.filmLiked!.splice(favoriteIndex, 1);
-        }
-      });
-      console.log(likedDone)
+  // Funzione per aggiungere o rimuovere il film dai preferiti
+  Preferito(movie: FavouriteMovies) {
+    if (this.isPreferito(movie)) {
+      this.rimuoviDaPreferiti(movie);
     } else {
-      // AGGIUNGO AI PREFERITI
-      const filmfavoriti = this.filmLiked!.find((fav) => fav.id === movieId)?.id
-
-      this.newLikedYet = {
-        userId: userId!,
-        movieId: movieId,
-        id: filmfavoriti
-      };
-      this.http
-        .likeMovies(this.newLikedYet)
-        .subscribe((favorite) => {
-          this.filmLiked!.push();
-          console.log('Film preferito aggiunto con successo:', favorite);
-          console.log('Film preferiti dagli utenti:', this.filmLiked);
-        });
+      this.aggiungiAiPreferiti(movie);
     }
-  }*/
+  }
 
-  /*favouriteCount(movieId: number): boolean {
-    const userId = this.http.getUserId();
-    return !!this.filmLiked?.find((favour) => favour.userId === userId && favour.movieId === movieId)
-  }*/
+  // Funzione per aggiungere il film ai preferiti
+  aggiungiAiPreferiti(movie: FavouriteMovies) {
+    if (!this.isPreferito(movie)) {
+      this.preferiti.push(movie);
+      this.salvaPreferitiSuLocalStorage();
+    }
+  }
+
+  // Funzione per rimuovere il film dai preferiti
+  rimuoviDaPreferiti(movie: FavouriteMovies) {
+    this.preferiti = this.preferiti.filter((m) => m.id !== movie.id);
+    this.salvaPreferitiSuLocalStorage();
+  }
+
+  // Funzione per verificare se il film è tra i preferiti
+  isPreferito(movie: FavouriteMovies): boolean {
+    return this.preferiti.some((m) => m.id === movie.id);
+  }
+
+  // Funzione per salvare i film preferiti nello storage locale
+  salvaPreferitiSuLocalStorage() {
+    localStorage.setItem('preferiti', JSON.stringify(this.preferiti));
+  }
+
+  slickCarouselConfig = {
+    "infinite": true,
+    "slidesToShow": 5,
+    "slidesToScroll": 4,
+    "arrows": true,
+    "dots": true,
+    "responsive": [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+
+
+
+
+
+
 
 
 }

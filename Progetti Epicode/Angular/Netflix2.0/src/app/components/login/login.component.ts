@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
 

@@ -1,10 +1,10 @@
-import { Component, NgModule, OnInit, SchemaMetadata } from '@angular/core';
+import { Component, Input, NgModule, OnInit, SchemaMetadata } from '@angular/core';
 import { CrudServiceService } from 'src/app/service/crud-service.service';
 import { Subscription, min, pluck, switchMap } from 'rxjs';
 import { Movies } from 'src/app/modules/movies.interface';
 import { Favourites } from 'src/app/modules/favourites.interface';
 import { AuthService } from 'src/app/service/auth-service.service';
-import { Router,ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthInterface } from 'src/app/auth/login/auth-interface.interface';
 import { FavouritesMovies } from 'src/app/modules/favourites-movies.interface';
 import { visitAll } from '@angular/compiler';
@@ -82,35 +82,37 @@ export class HomeMoviesComponent implements OnInit {
     discovered: any;
     latest: any;
     popular: any;
-    showModal = false;
     user!: AuthInterface;
     homepage = true;
-    searched:any;
+    searched: any;
     detail: any;
-    onSelect(in_trending: any): void {
-        this.in_trending = in_trending;
-      }
+
+    @Input() movieId!: number; // Ricevi l'ID del film come input dal componente padre
+
+    movieDetails: any; // Variabile per memorizzare i dettagli del film
+    showModal = false; // Variabile per mostrare/nascondere il modale
+    selectedMovieId!: number; // Variabile per memorizzare l'ID del film selezionato
+
+
+
     constructor(private http: CrudServiceService, private authService: AuthService, private route: Router, private details: ActivatedRoute) {
-
-
     }
 
 
+    openModal(movieId: number) {
+        this.selectedMovieId = movieId;
+        this.showModal = true;
+    }
+
+    closeModal() {
+        this.showModal = false;
+    }
+
     ngOnInit(): void {
+        this.sub! = this.http.getMovieDetails(this.selectedMovieId).subscribe(data =>{
+           this.movieDetails = data;
+        })
 
-
-        // getScrollVal();
-        // scrollR();
-        // scrollL();
-        // this.myScriptElement = document.createElement("script");
-        // this.myScriptElement.src = "src/assets/js/index.js";
-        // document.body.appendChild(this.myScriptElement);
-
-        //metodo per filtrare con map l'api da firebase
-        // Object.keys(trend).map((key) => {
-        //     trend[key]['id'] = key
-        //     return trend[key];
-        // })
 
         this.sub! = this.http.getMovies().subscribe((trend: any) => {
             this.in_trending = trend.results
@@ -145,31 +147,23 @@ export class HomeMoviesComponent implements OnInit {
             console.log(this.top_rated);
         })
 
-        let getParamsId = this.details.snapshot.paramMap.get('id');
-        console.log(getParamsId)
-        this.getMovie(getParamsId);
+
 
 
 
 
     }
 
-    getMovie(id:any){
-        this.http.getMovieDetails(id).subscribe((results: any) => {
-            console.log(results)
-        })
-    }
 
 
-    /*getMovie(id:any){
-        this.sub! = this.details.params.pipe(pluck("id"),switchMap((id: any)=>this.http.getMovieDetails(id)))
-    }
-*/
+
+
+
 
     searchForm = new FormGroup({
-        'movieName' : new FormControl(null)
+        'movieName': new FormControl(null)
     })
-    submitForm(){
+    submitForm() {
         console.log(this.searchForm.value, 'search');
         this.sub! = this.http.getSearchMovies(this.searchForm.value).subscribe((result: any) => {
             console.log(result, 'searchMovies##');

@@ -1,9 +1,10 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
-import { AppModalComponent } from './components/app-modal/app-modal.component';
+import { PreferitiComponent } from './components/preferiti/preferiti.component';
 
 
 const routes: Routes = [
@@ -15,10 +16,11 @@ const routes: Routes = [
   },
   {
     path: 'home', component: HomePageComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'modal/:id', component: AppModalComponent
+    canActivate: [AuthGuard],
+
+  },{
+    path: 'laMiaLista', component:PreferitiComponent,
+    canActivate: [AuthGuard],
   }
 ];
 

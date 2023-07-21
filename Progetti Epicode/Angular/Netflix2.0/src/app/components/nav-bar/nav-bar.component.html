@@ -8,7 +8,7 @@
           <ul class="navbar-nav gap-3">
               <li class="nav-item">
                   <a class="nav-link text-white" aria-current="page"
-                      routerLinkActive="active" >Home</a>
+                      routerLinkActive="active"[routerLink]="['/home']" >Home</a>
               </li>
               <li class="">
                   <a class="nav-link text-white" aria-current="page"
@@ -24,11 +24,7 @@
               </li>
               <li class="nav-item">
                   <a class="nav-link text-white" aria-current="page"
-                      routerLinkActive="active">la mia lista</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link text-white"
-                      routerLinkActive="active">Preferiti</a>
+                      routerLinkActive="active" [routerLink]="['/laMiaLista']">la mia lista</a>
               </li>
           </ul>
       </div>

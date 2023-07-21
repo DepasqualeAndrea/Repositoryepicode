@@ -12,6 +12,8 @@ export const environment = {
     messagingSenderId: '1059694493823',
   },
   baseURL: 'http://localhost:4201/',
+  TMDBbaseUrl: 'https://api.themoviedb.org/3/',
+  apyKeyTMDB: '5f6bf192ba8188e3ecb3599d702c5573',
   production: false
 };
 

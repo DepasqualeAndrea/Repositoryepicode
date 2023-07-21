@@ -1,6 +1,5 @@
-import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA , NO_ERRORS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -15,6 +14,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HttpClientModule} from '@angular/common/http';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AppModalComponent } from './components/app-modal/app-modal.component';
+import { PreferitiComponent } from './components/preferiti/preferiti.component';
 
 
 
@@ -26,17 +26,16 @@ import { AppModalComponent } from './components/app-modal/app-modal.component';
     HomePageComponent,
     NavBarComponent,
     AppModalComponent,
+    PreferitiComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebase),
-    FormsModule,
     HttpClientModule,
-    SlickCarouselModule
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

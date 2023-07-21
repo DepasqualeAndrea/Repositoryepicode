@@ -31,8 +31,8 @@
   margin: 0 auto;
   position: absolute;
 
-  h1 {
-    font-size: 0em;
+  h2 {
+    font-size: 3em;
   }
 
   p {
@@ -61,7 +61,7 @@
   z-index: 10;
   margin: 0 auto;
   position: absolute;
-  top: 350px;
+  top: 24em;
   left: 40px;
 
 
@@ -85,22 +85,15 @@
 
 .btn-light {
   width: 150px;
-
   font-size: 1.2em;
   font-weight: 600;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.btn-outline-secondary {
-  width: 150px;
-  font-size: 1.2em;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-weight: 600;
-}
 
 #modal_img {
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   padding: 0;
   z-index: -1;
 }
@@ -138,7 +131,7 @@
 
 .bi-x-lg {
   color: #fff;
-  font-size: 1.2em;
+  font-size: 1em;
 
 }
 
@@ -173,7 +166,7 @@
 
 .card-img-fluid {
   border: hidden;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .card {
@@ -190,6 +183,7 @@
 .film-suggested {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
+  margin: 0 auto;
 
   .card-box-container {
     font-family: 'Nunito Sans', sans-serif;
@@ -199,12 +193,17 @@
 }
 
 .card-body {
+.age{
+  border: solid 1px white;
+  padding: 6px;
+}
   p {
-    white-space: wrap;
+    font-weight: 400;
+    max-width: 80%; white-space:inherit;
     overflow-x: hidden;
     display: inline-block;
-    max-inline-size: 300px;
     height: 100px;
     text-overflow: ellipsis;
   }
 }
+

@@ -1,0 +1,104 @@
+body{
+  background-color: #fff;
+}
+
+.row_title {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.row_posters {
+  display: flex;
+  align-items: center;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  min-height: 350px;
+  transition: 500ms;
+  scroll-behavior:smooth;
+}
+
+.row_posters::-webkit-scrollbar {
+  display: none;
+}
+
+.row_poster {
+  object-fit: contain;
+
+  height: 100%;
+}
+
+.wrap {
+  display: block;
+  position: relative;
+  height:18em;
+  padding: 40px;
+  width: fit-content;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: height 500ms;
+}
+
+.wrap:hover {
+  height: 19em;
+  z-index: 10000;
+}
+
+.poster_title {
+  font-family: "Cinzel", serif;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  padding: 15px;
+  color: #f0f0f0;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+
+}
+.wrap:hover .poster_title {
+  opacity: 0;
+  transition: opacity 1000ms 1000ms;
+}
+
+.poster_info {
+  position: absolute;
+  left: 2em;
+  padding-left: 30px;
+  padding-top: 20px;
+  bottom: 50px;
+  font-weight: 300;
+  font-size: 0.75rem;
+  width: 250px;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 300ms;
+}
+.wrap:hover .poster_info {
+  opacity: 1;
+  transition: opacity 3000ms;
+}
+.poster_info p {
+  padding-top: 5px;
+}
+
+
+.logo-cards{
+  width: 1.5em;
+}
+
+.preferito .bi-heart-fill {
+  color: red;
+}
+.wrap2{
+  display: block;
+  position: relative;
+  height:18em;
+  padding: 20px;
+  width: fit-content;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: height 500ms;
+}
+.wrap2:hover {
+  height: 19em;
+  z-index: 10000;
+}
