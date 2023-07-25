@@ -19,8 +19,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
 
   },{
-    path: 'laMiaLista', component:PreferitiComponent,
-    canActivate: [AuthGuard],
+    path: 'laMiaLista', component:PreferitiComponent
+
   }
 ];
 

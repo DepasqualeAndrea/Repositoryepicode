@@ -22,7 +22,7 @@ import { ModalService } from 'src/app/service/modal.service';
 export class HomePageComponent implements OnInit {
   // ngx carousel
 
- /* slideConfig = {
+  slideConfig = {
     "slidesToShow": 5,
     "slidesToScroll": 5,
     "autoplay": true,
@@ -58,8 +58,7 @@ export class HomePageComponent implements OnInit {
         "slideToScroll": 2,
       }
     }]
-  }*/
-
+  }
 
   user!: Utente;
   sub!: Subscription;
@@ -208,45 +207,6 @@ export class HomePageComponent implements OnInit {
   salvaPreferitiSuLocalStorage() {
     localStorage.setItem('preferiti', JSON.stringify(this.preferiti));
   }
-
-  slickCarouselConfig = {
-    "infinite": true,
-    "slidesToShow": 5,
-    "slidesToScroll": 4,
-    "arrows": true,
-    "dots": true,
-    "responsive": [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
-
-
-
-
-
-
-
 
 }
 

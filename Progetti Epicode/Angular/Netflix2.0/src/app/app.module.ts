@@ -35,6 +35,9 @@ import { PreferitiComponent } from './components/preferiti/preferiti.component';
     AngularFireModule.initializeApp(environment.firebase),
     HttpClientModule,
     FormsModule,
+    SlickCarouselModule,
+    AppRoutingModule,
+    BrowserModule
 
   ],
   providers: [],
