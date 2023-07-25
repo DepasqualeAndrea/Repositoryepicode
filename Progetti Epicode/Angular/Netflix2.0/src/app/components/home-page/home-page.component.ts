@@ -23,6 +23,7 @@ export class HomePageComponent implements OnInit {
   // ngx carousel
 
   slideConfig = {
+    "type": 'fixed',
     "slidesToShow": 5,
     "slidesToScroll": 5,
     "autoplay": true,
@@ -164,15 +165,8 @@ export class HomePageComponent implements OnInit {
       this.popular = popular.results
       console.log(this.top_rated);
     })
-
-    this.getRandomMovie();
-
-
   }
-  getRandomMovie(): void {
-    const randomIndex = Math.floor(Math.random() * this.upcoming.length);
-    this.upcoming = this.upcoming[randomIndex];
-  }
+
 
   // metodo per il like dei film
   // Funzione per aggiungere o rimuovere il film dai preferiti

@@ -37,133 +37,283 @@
             </div>
           </div>
         </div>
-        <div class="cards-e-caroselli container-fluid">
-          <div class="contenuto-films d-flex flex-column" id="contenuto-films">
-            <div class="row justify-content-center" style=" margin-bottom: 50px;">
-              <h2 class="row_title text-white my-3" style="width: 96%;">Top Rated</h2>
-              <ngx-slick-carousel class="row_posters" class="carousel" #slickModal="slick-carousel"
-                [config]="slideConfig" style=" height: fit-content; width:97%; overflow: visible; ">
-                <div class="wrap" ngxSlickItem *ngFor="let movie of upcoming">
-                  <div style="position: absolute; margin:10px;">
-                    <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-                  </div>
-                  <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage" class="row_poster"
-                    (click)="openModal(movie.id)" />
-                  <h5 class="poster_title">{{movie.title}}</h5>
-                  <div class="poster_info text-white" (click)="openModal(movie.id)">
-                    <div style="position: absolute; bottom: 0;">
-                      <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-                      <h4>{{movie.title}}</h4>
-                    </div>
-                  </div>
-                  <div class="contenuto_card_interaction w-100 ">
-                    <div class="d-flex justify-content-between justify-content-center">
-                      <div class="d-flex ms-2">
-                        <div>
-                          <button class="btn text-secondary p-2" style="font-size:2em;"><i
-                              class="bi bi-play-circle-fill"></i></button>
-                        </div>
-                        <div>
-                          <button class="btn text-secondary p-2 " style="font-size:2em;"
-                            (click)="Preferito(movie)" [class.preferito]="isPreferito(movie)"><i
-                              class="bi bi-heart-fill"></i></button>
-                        </div>
-                      </div>
-                      <div>
-                        <button class="btn text-secondary p-2" style="font-size: 2em;"
-                        (click)="openModal(movie.id)"><i class="bi bi-chevron-compact-down rounded-5"></i></button>
-                      </div>
-                    </div>
-                    <div class="matched ms-4 mt-2 mb-1">
-                      <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
-                      <span> 2020 </span>&nbsp;
-                      <span class="limited">Limited Series</span>
-                      <p class="w-75 mt-3 descrizione-modal">Language {{movie.original_language}} • voto {{movie.vote_average}}</p>
-                    </div>
-                  </div>
-                </div>
-              </ngx-slick-carousel>
-            </div>
-            <div class="row justify-content-center p-0">
-              <div class="card-box-container d-flex flex-wrap gap-3 justify-content-center p-0"
-                style=" margin-bottom: 50px;">
-                <h2 class="text-white row_title" style="width: 95%; margin-top:50px; margin-bottom: 0;">Top 10 in italia
-                </h2>
-                <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
-                  style="width:97%;">
-                  <div ngxSlickItem *ngFor="let movie of now_playing; let i = index" class="slide"
-                    (click)="openModal(movie.id)">
-                    <div *ngIf="i <= 9">
-                      <div class="d-flex align-items-baseline top-cards w-50">
-                        <div>
-                          <p id="number">{{i+1}}</p>
-                        </div>
-                        <div>
-                          <img class="cover p-0 m0" src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
-                            style="width:150px; height: fit-content;">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </ngx-slick-carousel>
-              </div>
-            </div>
-            <div class="row justify-content-center" style=" margin-bottom: 50px;">
-              <h2 class="row_title text-white my-3" style="width: 96%;margin-top:100px;margin-bottom: 100px;">Piu Visti
-              </h2>
-              <ngx-slick-carousel class="row_posters" class="carousel" #slickModal="slick-carousel"
-                [config]="slideConfig" style=" height: 200px; width:97%;  ">
-                <div class="wrap" ngxSlickItem *ngFor="let movie of now_playing">
-                  <div style="position: absolute; margin:10px;">
-                    <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-                  </div>
-                  <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage" class="row_poster"
-                    (click)="openModal(movie.id)" />
-                  <h5 class="poster_title">{{movie.title}}</h5>
-                  <div class="poster_info text-white" (click)="openModal(movie.id)">
-                    <div style="position: absolute; bottom: 0;">
-                      <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-                      <h4>{{movie.title}}</h4>
-                    </div>
-
-                  </div>
-                  <div>
-                    <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;" (click)="Preferito(movie)"
-                      [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
-                  </div>
-                </div>
-              </ngx-slick-carousel>
-            </div>
-            <div class="row justify-content-center" style=" margin-bottom: 50px;">
-              <h2 class="row_title text-white my-3" style="width: 96%;margin-top:100px;">Popolari</h2>
-              <ngx-slick-carousel class="row_posters" class="carousel" #slickModal="slick-carousel"
-                [config]="slideConfig" style=" height: 200px; width:97%;  ">
-                <div class="wrap" ngxSlickItem *ngFor="let movie of popular">
-                  <div style="position: absolute; margin:10px;">
-                    <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-                  </div>
-                  <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage" class="row_poster"
-                    (click)="openModal(movie.id)" />
-                  <h5 class="poster_title">{{movie.title}}</h5>
-                  <div class="poster_info text-white" (click)="openModal(movie.id)">
-                    <div style="position: absolute; bottom: 0;">
-                      <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-                      <h4>{{movie.title}}</h4>
-                    </div>
-
-                  </div>
-                  <div>
-                    <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;" (click)="Preferito(movie)"
-                      [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
-                  </div>
-                </div>
-              </ngx-slick-carousel>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
-  <!--cards e caroselli-->
+</div>
+<div class="cards">
+  <h2 class="row_title text-white my-3 " style="width: 95%; margin-top: 0;">stronzo</h2>
+  <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
+  slidesPerView="6" slidesPerGroup="6"
+   class="swiper-container overflow-visible" >
+   <div class="swiper-button-next"></div>
+   <div class="swiper-button-prev"></div>
+    <swiper-slide *ngFor="let movie of in_trending" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
+      <div style="position: absolute; margin:10px;">
+        <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards-top">
+      </div>
+      <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="movieImage"
+        (click)="openModal(movie.id)" class="w-100" />
+        <div class="subTitle text-light">
+          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+          <h4>{{movie.title}}</h4>
+        </div>
+      <div class="contenuto_card_interaction bg-dark text-light w-100" >
+        <div class="d-flex justify-content-between justify-content-center">
+          <div class="d-flex ms-2">
+            <div>
+              <button class="btn text-secondary p-2"  style="font-size: 1.2em;" ><i
+                  class="bi bi-play-circle-fill"></i></button>
+            </div>
+            <div>
+              <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(movie)"
+                [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
+            </div>
+          </div>
+          <div>
+            <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(movie.id)"><i
+                class="bi bi-chevron-compact-down rounded-5"></i></button>
+          </div>
+        </div>
+        <div class="matched ms-2 mb-3 p-1">
+          <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
+          <span> 2020 </span>&nbsp;
+          <span class="limited">Limited Series</span>
+          <p class=" descrizione-modal">Language {{movie.original_language}} • voto
+            {{movie.vote_average}}</p>
+        </div>
+      </div>
+    </swiper-slide>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </swiper-container>
+</div>
+<!--<div class="cards">
+  <h2 class="row_title text-white my-3 " style="width: 95%; margin: 0 auto;">Top Rated</h2>
+  <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
+    slidesPerView="4" slidesPerGroup="4" centeredSlides="false" class="swiper-container" >
+    <swiper-slide *ngFor="let movie of upcoming" class="swiper-slide" style="padding-top: 50px; margin-top: 20px ;">
+      <div style="position: absolute; margin:10px;">
+        <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+      </div>
+      <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="movieImage"
+        (click)="openModal(movie.id)" class="w-100" />
+        <div class="contenuto_card_interaction bg-dark text-light w-100" >
+          <div class="d-flex justify-content-between justify-content-center">
+            <div class="d-flex ms-2">
+              <div>
+                <button class="btn text-secondary p-2" ><i
+                    class="bi bi-play-circle-fill"></i></button>
+              </div>
+              <div>
+                <button class="btn text-secondary p-2 "   style="font-size: 1.5em;" (click)="Preferito(movie)"
+                  [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
+              </div>
+            </div>
+            <div>
+              <button class="btn text-secondary p-2"  (click)="openModal(movie.id)"><i
+                  class="bi bi-chevron-compact-down rounded-5"></i></button>
+            </div>
+          </div>
+          <div class="matched ms-4">
+            <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
+            <span> 2020 </span>&nbsp;
+            <span class="limited">Limited Series</span>
+            <p class="mt-1 descrizione-modal">Language {{movie.original_language}} • voto
+              {{movie.vote_average}}</p>
+          </div>
+        </div>
+      <h5 class="poster_title" style="position: absolute; bottom: 0; top: 180px;">{{movie.title}}</h5>
+    </swiper-slide>
+  </swiper-container>
+ <div class="row justify-content-center p-0">
+      <div class="card-box-container d-flex flex-wrap gap-3 justify-content-center p-0"
+        style=" margin-bottom: 50px;">
+        <h2 class="text-white row_title" style="width: 95%;">Top 10 in italia
+        </h2>
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+          style="width:97%;">
+          <div ngxSlickItem *ngFor="let movie of now_playing; let i = index" class="slide"
+            (click)="openModal(movie.id)">
+            <div *ngIf="i <= 9">
+              <div class="d-flex align-items-baseline top-cards w-50">
+                <div>
+                  <p id="number">{{i+1}}</p>
+                </div>
+                <div>
+                  <img class="cover p-0 m0" src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
+                    style="width:150px; height: fit-content;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </ngx-slick-carousel>
+      </div>
+    </div>-->
+<!--<div class="row justify-content-center" style=" margin-bottom: 50px;">
+      <h2 class="row_title text-white my-3" style="width: 96%;margin-top:100px;margin-bottom: 100px;">Piu Visti
+      </h2>
+      <ngx-slick-carousel class="row_posters" class="carousel" #slickModal="slick-carousel"
+        [config]="slideConfig" style=" height: 200px; width:97%;  ">
+        <div class="wrap" ngxSlickItem *ngFor="let movie of now_playing">
+          <div style="position: absolute; margin:10px;">
+            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+          </div>
+          <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage" class="row_poster"
+            (click)="openModal(movie.id)" />
+          <h5 class="poster_title">{{movie.title}}</h5>
+          <div class="poster_info text-white" (click)="openModal(movie.id)">
+            <div style="position: absolute; bottom: 0;">
+              <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+              <h4>{{movie.title}}</h4>
+            </div>
 
-  <!--(click)="getLiked(movie.id, user.user.id)" [class.favouriteMovie]="favouriteCount(movie.id)"  da inserire nel cuore quando si mette like al film -->
+          </div>
+          <div>
+            <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;" (click)="Preferito(movie)"
+              [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+    </div>-->
+<!--<div class="row justify-content-center" style=" margin-bottom: 50px;">
+      <h2 class="row_title text-white my-3" style="width: 96%;margin-top:100px;">Popolari</h2>
+      <ngx-slick-carousel class="row_posters" class="carousel" #slickModal="slick-carousel"
+        [config]="slideConfig" style=" height: 200px; width:97%;  ">
+        <div class="wrap" ngxSlickItem *ngFor="let movie of popular">
+          <div style="position: absolute; margin:10px;">
+            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+          </div>
+          <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage" class="row_poster"
+            (click)="openModal(movie.id)" />
+          <h5 class="poster_title">{{movie.title}}</h5>
+          <div class="poster_info text-white" (click)="openModal(movie.id)">
+            <div style="position: absolute; bottom: 0;">
+              <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+              <h4>{{movie.title}}</h4>
+            </div>
+
+          </div>
+          <div>
+            <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;" (click)="Preferito(movie)"
+              [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+    </div>
+</div>-->
+<div class="cards">
+  <!--<h2 class="row_title text-white my-3 " style="width: 95%; margin: 0 auto;">Top Rated</h2>
+  <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
+    slidesPerView="4" slidesPerGroup="4" centeredSlides="false" class="swiper-container" >
+    <swiper-slide *ngFor="let movie of upcoming" class="swiper-slide" style="padding-top: 50px; margin-top: 20px ;">
+      <div style="position: absolute; margin:10px;">
+        <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+      </div>
+      <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="movieImage"
+        (click)="openModal(movie.id)" class="w-100" />
+        <div class="contenuto_card_interaction bg-dark text-light w-100" >
+          <div class="d-flex justify-content-between justify-content-center">
+            <div class="d-flex ms-2">
+              <div>
+                <button class="btn text-secondary p-2" ><i
+                    class="bi bi-play-circle-fill"></i></button>
+              </div>
+              <div>
+                <button class="btn text-secondary p-2 "  (click)="Preferito(movie)"
+                  [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
+              </div>
+            </div>
+            <div>
+              <button class="btn text-secondary p-2"  (click)="openModal(movie.id)"><i
+                  class="bi bi-chevron-compact-down rounded-5"></i></button>
+            </div>
+          </div>
+          <div class="matched ms-4">
+            <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
+            <span> 2020 </span>&nbsp;
+            <span class="limited">Limited Series</span>
+            <p class="mt-1 descrizione-modal">Language {{movie.original_language}} • voto
+              {{movie.vote_average}}</p>
+          </div>
+        </div>
+      <h5 class="poster_title" style="position: absolute; bottom: 0; top: 180px;">{{movie.title}}</h5>
+    </swiper-slide>
+  </swiper-container>-->
+  <!--<div class="row justify-content-center p-0">
+      <div class="card-box-container d-flex flex-wrap gap-3 justify-content-center p-0"
+        style=" margin-bottom: 50px;">
+        <h2 class="text-white row_title" style="width: 95%;">Top 10 in italia
+        </h2>
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+          style="width:97%;">
+          <div ngxSlickItem *ngFor="let movie of now_playing; let i = index" class="slide"
+            (click)="openModal(movie.id)">
+            <div *ngIf="i <= 9">
+              <div class="d-flex align-items-baseline top-cards w-50">
+                <div>
+                  <p id="number">{{i+1}}</p>
+                </div>
+                <div>
+                  <img class="cover p-0 m0" src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
+                    style="width:150px; height: fit-content;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </ngx-slick-carousel>
+      </div>
+    </div>-->
+<!--<div class="row justify-content-center" style=" margin-bottom: 50px;">
+      <h2 class="row_title text-white my-3" style="width: 96%;margin-top:100px;margin-bottom: 100px;">Piu Visti
+      </h2>
+      <ngx-slick-carousel class="row_posters" class="carousel" #slickModal="slick-carousel"
+        [config]="slideConfig" style=" height: 200px; width:97%;  ">
+        <div class="wrap" ngxSlickItem *ngFor="let movie of now_playing">
+          <div style="position: absolute; margin:10px;">
+            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+          </div>
+          <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage" class="row_poster"
+            (click)="openModal(movie.id)" />
+          <h5 class="poster_title">{{movie.title}}</h5>
+          <div class="poster_info text-white" (click)="openModal(movie.id)">
+            <div style="position: absolute; bottom: 0;">
+              <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+              <h4>{{movie.title}}</h4>
+            </div>
+
+          </div>
+          <div>
+            <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;" (click)="Preferito(movie)"
+              [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+    </div>-->
+<!--<div class="row justify-content-center" style=" margin-bottom: 50px;">
+      <h2 class="row_title text-white my-3" style="width: 96%;margin-top:100px;">Popolari</h2>
+      <ngx-slick-carousel class="row_posters" class="carousel" #slickModal="slick-carousel"
+        [config]="slideConfig" style=" height: 200px; width:97%;  ">
+        <div class="wrap" ngxSlickItem *ngFor="let movie of popular">
+          <div style="position: absolute; margin:10px;">
+            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+          </div>
+          <img src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" alt="movieImage" class="row_poster"
+            (click)="openModal(movie.id)" />
+          <h5 class="poster_title">{{movie.title}}</h5>
+          <div class="poster_info text-white" (click)="openModal(movie.id)">
+            <div style="position: absolute; bottom: 0;">
+              <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+              <h4>{{movie.title}}</h4>
+            </div>
+
+          </div>
+          <div>
+            <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;" (click)="Preferito(movie)"
+              [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+    </div>-->
+</div>
+
