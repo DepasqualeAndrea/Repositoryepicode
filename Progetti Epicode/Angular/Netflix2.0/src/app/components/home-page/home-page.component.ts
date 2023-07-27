@@ -161,10 +161,11 @@ export class HomePageComponent implements OnInit {
       console.log(this.top_rated);
     })
 
-    this.sub! = this.http.getToprated().subscribe((popular: any) => {
+    this.sub! = this.http.getDiscoverTv().subscribe((popular: any) => {
       this.popular = popular.results
-      console.log(this.top_rated);
+      console.log(this.popular);
     })
+
   }
 
 
