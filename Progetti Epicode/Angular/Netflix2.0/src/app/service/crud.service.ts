@@ -8,6 +8,7 @@ import { Toprated } from '../interface/toprated.interface';
 import { Piuvisti } from '../interface/piuvisti.interface';
 import { Popular } from '../interface/popular.interface';
 import { Favourites } from '../interface/favourites.interface';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -79,7 +80,8 @@ export class CRUDService {
   getSearchMovies(data: any) {
     return this.http.get(`${this.TMDB}search/tv?api_key=${this.ApyKey}&query=${data.movieName}`)
   }
-  getMovieVideo(data: any) {
-    return this.http.get(`${this.TMDB}movie/${data}/videos?api_key=${this.ApyKey}`)
+  getMovieFinded(searchQuery: string): Observable<any[]>{
+    const searchUrl = `${this.TMDB}search/tv?api_key=${this.ApyKey}&query=${encodeURIComponent(searchQuery)}`;
+    return this.http.get<any[]>(searchUrl);
   }
 }

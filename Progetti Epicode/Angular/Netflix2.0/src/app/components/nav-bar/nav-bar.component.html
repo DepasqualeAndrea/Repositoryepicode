@@ -32,6 +32,7 @@
       <form class="d-flex align-items-center gap-4 p-2 me-4" role="search">
           <div class="text-light">
               <i class="bi bi-search btn" style="background-color: transparent;"></i>
+              <input type="text" [(ngModel)]="searchQuery" name="searchQuery" (input)="onSearch()">
           </div>
           <div class="text-light">
               <i class="bi bi-bell-fill" id="bell"></i>
@@ -40,3 +41,18 @@
             <button type="button" class="btn btn-outline-danger" style="padding: 0.5em;" (click)="logout()">Logout</button>
           </div>
       </form>
+  </div>
+</nav>
+<div *ngIf="searchResults.length > 0">
+  <div *ngFor="let movie of searchResults">
+    <!-- Card del film -->
+    <div class="card">
+      <h3>{{ movie.title }}</h3>
+
+    </div>
+  </div>
+</div>
+<div *ngIf="searchResults.length === 0">
+  <p>Nessun film trovato.</p>
+</div>
+

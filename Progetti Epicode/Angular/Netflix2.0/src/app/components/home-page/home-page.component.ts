@@ -12,6 +12,7 @@ import { Utente } from 'src/app/interface/utente.interface';
 import { AuthService } from 'src/app/service/auth.service';
 import { CRUDService } from 'src/app/service/crud.service';
 import { ModalService } from 'src/app/service/modal.service';
+import { SearchService } from 'src/app/service/search.service';
 
 
 @Component({
@@ -72,7 +73,7 @@ export class HomePageComponent implements OnInit {
   popular: any;
   now_playing: any;
   preferiti: FavouriteMovies[] = [];
-
+  searchResults: any[] = [];
 
 
   modal = {
@@ -98,7 +99,7 @@ export class HomePageComponent implements OnInit {
   }
 
 
-  constructor(private auth: AuthService, private http: CRUDService, public modale: ModalService, private details: ActivatedRoute) { }
+  constructor(private auth: AuthService, private http: CRUDService, public modale: ModalService, private details: ActivatedRoute, public searchService: SearchService) { }
 
   ngOnInit(): void {
 
@@ -108,7 +109,7 @@ export class HomePageComponent implements OnInit {
     }
     console.log(this.preferiti)
 
-
+    this.searchResults = this.searchService.getSearchResults();
     /* this.sub = this.http.getMoviesUpComing().subscribe((upcoming) => {
        this.upcoming = upcoming;
        console.log(upcoming);

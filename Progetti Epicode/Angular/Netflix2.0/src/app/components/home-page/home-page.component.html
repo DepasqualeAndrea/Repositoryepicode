@@ -1,6 +1,8 @@
 <app-app-modal *ngIf="modal.showModal" [selectedMovieId]="selectedMovieId"
   (closeModalEvent)="closeModal()"></app-app-modal>
 <app-nav-bar *ngIf="navBar"></app-nav-bar>
+
+
 <div class="container-fluid p-0">
   <div class="content" *ngFor="let movie of upcoming; let index = index">
     <div *ngIf="index < 1; ">
@@ -41,7 +43,57 @@
     </div>
   </div>
 </div>
-<div class="cards">
+<div *ngIf="searchService.getSearchResults().length > 0">
+  <h2>Risultati della ricerca:</h2>
+  <div class="cards">
+    <h2 class="row_title text-white my-3 " style="width: 95%; margin: 0 auto;">I più visti</h2>
+    <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
+    slidesPerView="3" slidesPerGroup="4"
+     class="swiper-container overflow-visible" >
+     <div class="swiper-button-next"></div>
+     <div class="swiper-button-prev"></div>
+      <swiper-slide *ngFor="let result of searchResults" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
+        <div style="position: absolute; margin:10px;">
+          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards-top">
+        </div>
+        <img src="https://image.tmdb.org/t/p/original/{{result.backdrop_path}}" alt="movieImage"
+          (click)="openModal(result.id)" class="w-100" />
+          <div class="subTitle text-light">
+            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+            <h4  (click)="openModal(result.id)">{{result.title}}</h4>
+          </div>
+        <div class="contenuto_card_interaction bg-dark text-light w-100" >
+          <div class="d-flex justify-content-between justify-content-center">
+            <div class="d-flex ms-2">
+              <div>
+                <button class="btn text-secondary p-2"  style="font-size: 1.2em;" ><i
+                    class="bi bi-play-circle-fill"></i></button>
+              </div>
+              <div>
+                <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(result)"
+                  [class.preferito]="isPreferito(result)"><i class="bi bi-heart-fill"></i></button>
+              </div>
+            </div>
+            <div>
+              <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(result.id)"><i
+                  class="bi bi-chevron-compact-down rounded-5"></i></button>
+            </div>
+          </div>
+          <div class="matched ms-2 mb-3 p-1">
+            <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
+            <span> 2020 </span>&nbsp;
+            <span class="limited">Limited Series</span>
+            <p class=" descrizione-modal">Language {{result.original_language}} • voto
+              {{result.vote_average}}</p>
+          </div>
+        </div>
+      </swiper-slide>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </swiper-container>
+  </div>
+</div>
+<!--<div class="cards">
   <h2 class="row_title text-white my-3 " style="width: 95%; margin: 0 auto;">I più visti</h2>
   <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
   slidesPerView="3" slidesPerGroup="4"
@@ -349,5 +401,5 @@
     <div class="swiper-button-prev"></div>
   </swiper-container>
 </div>
-
+-->
 
