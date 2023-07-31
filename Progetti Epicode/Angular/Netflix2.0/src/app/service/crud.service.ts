@@ -80,7 +80,7 @@ export class CRUDService {
   getSearchMovies(data: any) {
     return this.http.get(`${this.TMDB}search/tv?api_key=${this.ApyKey}&query=${data.movieName}`)
   }
-  getMovieFinded(searchQuery: string): Observable<any[]>{
+  getMovieFinded(searchQuery: any): Observable<any[]>{
     const searchUrl = `${this.TMDB}search/tv?api_key=${this.ApyKey}&query=${encodeURIComponent(searchQuery)}`;
     return this.http.get<any[]>(searchUrl);
   }

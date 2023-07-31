@@ -12,7 +12,7 @@ import { Utente } from 'src/app/interface/utente.interface';
 import { AuthService } from 'src/app/service/auth.service';
 import { CRUDService } from 'src/app/service/crud.service';
 import { ModalService } from 'src/app/service/modal.service';
-import { SearchService } from 'src/app/service/search.service';
+
 
 
 @Component({
@@ -73,19 +73,15 @@ export class HomePageComponent implements OnInit {
   popular: any;
   now_playing: any;
   preferiti: FavouriteMovies[] = [];
-  searchResults: any[] = [];
-
+  selectedMovieId!: number | any;
+  navBar = true;
 
   modal = {
     showModal: false
   };
 
-  navBar = true;
-
-  selectedMovieId!: number | any;
-
   openModal(movieId: number) {
- // Memorizza l'ID del film selezionato
+    // Memorizza l'ID del film selezionato
     setTimeout(() => {
       this.selectedMovieId = movieId;
       this.modal.showModal = true;// Mostra il modale
@@ -99,7 +95,9 @@ export class HomePageComponent implements OnInit {
   }
 
 
-  constructor(private auth: AuthService, private http: CRUDService, public modale: ModalService, private details: ActivatedRoute, public searchService: SearchService) { }
+  constructor(private http: CRUDService, public modale: ModalService) {
+
+  }
 
   ngOnInit(): void {
 
@@ -109,35 +107,6 @@ export class HomePageComponent implements OnInit {
     }
     console.log(this.preferiti)
 
-    this.searchResults = this.searchService.getSearchResults();
-    /* this.sub = this.http.getMoviesUpComing().subscribe((upcoming) => {
-       this.upcoming = upcoming;
-       console.log(upcoming);
-     })
-     this.sub = this.http.getMoviesPopular().subscribe((popular) => {
-       this.popular = popular;
-       console.log(popular);
-     })
-     this.sub = this.http.getMoviesNowPlaying().subscribe((nowPlaying) => {
-       this.nowPlaying = nowPlaying;
-       console.log(nowPlaying);
-     })
-     this.sub = this.http.getMoviesToprated().subscribe((toprated) => {
-       this.toprated = toprated;
-       console.log(toprated);
-     })
-     this.sub = this.http.getMoviespiuVisti().subscribe((piuvisti) => {
-       this.piuVisti = piuvisti;
-       console.log(piuvisti);
-     })
-     this.sub = this.http.getMoviespiuVisti().subscribe((piuvisti) => {
-       this.piuVisti = piuvisti;
-       console.log(piuvisti);
-     })
-     this.sub = this.http.getMovieFavourite().subscribe((data) => {
-       this.filmLiked = data;
-       console.log(data);
-     })*/
 
     this.sub! = this.http.getMovies().subscribe((trend: any) => {
       this.in_trending = trend.results

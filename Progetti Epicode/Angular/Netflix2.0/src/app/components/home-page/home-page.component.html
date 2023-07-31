@@ -2,49 +2,98 @@
   (closeModalEvent)="closeModal()"></app-app-modal>
 <app-nav-bar *ngIf="navBar"></app-nav-bar>
 
-
-<div class="container-fluid p-0">
-  <div class="content" *ngFor="let movie of upcoming; let index = index">
-    <div *ngIf="index < 1; ">
-      <div class=" body-video container-fluid p-0 bg-dark" style="border: hidden;">
-        <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="" style="width: 100%; ">
-      </div>
-      <div class="bottom"></div>
-      <div class="text">
-        <div class="testo_hero ms-5" style="margin-bottom: 160px;">
-          <div class="d-flex align-items-center gap-4">
-            <div>
-              <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo" style="width: 3em">
+  <div class="container-fluid p-0">
+    <div class="content" *ngFor="let movie of upcoming; let index = index">
+      <div *ngIf="index < 1; ">
+        <div class=" body-video container-fluid p-0 bg-dark" style="border: hidden;">
+          <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="" style="width: 100%; ">
+        </div>
+        <div class="bottom"></div>
+        <div class="text">
+          <div class="testo_hero ms-5" style="margin-bottom: 160px;">
+            <div class="d-flex align-items-center gap-4">
+              <div>
+                <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo" style="width: 3em">
+              </div>
+              <div>
+                <p style="font-size: 3em;">serie</p>
+              </div>
             </div>
-            <div>
-              <p style="font-size: 3em;">serie</p>
+            <h1 class="w-100">{{movie.title}}</h1>
+            <div class="d-flex align-items-center mb-4 gap-3">
+              <div>
+                <img src="https://www.netflix.com/tudum/top10/images/top10.png" alt="" class="logo" style="width: 3em">
+              </div>
+              <div>
+                <p>Top 1 Attualmente in Italia</p>
+              </div>
             </div>
-          </div>
-          <h1 class="w-100">{{movie.title}}</h1>
-          <div class="d-flex align-items-center mb-4 gap-3">
+            <p class="descrizione mb-4">{{movie.overview}}</p>
             <div>
-              <img src="https://www.netflix.com/tudum/top10/images/top10.png" alt="" class="logo" style="width: 3em">
-            </div>
-            <div>
-              <p>Top 1 Attualmente in Italia</p>
-            </div>
-          </div>
-          <p class="descrizione mb-4">{{movie.overview}}</p>
-          <div>
-            <div class="d-flex gap-3 bottoni align-items-center">
-              <button class="btn btn-light"> <i class="bi bi-play-fill me-2"></i>Riproduci</button>
-              <button class="btn btn-outline-secondary bg-secondary text-light gap-3" (click)="openModal(movie.id)"><i
-                  class="bi bi-info-circle me-2"></i>Altre
-                info</button>
+              <div class="d-flex gap-3 bottoni align-items-center">
+                <button class="btn btn-light"> <i class="bi bi-play-fill me-2"></i>Riproduci</button>
+                <button class="btn btn-outline-secondary bg-secondary text-light gap-3" (click)="openModal(movie.id)"><i
+                    class="bi bi-info-circle me-2"></i>Altre
+                  info</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div *ngIf="searchService.getSearchResults().length > 0">
-  <h2>Risultati della ricerca:</h2>
+
+
+  <!--<div *ngIf="searchService.getSearchResults().length > 0">
+    <h2>Risultati della ricerca:</h2>
+    <div class="cards">
+      <h2 class="row_title text-white my-3 " style="width: 95%; margin: 0 auto;">I più visti</h2>
+      <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
+      slidesPerView="3" slidesPerGroup="4"
+       class="swiper-container overflow-visible" >
+       <div class="swiper-button-next"></div>
+       <div class="swiper-button-prev"></div>
+        <swiper-slide *ngFor="let result of searchResults" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
+          <div style="position: absolute; margin:10px;">
+            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards-top">
+          </div>
+          <img src="https://image.tmdb.org/t/p/original/{{result.backdrop_path}}" alt="movieImage"
+            (click)="openModal(result.id)" class="w-100" />
+            <div class="subTitle text-light">
+              <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+              <h4  (click)="openModal(result.id)">{{result.title}}</h4>
+            </div>
+          <div class="contenuto_card_interaction bg-dark text-light w-100" >
+            <div class="d-flex justify-content-between justify-content-center">
+              <div class="d-flex ms-2">
+                <div>
+                  <button class="btn text-secondary p-2"  style="font-size: 1.2em;" ><i
+                      class="bi bi-play-circle-fill"></i></button>
+                </div>
+                <div>
+                  <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(result)"
+                    [class.preferito]="isPreferito(result)"><i class="bi bi-heart-fill"></i></button>
+                </div>
+              </div>
+              <div>
+                <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(result.id)"><i
+                    class="bi bi-chevron-compact-down rounded-5"></i></button>
+              </div>
+            </div>
+            <div class="matched ms-2 mb-3 p-1">
+              <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
+              <span> 2020 </span>&nbsp;
+              <span class="limited">Limited Series</span>
+              <p class=" descrizione-modal">Language {{result.original_language}} • voto
+                {{result.vote_average}}</p>
+            </div>
+          </div>
+        </swiper-slide>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </swiper-container>
+    </div>
+  </div>
   <div class="cards">
     <h2 class="row_title text-white my-3 " style="width: 95%; margin: 0 auto;">I più visti</h2>
     <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
@@ -52,15 +101,15 @@
      class="swiper-container overflow-visible" >
      <div class="swiper-button-next"></div>
      <div class="swiper-button-prev"></div>
-      <swiper-slide *ngFor="let result of searchResults" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
+      <swiper-slide *ngFor="let movie of in_trending" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
         <div style="position: absolute; margin:10px;">
           <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards-top">
         </div>
-        <img src="https://image.tmdb.org/t/p/original/{{result.backdrop_path}}" alt="movieImage"
-          (click)="openModal(result.id)" class="w-100" />
+        <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="movieImage"
+          (click)="openModal(movie.id)" class="w-100" />
           <div class="subTitle text-light">
             <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-            <h4  (click)="openModal(result.id)">{{result.title}}</h4>
+            <h4  (click)="openModal(movie.id)">{{movie.title}}</h4>
           </div>
         <div class="contenuto_card_interaction bg-dark text-light w-100" >
           <div class="d-flex justify-content-between justify-content-center">
@@ -70,12 +119,12 @@
                     class="bi bi-play-circle-fill"></i></button>
               </div>
               <div>
-                <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(result)"
-                  [class.preferito]="isPreferito(result)"><i class="bi bi-heart-fill"></i></button>
+                <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(movie)"
+                  [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
               </div>
             </div>
             <div>
-              <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(result.id)"><i
+              <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(movie.id)"><i
                   class="bi bi-chevron-compact-down rounded-5"></i></button>
             </div>
           </div>
@@ -83,8 +132,8 @@
             <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
             <span> 2020 </span>&nbsp;
             <span class="limited">Limited Series</span>
-            <p class=" descrizione-modal">Language {{result.original_language}} • voto
-              {{result.vote_average}}</p>
+            <p class=" descrizione-modal">Language {{movie.original_language}} • voto
+              {{movie.vote_average}}</p>
           </div>
         </div>
       </swiper-slide>
@@ -92,314 +141,267 @@
       <div class="swiper-button-prev"></div>
     </swiper-container>
   </div>
-</div>
-<!--<div class="cards">
-  <h2 class="row_title text-white my-3 " style="width: 95%; margin: 0 auto;">I più visti</h2>
-  <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
-  slidesPerView="3" slidesPerGroup="4"
-   class="swiper-container overflow-visible" >
-   <div class="swiper-button-next"></div>
-   <div class="swiper-button-prev"></div>
-    <swiper-slide *ngFor="let movie of in_trending" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
-      <div style="position: absolute; margin:10px;">
-        <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards-top">
-      </div>
-      <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="movieImage"
-        (click)="openModal(movie.id)" class="w-100" />
-        <div class="subTitle text-light">
-          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-          <h4  (click)="openModal(movie.id)">{{movie.title}}</h4>
-        </div>
-      <div class="contenuto_card_interaction bg-dark text-light w-100" >
-        <div class="d-flex justify-content-between justify-content-center">
-          <div class="d-flex ms-2">
-            <div>
-              <button class="btn text-secondary p-2"  style="font-size: 1.2em;" ><i
-                  class="bi bi-play-circle-fill"></i></button>
-            </div>
-            <div>
-              <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(movie)"
-                [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
-            </div>
-          </div>
-          <div>
-            <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(movie.id)"><i
-                class="bi bi-chevron-compact-down rounded-5"></i></button>
-          </div>
-        </div>
-        <div class="matched ms-2 mb-3 p-1">
-          <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
-          <span> 2020 </span>&nbsp;
-          <span class="limited">Limited Series</span>
-          <p class=" descrizione-modal">Language {{movie.original_language}} • voto
-            {{movie.vote_average}}</p>
-        </div>
-      </div>
-    </swiper-slide>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </swiper-container>
-</div>
-<div class="cards">
-  <div class="row justify-content-center p-0">
-    <div class="card-box-container d-flex flex-wrap gap-3 justify-content-center p-0"
-      style=" margin-bottom: 50px;">
-      <h2 class="text-white row_title" style="width: 95%;">Top 10 in italia
-      </h2>
-      <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
-        style="width:97%;">
-        <div ngxSlickItem *ngFor="let movie of now_playing; let i = index" class="slide"
-          (click)="openModal(movie.id)">
-          <div *ngIf="i <= 9">
-            <div class="d-flex align-items-baseline top-cards w-50">
-              <div>
-                <p id="number"  (click)="openModal(movie.id)">{{i+1}}</p>
-              </div>
-              <div>
-                <img class="cover p-0 m0" src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
-                  style="width:150px; height: fit-content;">
+  <div class="cards">
+    <div class="row justify-content-center p-0">
+      <div class="card-box-container d-flex flex-wrap gap-3 justify-content-center p-0"
+        style=" margin-bottom: 50px;">
+        <h2 class="text-white row_title" style="width: 95%;">Top 10 in italia
+        </h2>
+        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+          style="width:97%;">
+          <div ngxSlickItem *ngFor="let movie of now_playing; let i = index" class="slide"
+            (click)="openModal(movie.id)">
+            <div *ngIf="i <= 9">
+              <div class="d-flex align-items-baseline top-cards w-50">
+                <div>
+                  <p id="number"  (click)="openModal(movie.id)">{{i+1}}</p>
+                </div>
+                <div>
+                  <img class="cover p-0 m0" src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}"
+                    style="width:150px; height: fit-content;">
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </ngx-slick-carousel>
+        </ngx-slick-carousel>
+      </div>
     </div>
   </div>
-</div>
-<div class="cards">
-  <h2 class="row_title text-white my-3 " style="width: 95%; margin-top: 0;">stronzo</h2>
-  <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
-  slidesPerView="6" slidesPerGroup="6"
-   class="swiper-container overflow-visible" >
-   <div class="swiper-button-next"></div>
-   <div class="swiper-button-prev"></div>
-    <swiper-slide *ngFor="let movie of upcoming" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
-      <div style="position: absolute; margin:10px;">
-        <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards-top">
-      </div>
-      <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="movieImage"
-        (click)="openModal(movie.id)" class="w-100" />
-        <div class="subTitle text-light">
-          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-          <h4  (click)="openModal(movie.id)">{{movie.title}}</h4>
+  <div class="cards">
+    <h2 class="row_title text-white my-3 " style="width: 95%; margin-top: 0;">stronzo</h2>
+    <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
+    slidesPerView="6" slidesPerGroup="6"
+     class="swiper-container overflow-visible" >
+     <div class="swiper-button-next"></div>
+     <div class="swiper-button-prev"></div>
+      <swiper-slide *ngFor="let movie of upcoming" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
+        <div style="position: absolute; margin:10px;">
+          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards-top">
         </div>
-      <div class="contenuto_card_interaction bg-dark text-light w-100" >
-        <div class="d-flex justify-content-between justify-content-center">
-          <div class="d-flex ms-2">
-            <div>
-              <button class="btn text-secondary p-2"  style="font-size: 1.2em;" ><i
-                  class="bi bi-play-circle-fill"></i></button>
+        <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="movieImage"
+          (click)="openModal(movie.id)" class="w-100" />
+          <div class="subTitle text-light">
+            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+            <h4  (click)="openModal(movie.id)">{{movie.title}}</h4>
+          </div>
+        <div class="contenuto_card_interaction bg-dark text-light w-100" >
+          <div class="d-flex justify-content-between justify-content-center">
+            <div class="d-flex ms-2">
+              <div>
+                <button class="btn text-secondary p-2"  style="font-size: 1.2em;" ><i
+                    class="bi bi-play-circle-fill"></i></button>
+              </div>
+              <div>
+                <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(movie)"
+                  [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
+              </div>
             </div>
             <div>
-              <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(movie)"
-                [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
+              <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(movie.id)"><i
+                  class="bi bi-chevron-compact-down rounded-5"></i></button>
             </div>
           </div>
-          <div>
-            <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(movie.id)"><i
-                class="bi bi-chevron-compact-down rounded-5"></i></button>
+          <div class="matched ms-2 mb-3 p-1">
+            <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
+            <span> 2020 </span>&nbsp;
+            <span class="limited">Limited Series</span>
+            <p class=" descrizione-modal">Language {{movie.original_language}} • voto
+              {{movie.vote_average}}</p>
           </div>
         </div>
-        <div class="matched ms-2 mb-3 p-1">
-          <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
-          <span> 2020 </span>&nbsp;
-          <span class="limited">Limited Series</span>
-          <p class=" descrizione-modal">Language {{movie.original_language}} • voto
-            {{movie.vote_average}}</p>
+      </swiper-slide>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </swiper-container>
+  </div>
+  <div class="cards">
+    <h2 class="row_title text-white my-3 " style="width: 95%; margin-top: 0;">stronzo</h2>
+    <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
+    slidesPerView="6" slidesPerGroup="6"
+     class="swiper-container overflow-visible" >
+     <div class="swiper-button-next"></div>
+     <div class="swiper-button-prev"></div>
+      <swiper-slide *ngFor="let movie of now_playing" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
+        <div style="position: absolute; margin:10px;">
+          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards-top">
         </div>
-      </div>
-    </swiper-slide>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </swiper-container>
-</div>
-<div class="cards">
-  <h2 class="row_title text-white my-3 " style="width: 95%; margin-top: 0;">stronzo</h2>
-  <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
-  slidesPerView="6" slidesPerGroup="6"
-   class="swiper-container overflow-visible" >
-   <div class="swiper-button-next"></div>
-   <div class="swiper-button-prev"></div>
-    <swiper-slide *ngFor="let movie of now_playing" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
-      <div style="position: absolute; margin:10px;">
-        <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards-top">
-      </div>
-      <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="movieImage"
-        (click)="openModal(movie.id)" class="w-100" />
-        <div class="subTitle text-light">
-          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-          <h4  (click)="openModal(movie.id)">{{movie.title}}</h4>
-        </div>
-      <div class="contenuto_card_interaction bg-dark text-light w-100" >
-        <div class="d-flex justify-content-between justify-content-center">
-          <div class="d-flex ms-2">
-            <div>
-              <button class="btn text-secondary p-2"  style="font-size: 1.2em;" ><i
-                  class="bi bi-play-circle-fill"></i></button>
-            </div>
-            <div>
-              <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(movie)"
-                [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
-            </div>
+        <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="movieImage"
+          (click)="openModal(movie.id)" class="w-100" />
+          <div class="subTitle text-light">
+            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+            <h4  (click)="openModal(movie.id)">{{movie.title}}</h4>
           </div>
-          <div>
-            <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(movie.id)"><i
-                class="bi bi-chevron-compact-down rounded-5"></i></button>
-          </div>
-        </div>
-        <div class="matched ms-2 mb-3 p-1">
-          <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
-          <span> 2020 </span>&nbsp;
-          <span class="limited">Limited Series</span>
-          <p class=" descrizione-modal">Language {{movie.original_language}} • voto
-            {{movie.vote_average}}</p>
-        </div>
-      </div>
-    </swiper-slide>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </swiper-container>
-</div>
-<div class="cards">
-  <h2 class="row_title text-white my-3 " style="width: 95%; margin-top: 0;">stronzo</h2>
-  <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
-  slidesPerView="6" slidesPerGroup="6"
-   class="swiper-container overflow-visible" >
-   <div class="swiper-button-next"></div>
-   <div class="swiper-button-prev"></div>
-    <swiper-slide *ngFor="let movie of top_rated" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
-      <div style="position: absolute; margin:10px;">
-        <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards-top">
-      </div>
-      <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="movieImage"
-        (click)="openModal(movie.id)" class="w-100" />
-        <div class="subTitle text-light">
-          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-          <h4>{{movie.title}}</h4>
-        </div>
-      <div class="contenuto_card_interaction bg-dark text-light w-100" >
-        <div class="d-flex justify-content-between justify-content-center">
-          <div class="d-flex ms-2">
-            <div>
-              <button class="btn text-secondary p-2"  style="font-size: 1.2em;" ><i
-                  class="bi bi-play-circle-fill"></i></button>
+        <div class="contenuto_card_interaction bg-dark text-light w-100" >
+          <div class="d-flex justify-content-between justify-content-center">
+            <div class="d-flex ms-2">
+              <div>
+                <button class="btn text-secondary p-2"  style="font-size: 1.2em;" ><i
+                    class="bi bi-play-circle-fill"></i></button>
+              </div>
+              <div>
+                <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(movie)"
+                  [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
+              </div>
             </div>
             <div>
-              <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(movie)"
-                [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
+              <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(movie.id)"><i
+                  class="bi bi-chevron-compact-down rounded-5"></i></button>
             </div>
           </div>
-          <div>
-            <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(movie.id)"><i
-                class="bi bi-chevron-compact-down rounded-5"></i></button>
+          <div class="matched ms-2 mb-3 p-1">
+            <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
+            <span> 2020 </span>&nbsp;
+            <span class="limited">Limited Series</span>
+            <p class=" descrizione-modal">Language {{movie.original_language}} • voto
+              {{movie.vote_average}}</p>
           </div>
         </div>
-        <div class="matched ms-2 mb-3 p-1">
-          <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
-          <span> 2020 </span>&nbsp;
-          <span class="limited">Limited Series</span>
-          <p class=" descrizione-modal">Language {{movie.original_language}} • voto
-            {{movie.vote_average}}</p>
+      </swiper-slide>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </swiper-container>
+  </div>
+  <div class="cards">
+    <h2 class="row_title text-white my-3 " style="width: 95%; margin-top: 0;">stronzo</h2>
+    <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
+    slidesPerView="6" slidesPerGroup="6"
+     class="swiper-container overflow-visible" >
+     <div class="swiper-button-next"></div>
+     <div class="swiper-button-prev"></div>
+      <swiper-slide *ngFor="let movie of top_rated" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
+        <div style="position: absolute; margin:10px;">
+          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards-top">
         </div>
-      </div>
-    </swiper-slide>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </swiper-container>
-</div>
-<div class="cards">
-  <h2 class="row_title text-white my-3 " style="width: 95%; margin-top: 0;">stronzo</h2>
-  <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
-  slidesPerView="6" slidesPerGroup="6"
-   class="swiper-container overflow-visible" >
-   <div class="swiper-button-next"></div>
-   <div class="swiper-button-prev"></div>
-    <swiper-slide *ngFor="let movie of in_trending" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
-      <div style="position: absolute; margin:10px;">
-        <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards-top">
-      </div>
-      <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="movieImage"
-        (click)="openModal(movie.id)" class="w-100" />
-        <div class="subTitle text-light">
-          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-          <h4>{{movie.title}}</h4>
-        </div>
-      <div class="contenuto_card_interaction bg-dark text-light w-100" >
-        <div class="d-flex justify-content-between justify-content-center">
-          <div class="d-flex ms-2">
-            <div>
-              <button class="btn text-secondary p-2"  style="font-size: 1.2em;" ><i
-                  class="bi bi-play-circle-fill"></i></button>
-            </div>
-            <div>
-              <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(movie)"
-                [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
-            </div>
+        <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="movieImage"
+          (click)="openModal(movie.id)" class="w-100" />
+          <div class="subTitle text-light">
+            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+            <h4>{{movie.title}}</h4>
           </div>
-          <div>
-            <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(movie.id)"><i
-                class="bi bi-chevron-compact-down rounded-5"></i></button>
-          </div>
-        </div>
-        <div class="matched ms-2 mb-3 p-1">
-          <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
-          <span> 2020 </span>&nbsp;
-          <span class="limited">Limited Series</span>
-          <p class=" descrizione-modal">Language {{movie.original_language}} • voto
-            {{movie.vote_average}}</p>
-        </div>
-      </div>
-    </swiper-slide>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </swiper-container>
-</div>
-<div class="cards">
-  <h2 class="row_title text-white my-3 " style="width: 95%; margin-top: 0;">stronzo</h2>
-  <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
-  slidesPerView="6" slidesPerGroup="6"
-   class="swiper-container overflow-visible" >
-   <div class="swiper-button-next"></div>
-   <div class="swiper-button-prev"></div>
-    <swiper-slide *ngFor="let movie of popular" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
-      <div style="position: absolute; margin:10px;">
-        <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards-top">
-      </div>
-      <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="movieImage"
-        (click)="openModal(movie.id)" class="w-100" />
-        <div class="subTitle text-light">
-          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-          <h4>{{movie.title}}</h4>
-        </div>
-      <div class="contenuto_card_interaction bg-dark text-light w-100" >
-        <div class="d-flex justify-content-between justify-content-center">
-          <div class="d-flex ms-2">
-            <div>
-              <button class="btn text-secondary p-2"  style="font-size: 1.2em;" ><i
-                  class="bi bi-play-circle-fill"></i></button>
+        <div class="contenuto_card_interaction bg-dark text-light w-100" >
+          <div class="d-flex justify-content-between justify-content-center">
+            <div class="d-flex ms-2">
+              <div>
+                <button class="btn text-secondary p-2"  style="font-size: 1.2em;" ><i
+                    class="bi bi-play-circle-fill"></i></button>
+              </div>
+              <div>
+                <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(movie)"
+                  [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
+              </div>
             </div>
             <div>
-              <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(movie)"
-                [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
+              <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(movie.id)"><i
+                  class="bi bi-chevron-compact-down rounded-5"></i></button>
             </div>
           </div>
-          <div>
-            <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(movie.id)"><i
-                class="bi bi-chevron-compact-down rounded-5"></i></button>
+          <div class="matched ms-2 mb-3 p-1">
+            <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
+            <span> 2020 </span>&nbsp;
+            <span class="limited">Limited Series</span>
+            <p class=" descrizione-modal">Language {{movie.original_language}} • voto
+              {{movie.vote_average}}</p>
           </div>
         </div>
-        <div class="matched ms-2 mb-3 p-1">
-          <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
-          <span> 2020 </span>&nbsp;
-          <span class="limited">Limited Series</span>
-          <p class=" descrizione-modal">Language {{movie.original_language}} • voto
-            {{movie.vote_average}}</p>
+      </swiper-slide>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </swiper-container>
+  </div>
+  <div class="cards">
+    <h2 class="row_title text-white my-3 " style="width: 95%; margin-top: 0;">stronzo</h2>
+    <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
+    slidesPerView="6" slidesPerGroup="6"
+     class="swiper-container overflow-visible" >
+     <div class="swiper-button-next"></div>
+     <div class="swiper-button-prev"></div>
+      <swiper-slide *ngFor="let movie of in_trending" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
+        <div style="position: absolute; margin:10px;">
+          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards-top">
         </div>
-      </div>
-    </swiper-slide>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </swiper-container>
-</div>
--->
+        <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="movieImage"
+          (click)="openModal(movie.id)" class="w-100" />
+          <div class="subTitle text-light">
+            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+            <h4>{{movie.title}}</h4>
+          </div>
+        <div class="contenuto_card_interaction bg-dark text-light w-100" >
+          <div class="d-flex justify-content-between justify-content-center">
+            <div class="d-flex ms-2">
+              <div>
+                <button class="btn text-secondary p-2"  style="font-size: 1.2em;" ><i
+                    class="bi bi-play-circle-fill"></i></button>
+              </div>
+              <div>
+                <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(movie)"
+                  [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
+              </div>
+            </div>
+            <div>
+              <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(movie.id)"><i
+                  class="bi bi-chevron-compact-down rounded-5"></i></button>
+            </div>
+          </div>
+          <div class="matched ms-2 mb-3 p-1">
+            <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
+            <span> 2020 </span>&nbsp;
+            <span class="limited">Limited Series</span>
+            <p class=" descrizione-modal">Language {{movie.original_language}} • voto
+              {{movie.vote_average}}</p>
+          </div>
+        </div>
+      </swiper-slide>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </swiper-container>
+  </div>
+  <div class="cards">
+    <h2 class="row_title text-white my-3 " style="width: 95%; margin-top: 0;">stronzo</h2>
+    <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true" overflow="true"
+    slidesPerView="6" slidesPerGroup="6"
+     class="swiper-container overflow-visible" >
+     <div class="swiper-button-next"></div>
+     <div class="swiper-button-prev"></div>
+      <swiper-slide *ngFor="let movie of popular" class="swiper-slide overflow-visible rounded-1" style="padding-top: 60px; padding-bottom:60px; margin-top: 20px;">
+        <div style="position: absolute; margin:10px;">
+          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards-top">
+        </div>
+        <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="movieImage"
+          (click)="openModal(movie.id)" class="w-100" />
+          <div class="subTitle text-light">
+            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+            <h4>{{movie.title}}</h4>
+          </div>
+        <div class="contenuto_card_interaction bg-dark text-light w-100" >
+          <div class="d-flex justify-content-between justify-content-center">
+            <div class="d-flex ms-2">
+              <div>
+                <button class="btn text-secondary p-2"  style="font-size: 1.2em;" ><i
+                    class="bi bi-play-circle-fill"></i></button>
+              </div>
+              <div>
+                <button class="btn text-secondary p-2 "  style="font-size: 1.2em;"(click)="Preferito(movie)"
+                  [class.preferito]="isPreferito(movie)"><i class="bi bi-heart-fill"></i></button>
+              </div>
+            </div>
+            <div>
+              <button class="btn text-secondary p-2" style="font-size: 1.2em;" (click)="openModal(movie.id)"><i
+                  class="bi bi-chevron-compact-down rounded-5"></i></button>
+            </div>
+          </div>
+          <div class="matched ms-2 mb-3 p-1">
+            <span style="color:#4CAF50 ;">96% Match</span>&nbsp;
+            <span> 2020 </span>&nbsp;
+            <span class="limited">Limited Series</span>
+            <p class=" descrizione-modal">Language {{movie.original_language}} • voto
+              {{movie.vote_average}}</p>
+          </div>
+        </div>
+      </swiper-slide>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </swiper-container>
+  </div>-->
+
+
 
