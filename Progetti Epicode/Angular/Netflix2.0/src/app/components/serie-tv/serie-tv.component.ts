@@ -1,28 +1,16 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FavouriteMovies } from 'src/app/interface/favourite-movies.interface';
-import { Favourites } from 'src/app/interface/favourites.interface';
-import { Movie } from 'src/app/interface/movie.interface';
-import { NowPlaying } from 'src/app/interface/now-playing.interface';
-import { Piuvisti } from 'src/app/interface/piuvisti.interface';
-import { Popular } from 'src/app/interface/popular.interface';
-import { Toprated } from 'src/app/interface/toprated.interface';
 import { Utente } from 'src/app/interface/utente.interface';
-import { AuthService } from 'src/app/service/auth.service';
 import { CRUDService } from 'src/app/service/crud.service';
 import { ModalService } from 'src/app/service/modal.service';
 
-
-
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  selector: 'app-serie-tv',
+  templateUrl: './serie-tv.component.html',
+  styleUrls: ['./serie-tv.component.scss']
 })
-export class HomePageComponent implements OnInit {
-  // ngx carousel
-
+export class SerieTvComponent implements OnInit {
   slideConfig = {
     "type": 'fixed',
     "slidesToShow": 5,
@@ -191,6 +179,4 @@ export class HomePageComponent implements OnInit {
   salvaPreferitiSuLocalStorage() {
     localStorage.setItem('preferiti', JSON.stringify(this.preferiti));
   }
-
 }
-

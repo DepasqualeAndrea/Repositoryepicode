@@ -84,4 +84,8 @@ export class CRUDService {
     const searchUrl = `${this.TMDB}search/tv?api_key=${this.ApyKey}&query=${encodeURIComponent(searchQuery)}`;
     return this.http.get<any[]>(searchUrl);
   }
+  searchMovies(query: string): Observable<any> {
+    const url = `${this.TMDB}search/tv?api_key=${this.ApyKey}&query=${encodeURIComponent(query)}`;
+    return this.http.get(url);
+  }
 }

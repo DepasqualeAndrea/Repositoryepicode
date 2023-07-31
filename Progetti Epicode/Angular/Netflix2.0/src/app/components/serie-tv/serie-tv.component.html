@@ -22,7 +22,7 @@
 </div>
 <div *ngIf="searchResults.length === 0">
   <div class="container-fluid p-0">
-    <div class="content" *ngFor="let movie of upcoming; let index = index">
+    <div class="content" *ngFor="let movie of popular; let index = index">
       <div *ngIf="index < 1; ">
         <div class=" body-video container-fluid p-0 bg-dark" style="border: hidden;">
           <img src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}" alt="" style="width: 100%; ">
@@ -410,4 +410,5 @@
     </div>
   </div>
 </div>
+
 

@@ -15,6 +15,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { AppModalComponent } from './components/app-modal/app-modal.component';
 import { PreferitiComponent } from './components/preferiti/preferiti.component';
+import { SerieTvComponent } from './components/serie-tv/serie-tv.component';
 
 
 
@@ -27,6 +28,7 @@ import { PreferitiComponent } from './components/preferiti/preferiti.component';
     NavBarComponent,
     AppModalComponent,
     PreferitiComponent,
+    SerieTvComponent,
   ],
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebase)),
