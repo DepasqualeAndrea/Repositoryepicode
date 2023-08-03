@@ -79,7 +79,9 @@ body{
 .poster_info p {
   padding-top: 5px;
 }
-
+.logo {
+  width: 2.5rem;
+}
 
 .logo-cards{
   width: 1.5em;
@@ -100,5 +102,56 @@ body{
 }
 .wrap2:hover {
   height: 19em;
-  z-index: 10000;
 }
+::placeholder {
+  color: #999; /* Colore desiderato per il placeholder */
+}
+.fa-search-location{
+  color: white;
+  border: solid 1px white;
+}
+.searched-card{
+  margin-top: 150px;
+}
+.input-field-top{
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+.card-img-fluid {
+  border: hidden;
+  object-fit: contain;
+}
+.card {
+  background-color: #383737;
+  color: #fff;
+  margin-bottom: 10px;
+  border-radius: 10px;
+
+  .bi-plus-circle {
+    font-size: 2em;
+  }
+}
+.bi-plus-circle:hover{
+  transform: scale(1.2em);
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+}
+.card-body {
+  .age{
+    border: solid 1px white;
+    padding: 6px;
+  }
+    p {
+      font-weight: 400;
+      max-width: 80%; white-space:inherit;
+      overflow-x: hidden;
+      display: inline-block;
+      height: 100px;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .preferito {
+    color: red;
+  }

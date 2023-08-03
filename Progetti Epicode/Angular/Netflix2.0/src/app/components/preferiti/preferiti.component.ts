@@ -19,6 +19,10 @@ export class PreferitiComponent implements OnInit {
   latest: any;
   popular: any;
   now_playing: any;
+  navBar = true;
+  selectedMovieId!: number | any;
+  searchQuery!: string;
+  searchResults: any[] = [];
 
 
   slideConfig = {
@@ -57,6 +61,43 @@ export class PreferitiComponent implements OnInit {
         "slideToScroll": 2,
       }
     }]
+  }
+
+
+  modal = {
+    showModal: false
+  };
+
+  openModal(movieId: number) {
+    // Memorizza l'ID del film selezionato
+    setTimeout(() => {
+      this.selectedMovieId = movieId;
+      this.modal.showModal = true;// Mostra il modale
+      this.navBar = false;
+    }, 400)
+  }
+  closeModal() {
+    this.modal.showModal = false; // Chiudi il modale impostando showModal su false
+    this.selectedMovieId = null;
+    this.navBar = true;// Resetta l'ID del film selezionato
+  }
+
+  onSearchInput(event: Event): void {
+    this.searchQuery = (event.target as HTMLInputElement).value;
+    if (this.searchQuery.trim() !== '') {
+      this.http.searchMovies(this.searchQuery).subscribe(
+        (searchResults) => {
+          this.searchResults = searchResults.results;
+          console.log(searchResults)
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    } else {
+      // Resetta i risultati della ricerca quando l'input è vuoto
+      this.searchResults = [];
+    }
   }
   constructor(private http: CRUDService) { }
 

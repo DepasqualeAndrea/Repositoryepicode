@@ -1,87 +1,150 @@
-<app-nav-bar></app-nav-bar>
+<app-nav-bar *ngIf="navBar"></app-nav-bar>
+<app-app-modal *ngIf="modal.showModal" [selectedMovieId]="selectedMovieId"
+  (closeModalEvent)="closeModal()"></app-app-modal>
 
-<div class="container-fluid">
-  <div class="row justify-content-center"  style="margin-top: 100px;">
-  <h2 class="row_title text-white my-3" style="width: 96%;">La tua Lista dei Preferiti</h2>
-  <ngx-slick-carousel class="row_posters p-0 " class="carousel" #slickModal="slick-carousel"
-    [config]="slideConfig" style=" height: 350px; width: 96%; overflow:visible;">
-    <div class="wrap" ngxSlickItem *ngFor="let fav of preferiti">
-      <div style="position: absolute; margin:10px;">
-        <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-      </div>
-      <img src="http://image.tmdb.org/t/p/w500{{fav.backdrop_path}}" alt="movieImage" class="row_poster"/>
-      <h5 class="poster_title">{{fav.title}}</h5>
-      <div class="poster_info text-white" >
-        <div style="position: absolute; bottom: 0;">
-          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-          <h4>{{fav.title}}</h4>
-        </div>
-
-      </div>
-      <div>
-        <button class="btn text-secondary p-2 me-2 " style="font-size: 1.5em;" (click)="Preferito(fav)"
-        [class.preferito]="isPreferito(fav)"><i class="bi bi-heart-fill"></i></button>
-      </div>
-    </div>
-  </ngx-slick-carousel>
-</div>
-</div>
-
-<div class="container-fluid">
-  <div class="row justify-content-center p-0 m-0" >
-    <h2 class="row_title text-white my-3" style="width: 96%;">Altri Suggerimenti</h2>
-    <div class="row_posters p-0 d-flex flex-wrap justify-content-evenly">
-      <div class="wrap2" *ngFor="let film of in_trending" [ngClass]="{'preferito': isFilmInPreferiti(film)}">
-        <div style="position: absolute; margin:10px;">
-          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-        </div>
-        <img src="http://image.tmdb.org/t/p/w500{{film.backdrop_path}}" alt="movieImage" class="row_poster"
-         />
-        <h5 class="poster_title">{{film.title}}</h5>
-        <div class="poster_info text-white" >
-          <div style="position: absolute; bottom: 0;">
-            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-            <h4>{{film.title}}</h4>
-          </div>
+<div class="search d-flex justify-content-end"
+  style="top: 17px; bottom: 100; right: 160px; position: absolute; z-index: 5000; ">
+  <div class="search-bar">
+    <div class="input-group">
+      <div class="d-flex align-items-center fa-search-location">
+        <div>
+          <i class="bi bi-search btn" style="background-color: transparent; color: white;"></i>
         </div>
         <div>
-          <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;"  [class.preferito]="isPreferito(film)" (click)="Preferito(film)"><i class="bi bi-heart"></i></button>
-        </div>
-      </div>
-      <div class="wrap2" *ngFor="let film of discovered" [ngClass]="{'preferito': isFilmInPreferiti(film)}">
-        <div style="position: absolute; margin:10px;">
-          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-        </div>
-        <img src="http://image.tmdb.org/t/p/w500{{film.backdrop_path}}" alt="movieImage" class="row_poster"/>
-        <div class="poster_info text-white" >
-          <div style="position: absolute; bottom: 0;">
-            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-            <h4>{{film.title}}</h4>
-          </div>
-        </div>
-        <div>
-          <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;"  [class.preferito]="isPreferito(film)" (click)="Preferito(film)"><i class="bi bi-heart"></i></button>
-        </div>
-      </div>
-      <div class="wrap2" *ngFor="let film of now_playing" [ngClass]="{'preferito': isFilmInPreferiti(film)}">
-        <div style="position: absolute; margin:10px;">
-          <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-        </div>
-        <img src="http://image.tmdb.org/t/p/w500{{film.backdrop_path}}" alt="movieImage" class="row_poster"
-         />
-        <h5 class="poster_title">{{film.title}}</h5>
-        <div class="poster_info text-white" >
-          <div style="position: absolute; bottom: 0;">
-            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
-            <h4>{{film.title}}</h4>
-          </div>
-        </div>
-        <div>
-          <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;"  [class.preferito]="isPreferito(film)" (click)="Preferito(film)"><i class="bi bi-heart"></i></button>
+          <input type="text" class="form-control input-field-top text-light" placeholder="Cerca film e serie TV..."
+            (input)="onSearchInput($event)">
         </div>
       </div>
     </div>
   </div>
-
 </div>
 
+
+<div *ngIf="searchResults.length === 0">
+  <div class="container-fluid">
+    <div class="row justify-content-center" style="margin-top: 100px;">
+      <h2 class="row_title text-white my-3" style="width: 96%;">La tua Lista dei Preferiti</h2>
+      <ngx-slick-carousel class="row_posters p-0 " class="carousel" #slickModal="slick-carousel" [config]="slideConfig"
+        style=" height: 350px; width: 96%; overflow:visible;">
+        <div class="wrap" ngxSlickItem *ngFor="let fav of preferiti">
+          <div style="position: absolute; margin:10px;">
+            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+          </div>
+          <img src="http://image.tmdb.org/t/p/w500{{fav.backdrop_path}}" alt="movieImage" class="row_poster"
+            (click)="openModal(fav.id)" />
+          <h5 class="poster_title">{{fav.title}}</h5>
+          <div class="poster_info text-white">
+            <div style="position: absolute; bottom: 0;">
+              <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+              <h4>{{fav.title}}</h4>
+            </div>
+
+          </div>
+          <div>
+            <button class="btn text-secondary p-2 me-2 " style="font-size: 1.5em;" (click)="Preferito(fav)"
+              [class.preferito]="isPreferito(fav)"><i class="bi bi-heart-fill"></i></button>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row justify-content-center p-0 m-0">
+      <h2 class="row_title text-white my-3" style="width: 96%;">Altri Suggerimenti</h2>
+      <div class="row_posters p-0 d-flex flex-wrap justify-content-evenly">
+        <div class="wrap2" *ngFor="let film of in_trending" [ngClass]="{'preferito': isFilmInPreferiti(film)}">
+          <div style="position: absolute; margin:10px;">
+            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+          </div>
+          <img src="http://image.tmdb.org/t/p/w500{{film.backdrop_path}}" alt="movieImage" class="row_poster"
+            (click)="openModal(film.id)" />
+          <h5 class="poster_title">{{film.title}}</h5>
+          <div class="poster_info text-white">
+            <div style="position: absolute; bottom: 0;">
+              <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+              <h4>{{film.title}}</h4>
+            </div>
+          </div>
+          <div>
+            <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;" [class.preferito]="isPreferito(film)"
+              (click)="Preferito(film)"><i class="bi bi-heart"></i></button>
+          </div>
+        </div>
+        <div class="wrap2" *ngFor="let film of discovered" [ngClass]="{'preferito': isFilmInPreferiti(film)}">
+          <div style="position: absolute; margin:10px;">
+            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+          </div>
+          <img src="http://image.tmdb.org/t/p/w500{{film.backdrop_path}}" alt="movieImage" class="row_poster" />
+          <div class="poster_info text-white">
+            <div style="position: absolute; bottom: 0;">
+              <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+              <h4>{{film.title}}</h4>
+            </div>
+          </div>
+          <div>
+            <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;" [class.preferito]="isPreferito(film)"
+              (click)="Preferito(film)"><i class="bi bi-heart"></i></button>
+          </div>
+        </div>
+        <div class="wrap2" *ngFor="let film of now_playing" [ngClass]="{'preferito': isFilmInPreferiti(film)}">
+          <div style="position: absolute; margin:10px;">
+            <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+          </div>
+          <img src="http://image.tmdb.org/t/p/w500{{film.backdrop_path}}" alt="movieImage" class="row_poster" />
+          <h5 class="poster_title">{{film.title}}</h5>
+          <div class="poster_info text-white">
+            <div style="position: absolute; bottom: 0;">
+              <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo-cards">
+              <h4>{{film.title}}</h4>
+            </div>
+          </div>
+          <div>
+            <button class="btn text-secondary p-2 me-2" style="font-size: 1.5em;" [class.preferito]="isPreferito(film)"
+              (click)="Preferito(film)"><i class="bi bi-heart"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container-fluid searched-card">
+  <div *ngIf="searchResults.length > 0">
+    <div class="film-suggested container">
+      <h2 class="text-light ms-4" style="margin-bottom: 50px;">Risultati della ricerca:</h2>
+      <div class="card-box-container d-flex flex-wrap justify-content-center gap-3 ms-4">
+        <div *ngFor="let films of searchResults">
+          <div class="card" style="width: 19em; border:hidden;">
+            <div style="position: absolute; margin:10px;">
+              <img src="../../../assets/media/PngItem_1041504.png" alt="" class="logo">
+            </div>
+            <img src="https://image.tmdb.org/t/p/original/{{films.backdrop_path}}" class="card-img-fluid" alt="..."
+              (click)="openModal(films.id)">
+            <div class="card-body">
+              <div class="text-end d-flex align-items-center justify-content-between">
+                <div class="d-flex gap-2 ">
+                  <div>
+                    <span class="age">16+</span>
+                  </div>
+                  <div>
+                    <h6>{{films.title}}</h6>
+                  </div>
+                </div>
+                <div>
+                  <i class="bi bi-plus-circle" (click)="Preferito(films)" [class.preferito]="isPreferito(films)"></i>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <p class="card-text p-0" id="trance">{{films.overview}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
