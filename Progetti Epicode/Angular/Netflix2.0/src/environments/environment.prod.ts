@@ -7,5 +7,8 @@ export const environment = {
     authDomain: 'netflix-37897.firebaseapp.com',
     messagingSenderId: '1059694493823',
   },
-  production: true
+  production: true,
+  baseURL: 'http://localhost:4201/',
+  TMDBbaseUrl: 'https://api.themoviedb.org/3/',
+  apyKeyTMDB: '5f6bf192ba8188e3ecb3599d702c5573',
 };
