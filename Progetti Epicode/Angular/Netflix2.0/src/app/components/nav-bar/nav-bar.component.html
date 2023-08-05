@@ -12,15 +12,15 @@
               </li>
               <li class="">
                   <a class="nav-link text-white" aria-current="page"
-                      routerLinkActive="active">Serie TV</a>
+                      routerLinkActive="active" [routerLink]="['/home']" fragment="popolari" (click)="scrollToSection('film')">Serie TV</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link text-white" aria-current="page"
-                      routerLinkActive="active">Film</a>
+                      routerLinkActive="active" [routerLink]="['/home']" fragment="popolari" (click)="scrollToSection('serieTv')">Film</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link text-white " aria-current="page"
-                      routerLinkActive="active" >Nuovi e popolari</a>
+                      routerLinkActive="active"  [routerLink]="['/home']" fragment="popolari" (click)="scrollToSection('popolari')" >Nuovi e popolari</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link text-white" aria-current="page"

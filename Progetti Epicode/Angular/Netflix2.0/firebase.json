@@ -1,9 +1,16 @@
 {
-  "hosting": [
-    {
-      "target": "Netflix2.0",
-      "source": ".",
-      "frameworksBackend": {}
-    }
-  ]
+  "hosting": {
+    "public": "dist/netflix2.0",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
 }

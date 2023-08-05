@@ -63,7 +63,7 @@
   </div>
   <div>
     <div class="cards">
-      <h2 class="row_title text-white ms-4 " style="width: 95%; margin: 0">I più visti</h2>
+      <h2 class="row_title text-white ms-4 mt-3" style="width: 95%; margin: 0">I più visti</h2>
       <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true"
         overflow="true" slidesPerView="3" slidesPerGroup="4" class="swiper-container overflow-visible">
         <div class="swiper-button-next"></div>
@@ -133,7 +133,7 @@
         </div>
       </div>
     </div>
-    <div class="cards">
+    <div class="cards" id="film">
       <h2 class="row_title text-white ms-4 " style="width: 95%; margin: 0;">Ultimi Aggiornamenti</h2>
       <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true"
         overflow="true" slidesPerView="6" slidesPerGroup="6" class="swiper-container overflow-visible">
@@ -180,7 +180,7 @@
         <div class="swiper-button-prev"></div>
       </swiper-container>
     </div>
-    <div class="cards">
+    <div class="cards" id="serieTv" >
       <h2 class="row_title text-white ms-4 " style="width: 95%; margin: 0;">Le tue Categorie</h2>
       <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true"
         overflow="true" slidesPerView="6" slidesPerGroup="6" class="swiper-container overflow-visible">
@@ -223,11 +223,9 @@
             </div>
           </div>
         </swiper-slide>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
       </swiper-container>
     </div>
-    <div class="cards">
+    <div class="cards" id="popolari">
       <h2 class="row_title text-white ms-4 " style="width: 95%; margin: 0;">In trending</h2>
       <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true"
         overflow="true" slidesPerView="6" slidesPerGroup="6" class="swiper-container overflow-visible">
@@ -274,10 +272,10 @@
         <div class="swiper-button-prev"></div>
       </swiper-container>
     </div>
-    <div class="cards">
-      <h2 class="row_title text-white ms-4 " style="width: 95%; margin: 0;">Popolari</h2>
+    <div class="cards" >
+      <h2 class="row_title text-white ms-4 " style="width: 95%; margin: 0;" >Popolari</h2>
       <swiper-container slides-per-view="5" loop="true" speed="1000" loop="true" navigation="true" centeredSlides="true"
-        overflow="true" slidesPerView="6" slidesPerGroup="6" class="swiper-container overflow-visible">
+        overflow="true" slidesPerView="6" slidesPerGroup="6" class="swiper-container overflow-visible" >
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <swiper-slide *ngFor="let movie of in_trending" class="swiper-slide overflow-visible rounded-1"

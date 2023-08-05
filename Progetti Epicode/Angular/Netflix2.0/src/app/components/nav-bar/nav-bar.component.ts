@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
@@ -26,10 +27,12 @@ export class NavBarComponent implements OnInit {
     }
   }
 
+  scrollToSection(fragment: string): void {
+    this.viewportScroller.scrollToAnchor(fragment);
+  }
 
 
-
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private viewportScroller: ViewportScroller) { }
 
 
   ngOnInit(): void {
