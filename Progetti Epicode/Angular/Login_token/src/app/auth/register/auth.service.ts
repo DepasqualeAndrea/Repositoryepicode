@@ -14,7 +14,7 @@ export class AuthService {
 
     jwtHelper = new JwtHelperService(); //serve per leggere e validare il token
     baseUrl = environment.baseUrl;
-    private authSbj = new BehaviorSubject<null | AuthDATA>(null);//serve per comunicare in tempo reale all'applicazione la oresenza dell'utente autenticato
+    private authSbj = new BehaviorSubject<null | AuthDATA>(null);//serve per comunicare in tempo reale all'applicazione la presenza dell'utente autenticato
     utente!: AuthDATA;
 
     User$ = this.authSbj.asObservable();//la variabile di tipo behaviourSubject che trasmettera la presenza o meno dell'utente
