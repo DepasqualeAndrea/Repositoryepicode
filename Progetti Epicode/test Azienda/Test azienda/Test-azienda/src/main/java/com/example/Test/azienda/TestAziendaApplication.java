@@ -28,7 +28,8 @@ public class TestAziendaApplication {
 //		List<Tavolo> tavoli = creaTavoli();
 //		stampaInformazioniTavoli(tavoli);
 
-		// METODI CON LO SCANNER MANUALE
+		// METODI CON LO SCANNER MANUALE (commentare per non accavallare gli output nel
+		// caso si predilige l'utilizzo del faker)
 		
 	    Scanner scanner = new Scanner(System.in);
 	    List<Tavolo> tavoliScanner = creaTavoli(scanner);
