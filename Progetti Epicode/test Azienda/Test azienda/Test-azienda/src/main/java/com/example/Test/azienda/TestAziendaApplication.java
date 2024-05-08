@@ -39,6 +39,7 @@ public class TestAziendaApplication {
 
 // INIZIO METODI PER IL FAKER
 
+
 	private static List<Tavolo> creaTavoli() {
 		Faker faker = new Faker();
 		List<Tavolo> tavoli = new ArrayList<>();
@@ -98,6 +99,7 @@ public class TestAziendaApplication {
 	private static void aggiungiClienteAlTavolo(Cliente cliente, Tavolo tavolo) {
 		tavolo.aggiungiCliente(cliente);
 	}
+
 
 
 	// METODI DA UTILIZZARE NEL CASO IN CUI SI VOGLIA UTILIZZARE LO SCANNER PER
