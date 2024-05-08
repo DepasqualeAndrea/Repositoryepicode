@@ -13,17 +13,17 @@ public class ScontoPerGruppi implements ScontoStrategy {
 	private static final int MAX_PERSONE_1 = 20;
 	private static final int MAX_PERSONE_2 = 25;
 
-	private double percentualeSconto;
-
 	@Override
 	public double applicaSconto(Cliente cliente) {
 		int numeroPersone = cliente.getGroupSize();
 		double sconto = 0.0;
 
 		if (numeroPersone >= MIN_PERSONE && numeroPersone <= MAX_PERSONE_1) {
-			sconto = 0.20; // Sconto del 20% per gruppi da 15 a 20 persone
+			sconto = 0.20;
 		} else if (numeroPersone > MAX_PERSONE_1 && numeroPersone <= MAX_PERSONE_2) {
-			sconto = 0.30; // Sconto del 30% per gruppi da più di 20 a 25 persone
+			sconto = 0.30;
+		} else if (numeroPersone > MAX_PERSONE_2) {
+			sconto = 0.50;
 		}
 
 		return sconto;

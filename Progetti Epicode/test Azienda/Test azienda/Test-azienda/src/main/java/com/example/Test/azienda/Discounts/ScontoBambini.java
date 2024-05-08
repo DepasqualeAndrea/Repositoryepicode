@@ -28,7 +28,7 @@ public class ScontoBambini implements ScontoStrategy {
 	}
 
 	private boolean isGroupDiscountApplied(Cliente cliente) {
-		// Supponiamo di avere una lista di sconti applicati al cliente
+
 		List<ScontoStrategy> scontiApplicati = cliente.getScontiApplicati();
 
 		// Cerchiamo nella lista degli sconti applicati se c'è uno sconto di gruppo

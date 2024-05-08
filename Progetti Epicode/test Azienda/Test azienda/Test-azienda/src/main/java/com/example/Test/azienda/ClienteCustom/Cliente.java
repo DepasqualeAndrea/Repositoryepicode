@@ -53,7 +53,6 @@ public class Cliente {
 	public double getPrezzoScontato(Pizza pizza) {
 		double prezzoScontato = pizza.getPrezzo();
 
-		// Applica gli sconti del cliente sulla pizza
 		for (ScontoStrategy sconto : this.scontiApplicati) {
 			prezzoScontato = prezzoScontato * (1 - sconto.applicaSconto(this));
 		}
