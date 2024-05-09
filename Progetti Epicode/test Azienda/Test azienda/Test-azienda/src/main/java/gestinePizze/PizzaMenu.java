@@ -24,7 +24,7 @@ public class PizzaMenu {
 		menu.put("Jinbe", 15.00);
 	}
 
-	// Metodo per ottenere il menu delle pizze
+
 	public static Map<String, Double> getMenu() {
 		return menu;
 	}

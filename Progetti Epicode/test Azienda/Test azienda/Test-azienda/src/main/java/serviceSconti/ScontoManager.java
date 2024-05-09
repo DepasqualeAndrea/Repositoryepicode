@@ -12,23 +12,22 @@ public class ScontoManager {
 	public static double calcolaSconto(Cliente cliente, List<Cliente> clienti) {
 		double scontoTotale = 0.0;
 
-		// Verifico l'applicabilità degli sconti in base alle caratteristiche del
-		// cliente
+		// Verifico l'applicabilità degli sconti in base al cliente
 
 		if (cliente.isHaFidelityCard()) {
-			scontoTotale += 0.15; // Sconto del 15% per la fidelity card
+			scontoTotale += 0.15;
 		}
 		if (isDiversamenteAbile(cliente)) {
-			scontoTotale += 0.90; // Sconto del 90% per i diversamente abili
+			scontoTotale += 0.90;
 		}
 		if (isGruppoNumeroso(clienti.size())) {
 			scontoTotale += calcolaScontoGruppo(clienti.size());
 		}
 		if (isScontoOrario(cliente)) {
-			scontoTotale += 0.10; // Sconto del 10% se l'ordine arriva entro le 20:00
+			scontoTotale += 0.10;
 		}
 		if (isScontoAnziani(cliente)) {
-			scontoTotale += 0.70; // Sconto del 70% per i clienti con 60 anni o più
+			scontoTotale += 0.70;
 		}
 		if (isScontoBambino(cliente) && clienti.size() <= 15) {
 			scontoTotale += calcolaScontoBambino(cliente);
@@ -36,7 +35,7 @@ public class ScontoManager {
 
 		// Assicura che lo sconto totale non superi il 100%
 		if (scontoTotale > 1.0) {
-			scontoTotale = 1.0; // Limite massimo dello sconto al 100%
+			scontoTotale = 1.0;
 		}
 
 		return scontoTotale;
@@ -76,9 +75,9 @@ public class ScontoManager {
 
 		switch (categoriaCliente) {
 		case BABY:
-			return CategoriaEta.BABY.getSconto(); // Ottieni lo sconto definito per la categoria BABY
+			return CategoriaEta.BABY.getSconto();
 		case KID:
-			return CategoriaEta.KID.getSconto(); // Ottieni lo sconto definito per la categoria KID
+			return CategoriaEta.KID.getSconto();
 
 		default:
 			return 0.0;

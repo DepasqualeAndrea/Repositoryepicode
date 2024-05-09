@@ -124,14 +124,14 @@ public class GestioneOrdineController {
 		System.out.println("Menu pizze disponibili:");
 		Map<String, Double> menuPizze = PizzaMenu.getMenu();
 
-		// Mostra il menu delle pizze disponibili
+
 		int pizzaCount = 1;
 		for (String pizzaNome : menuPizze.keySet()) {
 			System.out.println(pizzaCount + ". " + pizzaNome + " - Prezzo: " + menuPizze.get(pizzaNome));
 			pizzaCount++;
 		}
 
-		// Chiedi all'utente di selezionare una pizza
+
 		int pizzaIndex;
 		while (true) {
 			System.out.print("Inserisci il numero corrispondente alla pizza desiderata: ");
@@ -149,14 +149,12 @@ public class GestioneOrdineController {
 			}
 		}
 
-		// Ottieni il nome della pizza selezionata
+
 		List<String> pizzaNames = new ArrayList<>(menuPizze.keySet());
 		String selectedPizzaName = pizzaNames.get(pizzaIndex - 1);
 
-		// Ottieni il prezzo della pizza selezionata
 		double selectedPizzaPrice = menuPizze.get(selectedPizzaName);
 
-		// Crea e restituisci l'oggetto Pizza selezionato
 		return new Pizza(selectedPizzaName, selectedPizzaPrice, 0.0);
 	}
 
@@ -233,11 +231,11 @@ public class GestioneOrdineController {
 		while (!inputValido) {
 			try {
 				input = scanner.nextInt();
-				scanner.nextLine(); // Consuma il carattere di nuova linea nel buffer
-				inputValido = true; // Imposta a true se l'input è valido
+				scanner.nextLine();
+				inputValido = true;
 			} catch (InputMismatchException e) {
 				System.out.println("Input non valido. Inserisci un numero intero valido.");
-				scanner.nextLine(); // Pulisce il buffer di input
+				scanner.nextLine();
 			}
 		}
 

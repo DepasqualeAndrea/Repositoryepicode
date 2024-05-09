@@ -39,13 +39,13 @@ public class DatiCasualiGenerator {
 	}
 
 	private Tavolo generaTavoloConGruppo(int numeroPersone) {
-		String nomeTavolo = faker.lorem().word(); // Genera un nome casuale per il tavolo
+		String nomeTavolo = faker.lorem().word();
 		List<Cliente> clienti = generaClientiCasuali(numeroPersone);
 		return new Tavolo(nomeTavolo, clienti);
 	}
 
 	public Tavolo generaTavoloCasuale(int numeroPersone) {
-		String nomeTavolo = faker.lorem().word(); // Genera un nome casuale per il tavolo
+		String nomeTavolo = faker.lorem().word();
 		List<Cliente> clienti = generaClientiCasuali(numeroPersone);
 		return new Tavolo(nomeTavolo, clienti);
 	}
@@ -54,7 +54,7 @@ public class DatiCasualiGenerator {
 		List<Cliente> clienti = new ArrayList<>();
 		for (int i = 0; i < numeroClienti; i++) {
 			CategoriaEta categoria = generaCategoriaCasuale();
-			boolean haFidelity = faker.bool().bool(); // Genera un valore booleano casuale per la fidelity card
+			boolean haFidelity = faker.bool().bool();
 			Pizza pizzaScelta = generaPizzaCasuale();
 			clienti.add(new Cliente(categoria, haFidelity, false, pizzaScelta));
 		}
@@ -62,7 +62,7 @@ public class DatiCasualiGenerator {
 	}
 
 	private CategoriaEta generaCategoriaCasuale() {
-		int categoriaIndex = faker.number().numberBetween(1, 6); // Genera un numero casuale tra 1 e 5
+		int categoriaIndex = faker.number().numberBetween(1, 6);
 		switch (categoriaIndex) {
 		case 1:
 			return CategoriaEta.BABY;
