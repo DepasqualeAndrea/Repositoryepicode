@@ -1,0 +1,38 @@
+Struttura dell'applicazione PizzaOrderingApp
+Questo progetto è un'applicazione di gestione degli ordini di pizze, sviluppata utilizzando il pattern architetturale MVC (Model-View-Controller). L'applicazione consente di gestire tavoli, clienti, ordini e menù delle pizze, garantendo una struttura modulare, scalabile e facilmente manutenibile.
+
+Struttura delle cartelle
+gestioneClienti: Contiene le classi e le enumerazioni per la gestione dei clienti.
+gestioneOrdini: Contiene le classi e i servizi per la gestione degli ordini.
+gestionePizze: Contiene le classi per la gestione del menù delle pizze.
+gestioneTavoli: Contiene le classi per la gestione dei tavoli.
+RandomTestGeneration: Contiene le classi per la generazione casuale di dati per scopi di test.
+MVC (Model-View-Controller)
+L'applicazione è strutturata secondo il pattern MVC:
+
+Model: Contiene le classi che rappresentano i dati (ad esempio, Cliente, Ordine, Pizza), gestisce lo stato dell'applicazione e implementa la logica di business.
+View: Contiene le classi per la visualizzazione dei dati (interfaccia utente).
+Controller: Contiene le classi per gestire le interazioni tra la View e il Model, gestendo le richieste degli utenti e aggiornando lo stato dell'applicazione.
+Scelta degli approcci logici
+Utilizzo di switch-case anziché if-else annidati
+Abbiamo preferito utilizzare switch-case anziché if-else annidati per migliorare la leggibilità e la manutenibilità del codice. Lo switch-case è particolarmente adatto quando ci sono molte opzioni distinte da gestire, migliorando la chiarezza del flusso logico.
+
+Utilizzo di do-while per la gestione del flusso
+Abbiamo utilizzato do-while per gestire cicli in cui il corpo del ciclo viene eseguito almeno una volta prima di valutare la condizione di uscita. Questo approccio è utile quando si desidera eseguire un'operazione almeno una volta prima di verificare una condizione di uscita.
+
+Utilizzo di try-catch con ternari
+Abbiamo utilizzato try-catch con espressioni ternarie per gestire le eccezioni in modo più conciso e integrato nel flusso logico. Le espressioni ternarie ci permettono di scrivere istruzioni condizionali in modo più compatto e leggibile, favorendo la chiarezza del codice.
+
+Scalabilità e riutilizzabilità del codice
+L'approccio adottato mira a rendere l'applicazione più scalabile e riutilizzabile in futuro:
+
+La separazione in classi e pacchetti facilita l'aggiunta di nuove funzionalità senza impattare le parti esistenti del codice.
+Il pattern MVC permette di modificare o estendere singoli componenti (Model, View, Controller) senza dover modificare l'intera applicazione.
+L'uso di approcci logici come switch-case, do-while e try-catch con ternari rende il codice più gestibile, riducendo la complessità e facilitando la manutenzione.
+Requisiti
+Per eseguire l'applicazione, è necessario avere installato Java Development Kit (JDK) e un ambiente di sviluppo integrato (IDE) come IntelliJ IDEA, Eclipse o simili.
+
+Come eseguire l'applicazione
+Importare il progetto nell'IDE.
+Eseguire la classe Main che contiene il metodo main.
+Seguire le istruzioni a schermo per testare l'applicazione.
