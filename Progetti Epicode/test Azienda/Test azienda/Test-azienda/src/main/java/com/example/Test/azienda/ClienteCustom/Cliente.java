@@ -1,85 +1,56 @@
 package com.example.Test.azienda.ClienteCustom;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.example.Test.azienda.Interfaces.ScontoStrategy;
-import com.example.Test.azienda.OrderExample.Ordine;
 import com.example.Test.azienda.Pizza.Pizza;
-import com.example.Test.azienda.Tavoli.Tavolo;
 
 import lombok.Getter;
 import lombok.Setter;
+
 @Getter
 @Setter
 public class Cliente {
-	private String nome;
-	private int age;
-	private boolean hasFidelityCard;
-	private boolean isDisabled;
-	private boolean isChild;
-	private Tavolo tavolo;
-	private Ordine ordine;
-	private Pizza pizza;
+	private CategoriaEta categoriaEta;
+	private boolean haFidelityCard;
+	private boolean diversamenteAbile;
+	private Pizza pizzaScelta;
 
-	private List<ScontoStrategy> scontiApplicati;
-
-	public Cliente(String nome, int age, boolean hasFidelityCard, boolean isDisabled, boolean isChild) {
-		this.nome = nome;
-		this.age = age;
-		this.hasFidelityCard = hasFidelityCard;
-		this.isDisabled = isDisabled;
-		this.isChild = isChild;
-		this.scontiApplicati = new ArrayList<>();
+	public Cliente(CategoriaEta categoriaEta, boolean haFidelityCard, boolean diversamenteAbile, Pizza pizzaScelta) {
+		this.categoriaEta = categoriaEta;
+		this.haFidelityCard = haFidelityCard;
+		this.diversamenteAbile = diversamenteAbile;
+		this.pizzaScelta = pizzaScelta; // Imposta la pizza scelta dal cliente
 	}
 
-
-	// Metodo per aggiungere una pizza all'ordine del cliente
-	public void aggiungiPizza(Pizza pizza) {
-		if (ordine != null) {
-			ordine.aggiungiPizza(pizza);
-		} else {
-			ordine = new Ordine();
-			ordine.addCliente(this);
-			ordine.aggiungiPizza(pizza);
+	public int getEtaCliente() {
+		switch (categoriaEta) {
+		case BABY:
+			return 2; // Esempio: età compresa tra 0 e 3 anni per la categoria BABY
+		case KID:
+			return 8; // Esempio: età compresa tra 4 e 12 anni per la categoria KID
+		case ADULTO:
+			return 30; // Esempio: età compresa tra 13 e 59 anni per la categoria ADULTO
+		case ANZIANO:
+			return 70; // Esempio: età di 70 anni e oltre per la categoria ANZIANO
+		case DIVERSAMENTE_ABILE:
+			return 100; // Esempio: età di una persona diversamente abile
+		default:
+			return 0; // Valore di default per età non specificata
 		}
 	}
 
-
-	public List<ScontoStrategy> getScontiApplicati() {
-		return this.scontiApplicati;
-	}
-
-	public double getPrezzoScontato(Pizza pizza) {
-		double prezzoScontato = pizza.getPrezzo();
-
-		for (ScontoStrategy sconto : this.scontiApplicati) {
-			prezzoScontato = prezzoScontato * (1 - sconto.applicaSconto(this));
+	public String getTipoCliente() {
+		switch (categoriaEta) {
+		case BABY:
+			return "Baby";
+		case KID:
+			return "Kid";
+		case ADULTO:
+			return "Adulto";
+		case ANZIANO:
+			return "Anziano";
+		case DIVERSAMENTE_ABILE:
+			return "Diversamente Abile";
+		default:
+			return "Non specificato";
 		}
-
-		if (prezzoScontato < 5.0) {
-			prezzoScontato = 5.0;
-		}
-
-		return prezzoScontato;
 	}
-
-
-	public List<Pizza> getPizze() {
-		if (ordine != null) {
-			return ordine.getPizze();
-		}
-		return new ArrayList<>();
-	}
-
-	public int getGroupSize() {
-		if (tavolo != null) {
-			List<Cliente> clientiNelTavolo = tavolo.getClienti();
-			return clientiNelTavolo.size();
-		}
-		return 0;
-	}
-
-
-
 }
