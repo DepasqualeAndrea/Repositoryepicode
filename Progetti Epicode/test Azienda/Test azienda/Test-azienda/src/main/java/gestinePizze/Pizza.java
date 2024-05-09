@@ -1,4 +1,4 @@
-package com.example.Test.azienda.Pizza;
+package gestinePizze;
 
 import lombok.Getter;
 import lombok.Setter;

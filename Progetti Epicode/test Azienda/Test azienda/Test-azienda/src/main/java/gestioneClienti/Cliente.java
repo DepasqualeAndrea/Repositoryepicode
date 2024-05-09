@@ -1,7 +1,6 @@
-package com.example.Test.azienda.ClienteCustom;
+package gestioneClienti;
 
-import com.example.Test.azienda.Pizza.Pizza;
-
+import gestinePizze.Pizza;
 import lombok.Getter;
 import lombok.Setter;
 

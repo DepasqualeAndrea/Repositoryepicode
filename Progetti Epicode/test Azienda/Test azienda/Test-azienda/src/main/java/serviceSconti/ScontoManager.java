@@ -1,11 +1,11 @@
-package GestioneSconti;
+package serviceSconti;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.example.Test.azienda.ClienteCustom.CategoriaEta;
-import com.example.Test.azienda.ClienteCustom.Cliente;
-import com.example.Test.azienda.ClienteCustom.Gruppo;
+import gestioneClienti.CategoriaEta;
+import gestioneClienti.Cliente;
+import gestioneClienti.Gruppo;
 
 public class ScontoManager {
 
@@ -14,6 +14,7 @@ public class ScontoManager {
 
 		// Verifico l'applicabilità degli sconti in base alle caratteristiche del
 		// cliente
+
 		if (cliente.isHaFidelityCard()) {
 			scontoTotale += 0.15; // Sconto del 15% per la fidelity card
 		}
@@ -33,10 +34,10 @@ public class ScontoManager {
 			scontoTotale += calcolaScontoBambino(cliente);
 		}
 
-		// Prezzo impostato se con gli sconti scende al di sotto dei 5€
-//		if (scontoTotale < 0.0 && scontoTotale >= cliente.getPizzaScelta().getPrezzo() - 5.0) {
-//			scontoTotale = cliente.getPizzaScelta().getPrezzo() - 5.0;
-//		}
+		// Assicura che lo sconto totale non superi il 100%
+		if (scontoTotale > 1.0) {
+			scontoTotale = 1.0; // Limite massimo dello sconto al 100%
+		}
 
 		return scontoTotale;
 	}
@@ -83,7 +84,4 @@ public class ScontoManager {
 			return 0.0;
 		}
 	}
-
-
-
 }

@@ -1,4 +1,4 @@
-package com.example.Test.azienda.ClienteCustom;
+package gestioneClienti;
 
 public enum CategoriaEta {
 	BABY(0, 3, 0.50), // 50% di sconto per bambini sotto i 4 anni

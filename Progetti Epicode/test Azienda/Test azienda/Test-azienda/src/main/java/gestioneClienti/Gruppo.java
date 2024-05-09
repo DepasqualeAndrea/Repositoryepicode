@@ -1,4 +1,4 @@
-package com.example.Test.azienda.ClienteCustom;
+package gestioneClienti;
 
 public enum Gruppo {
 	GRUPPO_15_20(0.20), // Sconto del 20% per gruppo da 15 a 20 persone

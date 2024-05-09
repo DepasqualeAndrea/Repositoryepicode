@@ -1,9 +1,8 @@
-package com.example.Test.azienda.Tavoli;
+package gestioneTavoli;
 
 import java.util.List;
 
-import com.example.Test.azienda.ClienteCustom.Cliente;
-
+import gestioneClienti.Cliente;
 import lombok.Getter;
 import lombok.Setter;
 

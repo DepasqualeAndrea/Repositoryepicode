@@ -1,11 +1,10 @@
-package com.example.Test.azienda.OrderExample;
+package gestioneOrdini;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.Test.azienda.ClienteCustom.Cliente;
-import com.example.Test.azienda.Pizza.Pizza;
-
+import gestinePizze.Pizza;
+import gestioneClienti.Cliente;
 import lombok.Getter;
 import lombok.Setter;
 @Getter
