@@ -9,6 +9,7 @@ gestionePizze: Contiene le classi per la gestione del menù delle pizze.
 gestioneTavoli: Contiene le classi per la gestione dei tavoli.
 RandomTestGeneration: Contiene le classi per la generazione casuale di dati per scopi di test.
 MVC (Model-View-Controller)
+
 L'applicazione è strutturata secondo il pattern MVC:
 
 Model: Contiene le classi che rappresentano i dati (ad esempio, Cliente, Ordine, Pizza), gestisce lo stato dell'applicazione e implementa la logica di business.
