@@ -12,16 +12,16 @@ public class PizzaMenu {
 	private static final Map<String, Double> menu = new HashMap<>();
 
 	static {
-		menu.put("Luffy", 11.00);
-		menu.put("Zoro", 9.00);
-		menu.put("Nami", 12.00);
-		menu.put("Usopp", 8.00);
-		menu.put("Sanji", 9.50);
-		menu.put("Chopper", 7.00);
-		menu.put("Robin", 8.50);
-		menu.put("Franky", 10.00);
-		menu.put("Brook", 8.50);
-		menu.put("Jinbe", 15.00);
+		menu.put("Quattro Stagioni", 11.00);
+		menu.put("Pepe Nero", 9.00);
+		menu.put("Capricciosa", 12.00);
+		menu.put("Diavola", 8.00);
+		menu.put("Chilly ", 9.50);
+		menu.put("Margherita", 7.00);
+		menu.put("Bufalina", 8.50);
+		menu.put("Prosciutto & funghi", 10.00);
+		menu.put("Rucola & grana", 8.50);
+		menu.put("Norcina", 15.00);
 	}
 
 
